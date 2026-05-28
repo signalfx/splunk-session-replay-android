@@ -1,0 +1,82 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:animateLayoutChanges="true">
+
+	<com.splunk.android.debugger.view.TouchDispatchFrameLayout
+		android:id="@+id/touch_dispatcher"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
+
+	<com.splunk.android.debugger.view.ScreenshotView
+		android:id="@+id/screenshot"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
+
+	<com.splunk.android.debugger.view.WireframeSceneView
+		android:id="@+id/view_bounds"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:visibility="gone"
+		app:wireframe_flags="view_borders"
+		tools:visibility="visible" />
+
+	<com.splunk.android.debugger.view.InteractionView
+		android:id="@+id/interactions"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
+
+	<LinearLayout
+		android:id="@+id/buttons_container"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="end"
+		android:background="@drawable/sld_bcg_buttons"
+		android:orientation="vertical"
+		android:paddingLeft="10dp"
+		android:paddingTop="25dp"
+		android:paddingRight="10dp"
+		android:paddingBottom="10dp"
+		android:visibility="gone"
+		tools:visibility="visible">
+
+		<CheckedTextView
+			android:id="@+id/view_bounds_button"
+			android:layout_width="65dp"
+			android:layout_height="65dp"
+			android:background="@drawable/sld_sel_dot"
+			android:drawableTop="@drawable/sld_ic_view_border"
+			android:drawablePadding="5dp"
+			android:gravity="center_horizontal"
+			android:padding="10dp"
+			android:text="@string/sld_screenshot_view_border"
+			android:textAlignment="gravity"
+			android:textColor="#eee"
+			android:textSize="11dp"
+			android:textStyle="bold"
+			tools:checked="true" />
+
+		<TextView
+			android:id="@+id/save_screenshot"
+			android:layout_width="65dp"
+			android:layout_height="65dp"
+			android:drawableTop="@drawable/sld_ic_copy"
+			android:drawablePadding="5dp"
+			android:gravity="center"
+			android:padding="10dp"
+			android:text="@string/sld_screenshot_save_screenshot"
+			android:textColor="#eee"
+			android:textSize="11dp"
+			android:textStyle="bold" />
+	</LinearLayout>
+
+	<com.splunk.android.debugger.view.TimelineView
+		android:id="@+id/timeline"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:background="#8000"
+		android:paddingBottom="50dp" />
+</FrameLayout>

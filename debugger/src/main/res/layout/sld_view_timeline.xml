@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/buttons_group"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+	tools:background="#8000"
+	tools:layout_gravity="bottom">
+
+	<com.splunk.android.debugger.view.seek.MarkableSeekBar
+		android:id="@+id/seek"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:paddingLeft="20dp"
+		android:paddingTop="15dp"
+		android:paddingRight="20dp"
+		android:paddingBottom="15dp"
+		android:progressBackgroundTint="#3000"
+		android:progressTint="#0000"
+		android:thumbTint="#fff"
+		tools:max="50"
+		tools:progress="20" />
+
+	<TextView
+		android:id="@+id/mark_a"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:background="?android:selectableItemBackgroundBorderless"
+		android:gravity="center"
+		android:paddingStart="15dp"
+		android:paddingEnd="15dp"
+		android:text="A"
+		android:textColor="#fff"
+		android:textStyle="bold"
+		tools:ignore="HardcodedText" />
+
+	<TextView
+		android:id="@+id/mark_b"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:background="?android:selectableItemBackgroundBorderless"
+		android:gravity="center"
+		android:paddingStart="15dp"
+		android:paddingEnd="15dp"
+		android:text="B"
+		android:textColor="#fff"
+		android:textStyle="bold"
+		tools:ignore="HardcodedText" />
+
+	<ImageView
+		android:id="@+id/save"
+		android:layout_width="35dp"
+		android:layout_height="match_parent"
+		android:background="?android:selectableItemBackgroundBorderless"
+		android:gravity="center"
+		android:paddingStart="10dp"
+		android:paddingEnd="10dp"
+		android:src="@drawable/sld_ic_copy" />
+</LinearLayout>

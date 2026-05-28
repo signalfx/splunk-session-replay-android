@@ -1,0 +1,9 @@
+<resources>
+	<dimen name="sld_wrap_content">-3px</dimen>
+
+	<dimen name="sld_wireframe_preview_width">300dp</dimen>
+	<dimen name="sld_wireframe_preview_height">@dimen/sld_wrap_content</dimen>
+
+	<dimen name="sld_screenshot_preview_width">300dp</dimen>
+	<dimen name="sld_screenshot_preview_height">@dimen/sld_wrap_content</dimen>
+</resources>
