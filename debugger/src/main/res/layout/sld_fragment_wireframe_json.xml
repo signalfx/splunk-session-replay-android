@@ -1,0 +1,48 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:animateLayoutChanges="true"
+	tools:context=".screen.wireframe.content.JsonFragment"
+	tools:ignore="ContentDescription,UseCompatTextViewDrawableXml,SpUsage">
+
+	<com.splunk.android.debugger.view.format.PrettyCodeView
+		android:id="@+id/pretty_code"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:padding="15dp"
+		app:pretty_fontSize="10sp"
+		app:pretty_formatter="com.splunk.android.debugger.view.format.JsonFormatter"
+		tools:pretty_string="{\n  &quot;widget&quot;: {\n    &quot;debug&quot;: &quot;on&quot;,\n    &quot;window&quot;: {\n      &quot;title&quot;: &quot;Sample Konfabulator Widget&quot;,\n      &quot;name&quot;: &quot;main_window&quot;,\n      &quot;width&quot;: 500,\n      &quot;height&quot;: 500,\n      &quot;color&quot;: &quot;#ff00ff&quot;,\n      &quot;visible&quot;: false\n    },\n    &quot;image&quot;: {\n      &quot;src&quot;: &quot;Images/Sun.png&quot;,\n      &quot;name&quot;: &quot;sun1&quot;,\n      &quot;hOffset&quot;: 250,\n      &quot;vOffset&quot;: 250,\n      &quot;alignment&quot;: &quot;center&quot;,\n      &quot;color&quot;: &quot;#0000ff&quot;,\n      &quot;visible&quot;: true\n    },\n    &quot;text&quot;: {\n      &quot;data&quot;: &quot;Click Here&quot;,\n      &quot;size&quot;: 36.6,\n      &quot;style&quot;: &quot;bold&quot;,\n      &quot;name&quot;: &quot;text1&quot;,\n      &quot;hOffset&quot;: 250,\n      &quot;vOffset&quot;: 100,\n      &quot;alignment&quot;: &quot;center&quot;,\n      &quot;onMouseUp&quot;: &quot;sun1.opacity = (sun1.opacity / 100) * 90;&quot;,\n      &quot;color&quot;: &quot;#ff0000&quot;,\n      &quot;visible&quot;: true\n    }\n  }\n}" />
+
+	<LinearLayout
+		android:id="@+id/buttons_container"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="end"
+		android:background="@drawable/sld_bcg_buttons"
+		android:orientation="vertical"
+		android:paddingLeft="10dp"
+		android:paddingTop="25dp"
+		android:paddingRight="10dp"
+		android:paddingBottom="10dp"
+		android:visibility="gone"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:visibility="visible">
+
+		<TextView
+			android:id="@+id/copy"
+			android:layout_width="65dp"
+			android:layout_height="65dp"
+			android:drawableTop="@drawable/sld_ic_copy"
+			android:drawablePadding="5dp"
+			android:gravity="center"
+			android:padding="10dp"
+			android:text="@string/sld_wireframe_copy"
+			android:textColor="#eee"
+			android:textSize="11dp"
+			android:textStyle="bold" />
+	</LinearLayout>
+</FrameLayout>

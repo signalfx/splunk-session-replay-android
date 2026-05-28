@@ -1,0 +1,212 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	tools:ignore="SpUsage">
+
+	<TextView
+		android:id="@+id/max_label"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:text="max"
+		android:textColor="#000"
+		android:textSize="8dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toTopOf="@id/max_total_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_chainStyle="packed" />
+
+	<TextView
+		android:id="@+id/max_total_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_label"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/max_label"
+		tools:text="2.6 ms" />
+
+	<TextView
+		android:id="@+id/last_label"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginTop="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:text="last"
+		android:textColor="#000"
+		android:textSize="8dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toTopOf="@id/last_total_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/max_total_time" />
+
+	<TextView
+		android:id="@+id/last_total_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_others_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_label"
+		tools:text="total 1.8 ms / 2" />
+
+	<TextView
+		android:id="@+id/last_others_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_text_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_total_time"
+		tools:text="others 0.6 ms" />
+
+	<TextView
+		android:id="@+id/last_text_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_drawable_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_others_time"
+		tools:text="text 0.5 ms / 20" />
+
+	<TextView
+		android:id="@+id/last_drawable_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_canvas_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_text_time"
+		tools:text="drawable 0.4 ms / 50" />
+
+	<TextView
+		android:id="@+id/last_canvas_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_drawable_time"
+		tools:text="canvas 0.2 ms / 1 / 2" />
+
+	<androidx.constraintlayout.widget.Barrier
+		android:id="@+id/barrier"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:orientation="horizontal"
+		app:barrierDirection="end"
+		app:constraint_referenced_ids="max_label,max_total_time,last_label,last_total_time,last_others_time,last_text_time,last_drawable_time" />
+
+	<com.splunk.android.debugger.view.stats.WireframeStackedChartView
+		android:id="@+id/stats"
+		android:layout_width="130dp"
+		android:layout_height="80dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@id/barrier"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<TextView
+		android:id="@+id/legend_others"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="2dp"
+		android:text="others"
+		android:textColor="@color/sld_wireframe_stats_others"
+		android:textSize="9dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toTopOf="@id/barrier"
+		app:layout_constraintEnd_toStartOf="@id/legend_text"
+		app:layout_constraintStart_toEndOf="@id/barrier"
+		app:layout_constraintTop_toBottomOf="@id/stats" />
+
+	<TextView
+		android:id="@+id/legend_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="2dp"
+		android:text="text"
+		android:textColor="@color/sld_wireframe_stats_text"
+		android:textSize="9dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toTopOf="@id/legend_drawable"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@id/legend_others"
+		app:layout_constraintTop_toBottomOf="@id/stats" />
+
+	<TextView
+		android:id="@+id/legend_drawable"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="2dp"
+		android:text="drawable"
+		android:textColor="@color/sld_wireframe_stats_general_drawable"
+		android:textSize="9dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@id/legend_canvas"
+		app:layout_constraintStart_toEndOf="@id/barrier"
+		app:layout_constraintTop_toBottomOf="@id/legend_text" />
+
+	<TextView
+		android:id="@+id/legend_canvas"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="2dp"
+		android:text="canvas"
+		android:textColor="@color/sld_wireframe_stats_canvas"
+		android:textSize="9dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@id/legend_drawable"
+		app:layout_constraintTop_toBottomOf="@id/legend_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,103 @@
+<resources>
+
+    <style name="SldFullscreen" parent="android:Theme.DeviceDefault.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/NoAnimation</item>
+
+        <item name="android:windowActivityTransitions">false</item>
+        <item name="android:windowEnterTransition">@null</item>
+        <item name="android:windowExitTransition">@null</item>
+    </style>
+
+    <style name="NoAnimation">
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:taskOpenEnterAnimation">@null</item>
+        <item name="android:taskOpenExitAnimation">@null</item>
+        <item name="android:taskCloseEnterAnimation">@null</item>
+        <item name="android:taskCloseExitAnimation">@null</item>
+        <item name="android:taskToFrontEnterAnimation">@null</item>
+        <item name="android:taskToFrontExitAnimation">@null</item>
+        <item name="android:taskToBackEnterAnimation">@null</item>
+        <item name="android:taskToBackExitAnimation">@null</item>
+    </style>
+
+    <style name="SldDialog" parent="android:Theme.DeviceDefault.Dialog">
+        <item name="android:windowBackground">@drawable/sld_bcg_dialog</item>
+        <item name="android:colorAccent">@color/sld_blue</item>
+    </style>
+
+    <style name="SldButton">
+        <item name="android:background">@drawable/sld_sel_button_blue</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/sld_white</item>
+    </style>
+
+    <style name="SldHeader">
+        <item name="android:textColor">@color/sld_blue</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="SldHeader2">
+        <item name="android:textColor">@color/sld_blue</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="SldHeader3">
+        <item name="android:textColor">@color/sld_black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="SldLabel">
+        <item name="android:textColor">@color/sld_black</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="SldRadioButton">
+        <item name="android:textColor">@color/sld_black</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="SldWheelButton">
+        <item name="android:background">?android:selectableItemBackgroundBorderless</item>
+        <item name="android:textColor">@color/sld_wheel_text</item>
+        <item name="android:gravity">center_horizontal|bottom</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:minWidth">60dp</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="SldRadio">
+        <item name="android:background">@drawable/sld_sel_button_background</item>
+        <item name="android:foregroundTint">@drawable/sld_sel_button_foreground</item>
+        <item name="android:foregroundGravity">center</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <style name="SldSwitch" parent="SldLabel">
+        <item name="android:thumbTint">@drawable/sld_sel_thumb</item>
+        <item name="android:trackTint">@drawable/sld_sel_thumb</item>
+        <item name="android:switchPadding">10dp</item>
+        <item name="android:minHeight">35dp</item>
+    </style>
+
+    <style name="SldSeek">
+        <item name="android:progressTint">@color/sld_blue</item>
+        <item name="android:thumbTint">@color/sld_blue</item>
+        <item name="android:minHeight">35dp</item>
+    </style>
+
+    <style name="SldField">
+        <item name="android:textColor">@color/sld_black</item>
+        <item name="android:textColorHint">@color/sld_gray</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+</resources>

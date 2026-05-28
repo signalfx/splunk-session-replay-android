@@ -1,0 +1,84 @@
+<resources>
+	<string name="app_name" translatable="false">Cisco Session Replay</string>
+
+	<string name="main_sensitivity_title">Sensitivity</string>
+	<string name="main_sensitivity_false" translatable="false">false</string>
+	<string name="main_sensitivity_null" translatable="false">null</string>
+
+	<string name="menu_title">Menu</string>
+	<string name="menu_change_recording_mode">Change recording mode</string>
+	<string name="menu_screenshot_title">Screenshot</string>
+	<string name="menu_screenshot_views">Views</string>
+	<string name="menu_screenshot_regions">Regions</string>
+	<string name="menu_screenshot_masks">Toggle masks</string>
+	<string name="menu_screenshot_fragment_animation_title">Fragment animation</string>
+	<string name="menu_screenshot_fragment_animation_none">None</string>
+	<string name="menu_screenshot_fragment_animation_fade">Fade</string>
+	<string name="menu_screenshot_fragment_animation_fade_1">Fade 1</string>
+	<string name="menu_screenshot_fragment_animation_fade_2">Fade 2</string>
+	<string name="menu_screenshot_fragment_animation_translation_1">Translate 1</string>
+	<string name="menu_screenshot_fragment_animation_translation_2">Translate 2</string>
+	<string name="menu_screenshot_fragment_animation_translation">Translate</string>
+	<string name="menu_wireframe_title">Wireframe</string>
+	<string name="menu_wireframe_views">Views</string>
+	<string name="menu_wireframe_collapsing_layout">Collapsing layout</string>
+	<string name="menu_wireframe_ordering">View ordering</string>
+	<string name="menu_wireframe_list">List</string>
+	<string name="menu_wireframe_web_view">WebView</string>
+	<string name="menu_bridge_interface">BridgeInterface</string>
+	<string name="menu_interactions_title">Interactions</string>
+	<string name="menu_interactions_focus_title">Focus</string>
+	<string name="menu_compose_title">Jetpack Compose</string>
+	<string name="menu_compose_list">List</string>
+	<string name="menu_compose_sensitivity">Sensitivity</string>
+	<string name="menu_compose_draw_order">Draw order</string>
+	<string name="menu_compose_view_draw_order">Draw order with View</string>
+	<string name="menu_compose_draw_recomposition">Draw recomposition</string>
+	<string name="menu_compose_measure_recomposition">Measure recomposition</string>
+	<string name="menu_compose_surface">Surface</string>
+	<string name="menu_compose_camera">Camera</string>
+	<string name="menu_compose_video">Video</string>
+	<string name="menu_compose_text_field">TextField</string>
+	<string name="menu_compose_web_view">WebView</string>
+	<string name="menu_compose_activity_leak">Activity leak</string>
+    <string name="menu_compose_variants">Variants</string>
+	<string name="menu_okhttp_sample_calls">Okhttp sample calls</string>
+	<string name="menu_okhttp_title">Okhttp</string>
+	<string name="menu_others_title">Others</string>
+	<string name="menu_logger">Logger</string>
+
+	<string name="screenshot_fragment_views_title">Views</string>
+	<string name="screenshot_fragment_regions_title">Regions</string>
+	<string name="screenshot_fragment_animation_title">Fragment transactions</string>
+
+    <string name="compose_variant_no_activities">Activity list is empty\nSync > Clean > Run</string>
+
+	<string name="wireframe_title">Wireframe</string>
+	<string name="web_view_title">WebView</string>
+	<string name="bridge_interface_title">BridgeInterface</string>
+	<string name="wireframe_native_subtitle">Native elements</string>
+	<string name="wireframe_collapsing_layout_subtitle">Collapsing layout</string>
+	<string name="wireframe_ordering_message">This is empty Activity to test correct View ordering.</string>
+	<string name="okhttp_title">OkHttp</string>
+	<string name="list_title">ListView</string>
+
+	<!-- Fragment Okhttp -->
+	<string name="synchronous_get">Synchronous GET</string>
+	<string name="asynchronous_get">Asynchronous GET</string>
+	<string name="multiple_headers">Multiple headers</string>
+	<string name="post_markdown">Post markdown</string>
+	<string name="post_streaming">Post streaming</string>
+	<string name="post_file">Post file</string>
+	<string name="post_form_parameters">Post form parameters</string>
+	<string name="post_mutlipart_request">Post mutlipart request</string>
+	<string name="response_caching">Response caching</string>
+	<string name="canceled_call">Canceled call</string>
+	<string name="okhttp_toast">%s(): Done!</string>
+
+	<string name="slow_rendering_title">Slow Rendering</string>
+	<string name="slow_rendering_slow">Slow Render (30ms delay)</string>
+	<string name="slow_rendering_frozen">Frozen Render (800ms delay)</string>
+
+	<string name="logger_title">Logger</string>
+
+</resources>

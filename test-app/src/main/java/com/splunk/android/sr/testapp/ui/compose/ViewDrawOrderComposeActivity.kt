@@ -1,0 +1,116 @@
+package com.splunk.android.sr.testapp.ui.compose
+
+import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
+import android.view.View
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
+import com.splunk.android.sr.testapp.util.sessionReplay
+
+class ViewDrawOrderComposeActivity : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContent {
+            Content()
+        }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 320, heightDp = 320)
+@Composable
+private fun Content() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        Column(
+            modifier = Modifier
+                .align(Alignment.Center)
+        ) {
+            Rectangles(
+                modifier = Modifier
+                    .padding(top = 10.dp),
+                useCiscoModifier = true
+            )
+
+            Rectangles(
+                modifier = Modifier
+                    .padding(top = 10.dp),
+                useCiscoModifier = false
+            )
+        }
+    }
+}
+
+@Composable
+private fun Rectangles(modifier: Modifier, useCiscoModifier: Boolean) {
+    Box(modifier = modifier) {
+        Box(
+            modifier = Modifier
+                .size(
+                    width = 100.dp,
+                    height = 100.dp
+                )
+                .background(
+                    color = Color.Red
+                )
+        )
+        AndroidView(
+            factory = {
+                View(it).apply { background = ColorDrawable(android.graphics.Color.GREEN) }
+            },
+            modifier = Modifier
+                .matchParentSize()
+                .padding(
+                    horizontal = 10.dp,
+                    vertical = 10.dp
+                ).whether({ useCiscoModifier }) {
+                    sessionReplay()
+                }
+        )
+        Box(
+            modifier = Modifier
+                .matchParentSize()
+                .padding(
+                    horizontal = 20.dp,
+                    vertical = 20.dp
+                )
+                .background(
+                    color = Color.Blue
+                )
+        )
+
+        if (useCiscoModifier)
+            BasicText(
+                text = "Cisco",
+                modifier = Modifier
+                    .align(Alignment.Center),
+                style = TextStyle(
+                    color = Color.White,
+                    fontSize = 10.sp
+                )
+            )
+    }
+}
+
+private fun <T> T.whether(predicate: () -> Boolean, action: T.() -> T): T {
+    return if (predicate()) action() else this
+}

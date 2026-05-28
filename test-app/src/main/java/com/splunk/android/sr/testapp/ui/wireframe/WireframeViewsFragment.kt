@@ -1,0 +1,162 @@
+package com.splunk.android.sr.testapp.ui.wireframe
+
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.Matrix
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.LayerDrawable
+import android.os.Build
+import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.TextPaint
+import android.text.style.ClickableSpan
+import android.text.style.ImageSpan
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.text.HtmlCompat
+import com.splunk.android.common.utils.dpToPx
+import com.splunk.android.instrumentation.recording.core.api.isSensitive
+import com.splunk.android.instrumentation.recording.wireframe.extension.isInvisibleForWireframe
+import com.splunk.android.sr.testapp.R
+import com.splunk.android.sr.testapp.databinding.FragmentWireframeViewsBinding
+import com.splunk.android.sr.testapp.ui.BaseFragment
+import com.splunk.android.sr.testapp.ui.adapter.SimpleItemAdapter
+import com.splunk.android.sr.testapp.ui.adapter.SpinnerAdapter
+import com.splunk.android.sr.testapp.ui.adapter.ViewPagerAdapter
+import com.splunk.android.sr.testapp.ui.adapter.ViewPagerAdapter2
+import com.splunk.android.sr.testapp.ui.dialog.AlertDialog
+import com.splunk.android.sr.testapp.ui.dialog.BottomSheetDialogFragment
+import com.splunk.android.sr.testapp.ui.dialog.DialogActivity
+import com.splunk.android.sr.testapp.ui.dialog.DialogFragment
+import com.splunk.android.sr.testapp.ui.wireframe.model.SimpleItem
+import com.splunk.android.sr.testapp.util.randomColor
+
+// FIXME CalendarView is broken on Android 5.0
+// FIXME Crash on Android 5 due to View binding
+
+class WireframeViewsFragment : BaseFragment<FragmentWireframeViewsBinding>() {
+
+    override val titleRes: Int = R.string.wireframe_title
+    override val subtitleRes: Int = R.string.wireframe_native_subtitle
+
+    override val viewBindingCreator: (LayoutInflater, ViewGroup?, Boolean) -> FragmentWireframeViewsBinding
+        get() = FragmentWireframeViewsBinding::inflate
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setup()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewBinding.surfaceView.onResume()
+    }
+
+    override fun onPause() {
+        viewBinding.surfaceView.onPause()
+        super.onPause()
+    }
+
+    private fun setup() {
+        viewBinding.toast1.setOnClickListener(onClickListener)
+
+        viewBinding.viewPager1.adapter = ViewPagerAdapter(childFragmentManager)
+        viewBinding.viewPager2.adapter = ViewPagerAdapter2(this)
+
+        viewBinding.textInputLayout1.error = "Is it really your name?"
+
+        val imageMatrix = Matrix()
+        imageMatrix.preScale(2f, 1f, 0.5f, 0.5f)
+        imageMatrix.preTranslate(60f, 50f)
+
+        viewBinding.imageView11.imageMatrix = imageMatrix
+        viewBinding.imageView12.imageMatrix = imageMatrix
+        viewBinding.imageView13.imageMatrix = imageMatrix
+        viewBinding.imageView14.imageMatrix = imageMatrix
+
+        val list = (0..10).map { SimpleItem(it, "Title $it", "Description of $it", randomColor()) }
+        val recyclerViewAdapter = SimpleItemAdapter(requireContext(), list)
+
+        viewBinding.recyclerView1.adapter = recyclerViewAdapter
+        viewBinding.recyclerView2.adapter = recyclerViewAdapter
+
+        val items = (0..3).map { SimpleItem(it, "Title $it", "Description of $it", randomColor()) }
+        val spinnerAdapter = SpinnerAdapter(requireContext(), items)
+
+        viewBinding.spinner1.adapter = spinnerAdapter
+        viewBinding.spinner2.adapter = spinnerAdapter
+
+        viewBinding.view4.isInvisibleForWireframe = true
+
+        viewBinding.dialog1.setOnClickListener(onClickListener)
+        viewBinding.dialog2.setOnClickListener(onClickListener)
+        viewBinding.dialog3.setOnClickListener(onClickListener)
+        viewBinding.dialog4.setOnClickListener(onClickListener)
+
+        viewBinding.textView5.setHorizontallyScrolling(true)
+
+        viewBinding.numberPicker1.minValue = 0
+        viewBinding.numberPicker1.maxValue = 10
+
+        viewBinding.textView6.text = HtmlCompat.fromHtml("<span style='color:red'>Red text</span> and <big>BIG TEXT</big> and <small>small text</small> and <b>bold text</b> and <span style='background-color:green; color:blue'>text with background</span> and <a href='www.smartlook.com'>link to www.smartlook.com</a><br/><ul><li><small>Coffee</small></li><li>Tea</li><li><big>Milk</big></li></ul><br/>This text contains <sub>subscript</sub> text.<br/>This text contains <sup>superscript</sup> text.<br/>", HtmlCompat.FROM_HTML_MODE_COMPACT)
+
+        viewBinding.textViewSpans.text = createTextWithSpans()
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.N && Build.VERSION.SDK_INT != Build.VERSION_CODES.O && Build.VERSION.SDK_INT != Build.VERSION_CODES.P) // Check was added later, null on layer causes a crash
+            viewBinding.viewEmptyLayer.background = LayerDrawable(arrayOf(ColorDrawable(Color.RED), null, ColorDrawable(Color.RED)))
+
+        viewBinding.textRunDrawTitle.isSensitive = false
+        viewBinding.textRunDraw.isSensitive = false
+    }
+
+    private fun createTextWithSpans(): Spannable {
+        val spannable = SpannableStringBuilder()
+        spannable.append("Intermediary bank SWIFT/BIC  #")
+        spannable.setSpan(createIconSpan(), spannable.length - 1, spannable.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannable.append("  (optional)")
+
+        val clickSpan = object : ClickableSpan() {
+            override fun onClick(view: View) {}
+
+            override fun updateDrawState(ds: TextPaint) {
+                super.updateDrawState(ds)
+                ds.isUnderlineText = false
+            }
+        }
+
+        spannable.setSpan(clickSpan, 0, spannable.length, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+        return spannable
+    }
+
+    private fun createIconSpan(): ImageSpan {
+        val drawable = ResourcesCompat.getDrawable(resources, R.drawable.ic_add, requireContext().theme)?.mutate() ?: throw IllegalArgumentException()
+        val size = dpToPx(16f)
+
+        drawable.setBounds(0, 0, size, size)
+        DrawableCompat.setTint(drawable, Color.RED)
+
+        return ImageSpan(drawable)
+    }
+
+    private val onClickListener = View.OnClickListener {
+        when (it.id) {
+            viewBinding.toast1.id ->
+                Toast.makeText(requireContext(), "Sample Toast", Toast.LENGTH_LONG).show()
+            viewBinding.dialog1.id ->
+                AlertDialog.show(requireContext())
+            viewBinding.dialog2.id ->
+                DialogFragment().show(childFragmentManager, "DialogFragment")
+            viewBinding.dialog3.id ->
+                startActivity(Intent(requireContext(), DialogActivity::class.java))
+            viewBinding.dialog4.id ->
+                BottomSheetDialogFragment().show(childFragmentManager, "BottomSheetDialogFragment")
+        }
+    }
+}

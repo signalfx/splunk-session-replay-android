@@ -1,0 +1,79 @@
+package com.splunk.android.sr.testapp.ui.compose
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.splunk.android.sr.testapp.util.sessionReplay
+
+class DrawOrderComposeActivity : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContent {
+            Content()
+        }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 320, heightDp = 320)
+@Composable
+private fun Content() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        Box(
+            modifier = Modifier.align(Alignment.Center)
+        ) {
+            Column {
+                BasicText(
+                    text = "sensitive text sensitive text sensitive text sensitive text sensitive text sensitive text sensitive text sensitive text sensitive text sensitive text",
+                    modifier = Modifier
+                        .padding(15.dp)
+                        .sessionReplay(
+                            id = "sensitive_text",
+                            isSensitive = true
+                        )
+                        .drawWithContent {
+                            drawContent()
+                            drawCircle(Color.Green)
+                        }
+                        .drawBehind {
+                            drawRect(Color.Red)
+                        },
+                    style = TextStyle(
+                        textAlign = TextAlign.Center
+                    )
+                )
+                BasicText(
+                    text = "clear text clear text clear text clear text clear text clear text clear text clear text clear text clear text clear text clear text clear text clear text",
+                    modifier = Modifier
+                        .padding(15.dp)
+                        .sessionReplay(
+                            id = "clear_text"
+                        ),
+                    style = TextStyle(
+                        color = Color.Blue,
+                        textAlign = TextAlign.Center
+                    )
+                )
+            }
+        }
+    }
+}

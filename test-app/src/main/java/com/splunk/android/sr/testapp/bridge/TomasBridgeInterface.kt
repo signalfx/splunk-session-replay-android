@@ -1,0 +1,250 @@
+package com.splunk.android.sr.testapp.bridge
+
+import android.animation.ArgbEvaluator
+import android.graphics.Paint
+import android.graphics.Rect
+import android.view.View
+import com.splunk.android.bridge.model.BridgeFrameworkInfo
+import com.splunk.android.bridge.model.BridgeInterface
+import com.splunk.android.bridge.model.BridgeWireframe
+import com.splunk.android.common.utils.Colors
+import com.splunk.android.common.utils.extensions.safeSubmit
+import com.splunk.android.sr.testapp.view.bridge.TomasElement
+import com.splunk.android.sr.testapp.view.bridge.TomasView
+import java.util.concurrent.Executors
+
+class TomasBridgeInterface : BridgeInterface {
+
+    private val executor = Executors.newCachedThreadPool()
+    private val classes = listOf(TomasView::class.java)
+
+    private val paint = Paint()
+
+    override var isRecordingAllowed: Boolean = true
+        private set
+
+    override fun obtainFrameworkInfo(callback: (BridgeFrameworkInfo?) -> Unit) {
+        callback(
+            BridgeFrameworkInfo(
+                framework = "TomasBridgeInterface",
+                frameworkPluginVersion = "1.0",
+                frameworkVersion = "0.1"
+            )
+        )
+    }
+
+    override fun obtainWireframeRootClasses(): List<Class<out View>> {
+        return classes
+    }
+
+    override fun obtainWireframeData(instance: View, callback: (BridgeWireframe?) -> Unit) {
+        if (instance !is TomasView) {
+            callback(null)
+            return
+        }
+
+        instance.listener = tomasViewListener
+
+        executor.safeSubmit {
+            simulatePerformanceDemanding()
+
+            val bridgeWireframe = extractBridgeWireframe(instance)
+            callback(bridgeWireframe)
+        }
+    }
+
+    private fun simulatePerformanceDemanding() {
+        val delay = (2 + Math.random() * 3).toLong()
+        Thread.sleep(delay)
+    }
+
+    private fun extractBridgeWireframe(view: TomasView): BridgeWireframe {
+        val subviews = ArrayList<BridgeWireframe.View>()
+
+        for (element in view.elements)
+            subviews += when (element) {
+                is TomasElement.Circle ->
+                    describeCircle(element)
+                is TomasElement.Rectangle ->
+                    describeRectangle(element)
+                is TomasElement.GradientRectangle ->
+                    describeGradientRectangle(element)
+                is TomasElement.Text ->
+                    describeText(element)
+            }
+
+        return BridgeWireframe(
+            root = BridgeWireframe.View(
+                id = "_bridgeRoot",
+                name = null,
+                rect = Rect(0, 0, view.width, view.height),
+                type = null,
+                typename = "TomasRootElement",
+                hasFocus = false,
+                offset = null,
+                alpha = 1f,
+                isSensitive = false,
+                skeletons = null,
+                foregroundSkeletons = null,
+                subviews = subviews
+            ),
+            width = view.width,
+            height = view.height
+        )
+    }
+
+    private fun describeCircle(element: TomasElement.Circle): BridgeWireframe.View {
+        val rect = Rect(element.x - element.radius, element.y - element.radius, element.x + element.radius, element.y + element.radius)
+
+        return BridgeWireframe.View(
+            id = "_${element.hashCode()}",
+            name = null,
+            rect = rect,
+            type = null,
+            typename = "Circle",
+            hasFocus = false,
+            offset = null,
+            alpha = 1f,
+            isSensitive = element.isSensitive,
+            skeletons = listOf(
+                BridgeWireframe.View.Skeleton.Color(
+                    rect = Rect(rect),
+                    clipRect = null,
+                    type = BridgeWireframe.View.Skeleton.Color.Type.GENERAL,
+                    colors = Colors(element.color),
+                    radii = BridgeWireframe.View.Skeleton.Color.Radii(element.radius),
+                    flags = null,
+                    isOpaque = false
+                )
+            ),
+            foregroundSkeletons = null,
+            subviews = null
+        )
+    }
+
+    private fun describeRectangle(element: TomasElement.Rectangle): BridgeWireframe.View {
+        return BridgeWireframe.View(
+            id = "_${element.hashCode()}",
+            name = null,
+            rect = Rect(element.rect),
+            type = null,
+            typename = "Rectangle",
+            hasFocus = false,
+            offset = null,
+            alpha = 1f,
+            isSensitive = element.isSensitive,
+            skeletons = listOf(
+                BridgeWireframe.View.Skeleton.Color(
+                    rect = Rect(element.rect),
+                    clipRect = null,
+                    colors = Colors(element.color),
+                    radii = null,
+                    type = BridgeWireframe.View.Skeleton.Color.Type.GENERAL,
+                    flags = null,
+                    isOpaque = true
+                )
+            ),
+            foregroundSkeletons = null,
+            subviews = null
+        )
+    }
+
+    private fun describeGradientRectangle(element: TomasElement.GradientRectangle): BridgeWireframe.View {
+        val p25 = ARGB_EVALUATOR.evaluate(0.25f, element.topLeftColor, element.bottomRightColor) as Int
+        val p50 = ARGB_EVALUATOR.evaluate(0.5f, element.topLeftColor, element.bottomRightColor) as Int
+        val p75 = ARGB_EVALUATOR.evaluate(0.75f, element.topLeftColor, element.bottomRightColor) as Int
+
+        val colors = Colors(3, 3)
+        colors[0, 0] = element.topLeftColor
+        colors[1, 0] = p25
+        colors[2, 0] = p50
+        colors[0, 1] = p25
+        colors[1, 1] = p50
+        colors[2, 1] = p50
+        colors[0, 2] = p50
+        colors[1, 2] = p75
+        colors[2, 2] = element.bottomRightColor
+
+        return BridgeWireframe.View(
+            id = "_${element.hashCode()}",
+            name = null,
+            rect = Rect(element.rect),
+            type = null,
+            typename = "Rectangle",
+            hasFocus = false,
+            offset = null,
+            alpha = 1f,
+            isSensitive = element.isSensitive,
+            skeletons = listOf(
+                BridgeWireframe.View.Skeleton.Color(
+                    rect = Rect(element.rect),
+                    clipRect = null,
+                    colors = colors,
+                    radii = null,
+                    type = BridgeWireframe.View.Skeleton.Color.Type.GENERAL,
+                    flags = null,
+                    isOpaque = true
+                )
+            ),
+            foregroundSkeletons = null,
+            subviews = null
+        )
+    }
+
+    private fun describeText(element: TomasElement.Text): BridgeWireframe.View {
+        paint.textSize = element.size
+
+        val width = paint.measureText(element.text).toInt()
+        val rect = Rect(element.x, element.y, element.x + width, (element.y - paint.ascent() + paint.descent()).toInt())
+
+        val skeleton = if (element.isSensitive)
+            BridgeWireframe.View.Skeleton.Color(
+                rect = Rect(rect),
+                clipRect = null,
+                type = BridgeWireframe.View.Skeleton.Color.Type.TEXT,
+                colors = Colors(element.color),
+                radii = null,
+                flags = null,
+                isOpaque = false
+            )
+        else
+            BridgeWireframe.View.Skeleton.Text(
+                rect = Rect(rect),
+                clipRect = null,
+                text = element.text,
+                color = element.color,
+                size = element.size,
+                letterSpacing = 0f,
+                font = BridgeWireframe.View.Skeleton.Text.Font(
+                    familyName = "sans-serif",
+                    isItalic = false,
+                    weight = 400
+                )
+            )
+
+        return BridgeWireframe.View(
+            id = "_${element.hashCode()}",
+            name = null,
+            rect = Rect(rect),
+            type = null,
+            typename = "Rectangle",
+            hasFocus = false,
+            offset = null,
+            alpha = 1f,
+            isSensitive = element.isSensitive,
+            skeletons = listOf(skeleton),
+            foregroundSkeletons = null,
+            subviews = null
+        )
+    }
+
+    private val tomasViewListener = object : TomasView.Listener {
+        override fun onTransitionChanged(isRunning: Boolean) {
+            isRecordingAllowed = !isRunning
+        }
+    }
+
+    private companion object {
+        val ARGB_EVALUATOR = ArgbEvaluator()
+    }
+}

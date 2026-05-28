@@ -1,0 +1,211 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/touch_dispatcher"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:ignore="UseCompatTextViewDrawableXml,ContentDescription">
+
+	<com.splunk.android.debugger.view.WireframeSceneView
+		android:id="@+id/wireframe_skeletons_overlay"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:wireframe_flags="skeletons" />
+
+	<com.splunk.android.debugger.view.WireframeSceneView
+		android:id="@+id/wireframe_view_border_overlay"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:wireframe_flags="view_borders" />
+
+	<com.splunk.android.debugger.view.InteractionView
+		android:id="@+id/interactions"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
+
+	<View
+		android:id="@+id/cover"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#8000"
+		android:visibility="gone"
+		tools:visibility="visible" />
+
+	<FrameLayout
+		android:id="@+id/container"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<com.splunk.android.debugger.view.WireframeStatsView
+			android:id="@+id/wireframe_stats"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="top|end"
+			android:layout_margin="10dp"
+			android:background="#afff"
+			android:elevation="10dp"
+			tools:layout_height="110dp"
+			tools:layout_width="210dp"
+			tools:visibility="gone" />
+
+		<com.splunk.android.debugger.view.ScreenshotStatsView
+			android:id="@+id/screenshot_stats"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:background="#afff"
+			android:elevation="10dp"
+			tools:layout_gravity="top|end"
+			tools:layout_height="110dp"
+			tools:layout_width="210dp"
+			tools:visibility="gone" />
+
+		<com.splunk.android.debugger.view.WireframeSceneView
+			android:id="@+id/wireframe_preview"
+			android:layout_width="@dimen/sld_wireframe_preview_width"
+			android:layout_height="@dimen/sld_wireframe_preview_height"
+			android:layout_margin="10dp"
+			android:elevation="10dp"
+			tools:layout_height="160dp"
+			tools:layout_width="90dp"
+			tools:background="#fff" />
+
+		<com.splunk.android.debugger.view.ScreenshotView
+			android:id="@+id/screenshot_preview"
+			android:layout_width="@dimen/sld_wireframe_preview_width"
+			android:layout_height="@dimen/sld_wireframe_preview_height"
+			android:layout_margin="10dp"
+			android:elevation="10dp"
+			tools:layout_gravity="bottom"
+			tools:layout_height="160dp"
+			tools:layout_width="90dp"
+			tools:background="#fff"/>
+
+		<com.splunk.android.debugger.view.WireframeSceneView
+			android:id="@+id/screenshot_view_bounds_preview"
+			android:layout_width="@dimen/sld_wireframe_preview_width"
+			android:layout_height="@dimen/sld_wireframe_preview_height"
+			android:layout_margin="10dp"
+			android:translationZ="11dp"
+			app:wireframe_flags="view_borders"
+			tools:layout_gravity="bottom"
+			tools:layout_height="160dp"
+			tools:layout_width="90dp" />
+
+		<com.splunk.android.debugger.view.InteractionView
+			android:id="@+id/screenshot_interactions_preview"
+			android:layout_width="@dimen/sld_wireframe_preview_width"
+			android:layout_height="@dimen/sld_wireframe_preview_height"
+			android:layout_margin="10dp"
+			android:translationZ="12dp"
+			tools:layout_gravity="bottom"
+			tools:layout_height="160dp"
+			tools:layout_width="90dp" />
+
+		<FrameLayout
+			android:id="@+id/wheel_container"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end|bottom"
+			android:background="@drawable/sld_bcg_wheel"
+			android:elevation="10dp"
+			android:paddingLeft="20dp"
+			android:paddingTop="20dp"
+			android:visibility="gone"
+			tools:visibility="visible">
+
+			<com.splunk.android.debugger.view.WheelLayout
+				android:id="@+id/wheel_2"
+				android:layout_width="230dp"
+				android:layout_height="230dp"
+				android:layout_gravity="end|bottom"
+				app:wheel_angleEnd="265"
+				app:wheel_angleStart="188"
+				app:wheel_centerOffsetX="100dp"
+				app:wheel_centerOffsetY="100dp"
+				app:wheel_radius="180dp">
+
+				<TextView
+					android:id="@+id/log"
+					style="@style/SldWheelButton"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:drawableTop="@drawable/sld_ic_log"
+					android:enabled="false"
+					android:stateListAnimator="@xml/sld_selector_enabled"
+					android:text="@string/sld_menu_log" />
+
+				<TextView
+					android:id="@+id/screenshot_detail"
+					style="@style/SldWheelButton"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:drawableTop="@drawable/sld_ic_render_image"
+					android:stateListAnimator="@xml/sld_selector_enabled"
+					android:text="@string/sld_menu_screenshot" />
+
+				<TextView
+					android:id="@+id/wireframe_detail"
+					style="@style/SldWheelButton"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:drawableTop="@drawable/sld_ic_render_wireframe"
+					android:stateListAnimator="@xml/sld_selector_enabled"
+					android:text="@string/sld_menu_wireframe" />
+
+				<TextView
+					android:id="@+id/recording"
+					style="@style/SldWheelButton"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:drawableTop="@drawable/sld_ic_recording"
+					android:stateListAnimator="@xml/sld_selector_enabled"
+					tools:text="@string/sld_menu_rendering_start" />
+
+			</com.splunk.android.debugger.view.WheelLayout>
+
+			<com.splunk.android.debugger.view.WheelLayout
+				android:id="@+id/wheel_1"
+				android:layout_width="150dp"
+				android:layout_height="150dp"
+				android:layout_gravity="end|bottom"
+				app:wheel_angleEnd="250"
+				app:wheel_angleStart="200"
+				app:wheel_centerOffsetX="50dp"
+				app:wheel_centerOffsetY="50dp"
+				app:wheel_radius="100dp">
+
+				<TextView
+					android:id="@+id/sdk"
+					style="@style/SldWheelButton"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:drawableTop="@drawable/sld_ic_sdk"
+					android:enabled="false"
+					android:stateListAnimator="@xml/sld_selector_enabled"
+					android:text="@string/sld_menu_sdk" />
+
+				<TextView
+					android:id="@+id/settings"
+					style="@style/SldWheelButton"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:drawableTop="@drawable/sld_ic_settings"
+					android:text="@string/sld_menu_settings" />
+
+			</com.splunk.android.debugger.view.WheelLayout>
+
+		</FrameLayout>
+
+		<ImageView
+			android:id="@+id/button"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+			android:layout_gravity="end|bottom"
+			android:layout_margin="30dp"
+			android:background="@drawable/sld_bcg_circle"
+			android:elevation="11dp"
+			android:padding="8dp"
+			android:src="@drawable/sld_ic_smartlook" />
+	</FrameLayout>
+</FrameLayout>

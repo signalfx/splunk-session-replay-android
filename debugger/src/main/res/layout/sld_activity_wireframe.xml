@@ -1,0 +1,88 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:animateLayoutChanges="true"
+	android:background="#fff"
+	tools:context=".screen.wireframe.WireframeActivity"
+	tools:ignore="UseCompatTextViewDrawableXml,SpUsage">
+
+	<com.splunk.android.debugger.view.TouchDispatchFrameLayout
+		android:id="@+id/container"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
+
+	<LinearLayout
+		android:id="@+id/buttons_group"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:background="#8000"
+		android:orientation="vertical"
+		android:paddingBottom="50dp">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<TextView
+				android:id="@+id/model"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="end|top"
+				android:layout_weight="1"
+				android:background="@drawable/sld_sel_borderless"
+				android:drawableTop="@drawable/sld_ic_wireframe"
+				android:drawablePadding="5dp"
+				android:gravity="center"
+				android:paddingTop="20dp"
+				android:paddingBottom="20dp"
+				android:stateListAnimator="@xml/sld_selector_enabled"
+				android:text="@string/sld_wireframe_model"
+				android:textColor="#eee"
+				android:textSize="11dp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:id="@+id/json"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="end|top"
+				android:layout_weight="1"
+				android:background="@drawable/sld_sel_borderless"
+				android:drawableTop="@drawable/sld_ic_text"
+				android:drawablePadding="5dp"
+				android:gravity="center"
+				android:paddingTop="20dp"
+				android:paddingBottom="20dp"
+				android:stateListAnimator="@xml/sld_selector_enabled"
+				android:text="@string/sld_wireframe_json"
+				android:textColor="#eee"
+				android:textSize="11dp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:id="@+id/unknown_classes"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="end|top"
+				android:layout_weight="1"
+				android:background="@drawable/sld_sel_borderless"
+				android:drawableTop="@drawable/sld_ic_question"
+				android:drawablePadding="5dp"
+				android:gravity="center"
+				android:paddingTop="20dp"
+				android:paddingBottom="20dp"
+				android:stateListAnimator="@xml/sld_selector_enabled"
+				android:text="@string/sld_wireframe_unknown_classes"
+				android:textColor="#eee"
+				android:textSize="11dp"
+				android:textStyle="bold" />
+		</LinearLayout>
+
+		<com.splunk.android.debugger.view.TimelineView
+			android:id="@+id/timeline"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" />
+	</LinearLayout>
+</FrameLayout>

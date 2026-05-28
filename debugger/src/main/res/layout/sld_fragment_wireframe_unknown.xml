@@ -1,0 +1,25 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".screen.wireframe.content.UnknownFragment">
+
+	<ListView
+		android:id="@+id/list"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:clipToPadding="false"
+		android:paddingTop="25dp"
+		android:paddingBottom="55dp"
+		tools:listitem="@layout/sld_item_unknown_class" />
+
+	<TextView
+		android:id="@+id/no_unknown"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:gravity="center"
+		android:text="@string/sld_wireframe_unknown_classes_empty"
+		android:textColor="#000"
+		android:textSize="16sp"
+		android:visibility="gone" />
+</FrameLayout>

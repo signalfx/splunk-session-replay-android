@@ -1,0 +1,108 @@
+<resources>
+
+	<string name="sld_wireframe_stats_max_total_time" translatable="false">total %.1f ms</string>
+	<string name="sld_wireframe_stats_last_total_time" translatable="false">total %.1f ms / %d</string>
+	<string name="sld_wireframe_stats_last_other_time" translatable="false">other %.1f ms</string>
+	<string name="sld_wireframe_stats_last_text_time" translatable="false">text %.1f ms / %d</string>
+	<string name="sld_wireframe_stats_last_drawable_time" translatable="false">drawable %.1f ms / %d</string>
+	<string name="sld_wireframe_stats_last_canvas_time" translatable="false">canvas %.1f ms / %d / %d</string>
+
+	<string name="sld_screenshot_stats_max_total_time" translatable="false">total %.1f ms</string>
+	<string name="sld_screenshot_stats_last_total_time" translatable="false">total %.1f ms</string>
+	<string name="sld_screenshot_stats_last_other_time" translatable="false">other %.1f ms</string>
+	<string name="sld_screenshot_stats_last_final_draw_time" translatable="false">draw %.1f ms</string>
+	<string name="sld_screenshot_stats_last_sensitivity_time" translatable="false">sensitivity %.1f ms</string>
+	<string name="sld_screenshot_stats_last_copy_time" translatable="false">copy %.1f ms</string>
+	<string name="sld_screenshot_stats_last_copy_surface_time" translatable="false">surface %.1f ms / %d</string>
+	<string name="sld_screenshot_stats_last_copy_window_time" translatable="false">window %.1f ms / %d</string>
+
+	<string name="sld_menu_sdk">SDK</string>
+	<string name="sld_menu_settings">Settings</string>
+	<string name="sld_menu_wireframe">Wireframe</string>
+	<string name="sld_menu_screenshot">Screenshot</string>
+	<string name="sld_menu_log">Log</string>
+	<string name="sld_menu_rendering_start">Start</string>
+	<string name="sld_menu_rendering_stop">Stop</string>
+	<string name="sld_menu_shortcut_updated">Long click shortcut updated</string>
+
+	<string name="sld_settings_record_preview">Record preview</string>
+	<string name="sld_settings_mode_title">Mode</string>
+	<string name="sld_settings_mode_none">NONE</string>
+	<string name="sld_settings_mode_wireframe">WIREFRAME</string>
+	<string name="sld_settings_mode_wireframe_screenshot">WIREFRAME_SCREENSHOT</string>
+	<string name="sld_settings_max_framerate">Max framerate</string>
+	<string name="sld_settings_max_framerate_label_format">%d fps</string>
+	<string name="sld_settings_interaction_title">Interaction</string>
+	<string name="sld_settings_interaction_preview_enabled">Preview</string>
+	<string name="sld_settings_screenshot_title">Screenshot</string>
+	<string name="sld_settings_screenshot_debug_mode">Debug mode</string>
+	<string name="sld_settings_screenshot_history_title">History size</string>
+	<string name="sld_settings_screenshot_history_override_enabled">Override</string>
+	<string name="sld_settings_screenshot_history_size_label_format">%d screens</string>
+	<string name="sld_settings_screenshot_history_size_label_unlimited">unlimited</string>
+	<string name="sld_settings_screenshot_history_size">Size</string>
+	<string name="sld_settings_screenshot_history_clear">Clear</string>
+	<string name="sld_settings_screenshot_preview_title">Preview window</string>
+	<string name="sld_settings_screenshot_preview_draw_image">Image</string>
+	<string name="sld_settings_screenshot_preview_draw_view_bounds">View bounds</string>
+	<string name="sld_settings_screenshot_preview_draw_interactions">Interactions</string>
+	<string name="sld_settings_screenshot_preview_location">Location</string>
+	<string name="sld_settings_screenshot_preview_size">Size</string>
+	<string name="sld_settings_screenshot_stats_title">Stats window</string>
+	<string name="sld_settings_screenshot_stats_enabled">Enabled</string>
+	<string name="sld_settings_screenshot_stats_location">Location</string>
+	<string name="sld_settings_screenshot_stats_size">Size</string>
+	<string name="sld_settings_wireframe_title">Wireframe</string>
+	<string name="sld_settings_wireframe_history_title">History size</string>
+	<string name="sld_settings_wireframe_history_override_enabled">Override</string>
+	<string name="sld_settings_wireframe_history_size_label_format">%d frames</string>
+	<string name="sld_settings_wireframe_history_size_label_unlimited">unlimited</string>
+	<string name="sld_settings_wireframe_history_size">Size</string>
+	<string name="sld_settings_wireframe_history_clear">Clear</string>
+	<string name="sld_settings_wireframe_preview_title">Preview window</string>
+	<string name="sld_settings_wireframe_preview_location">Location</string>
+	<string name="sld_settings_wireframe_preview_size">Size</string>
+	<string name="sld_settings_wireframe_preview_draw_skeletons">Skeletons</string>
+	<string name="sld_settings_wireframe_preview_draw_view_bounds">View bounds</string>
+	<string name="sld_settings_wireframe_stats_title">Stats window</string>
+	<string name="sld_settings_wireframe_stats_enabled">Enabled</string>
+	<string name="sld_settings_wireframe_stats_location">Location</string>
+	<string name="sld_settings_wireframe_stats_size">Size</string>
+	<string name="sld_settings_wireframe_overlay_title">Overlay</string>
+	<string name="sld_settings_wireframe_view_bounds_overlay_title">View bounds</string>
+	<string name="sld_settings_wireframe_view_bounds_overlay_enabled">Enabled</string>
+	<string name="sld_settings_wireframe_skeletons_overlay_title">Skeletons</string>
+	<string name="sld_settings_wireframe_skeletons_overlay_enabled">Enabled</string>
+	<string name="sld_settings_wireframe_skeletons_overlay_alpha">Alpha</string>
+	<string name="sld_settings_wireframe_others_title">Others</string>
+	<string name="sld_settings_wireframe_canvas_logging_label">Log Canvas calls</string>
+	<string name="sld_settings_wireframe_simulate_unknown_views_label">Simulate unknown Views</string>
+	<string name="sld_settings_wireframe_close_until_start">Close until next start</string>
+
+	<string name="sld_settings_url_copied_clipboard">Link was copied to clipboard</string>
+
+	<string name="sld_wireframe_model">Model</string>
+
+	<string name="sld_wireframe_json">JSON</string>
+
+	<string name="sld_wireframe_unknown_classes">Classes</string>
+	<string name="sld_wireframe_unknown_classes_empty">No unknown classes</string>
+	<string name="sld_wireframe_unknown_classes_clipboard_label">Unknown class</string>
+	<string name="sld_wireframe_unknown_classes_clipboard_copied">Class copied to clipboard</string>
+
+	<string name="sld_wireframe_copy">Copy</string>
+	<string name="sld_wireframe_view_border">View</string>
+	<string name="sld_wireframe_skeleton">Skeleton</string>
+	<string name="sld_wireframe_save_frame">Frame</string>
+	<string name="sld_wireframe_structure_copy_clipboard_label">View hierarchy JSON</string>
+	<string name="sld_wireframe_structure_copy_copied_clipboard">JSON was copied to clipboard</string>
+	<string name="sld_wireframe_saved">Wireframe saved to \'%s\'</string>
+	<string name="sld_wireframe_video_error_different_size">Unable to encode video because of different bitmap sizes</string>
+	<string name="sld_wireframe_video_saved">Video saved to \'%s\'</string>
+
+	<string name="sld_screenshot_view_border">View</string>
+	<string name="sld_screenshot_save_screenshot">Screen</string>
+	<string name="sld_screenshot_image_saved">Screenshot saved to \'%s\'</string>
+	<string name="sld_screenshot_video_error_different_size">Unable to encode video because of different bitmap sizes</string>
+	<string name="sld_screenshot_video_saved">Video saved to \'%s\'</string>
+</resources>

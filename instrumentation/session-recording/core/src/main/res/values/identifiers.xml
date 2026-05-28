@@ -1,0 +1,3 @@
+<resources>
+    <item name="sr_sensitivity" type="id" format="boolean" />
+</resources>

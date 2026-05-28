@@ -1,0 +1,4 @@
+<resources>
+	<item name="sl_tag_invisible_screenshot" format="boolean" type="id" />
+	<item name="sl_tag_drawn_on_top" format="boolean" type="id" />
+</resources>

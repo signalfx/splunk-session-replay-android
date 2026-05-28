@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.3.1" type="baseline" client="gradle" dependencies="false" name="AGP (7.3.1)" variant="all" version="7.3.1">
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 23 (current min is 16): `android.widget.CompoundButton#getButtonDrawable`"
+        errorLine1="    get() = runOnAndroidAtLeast(Build.VERSION_CODES.M) { buttonDrawable } ?: get(&quot;mButtonDrawable&quot;)"
+        errorLine2="                                                         ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/splunk/android/instrumentation/recording/wireframe/extension/CompoundButtonExt.kt"
+            line="10"
+            column="58"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 19 (current min is 16): `android.graphics.NinePatch#getBitmap`"
+        errorLine1="        val bitmap = runOnAndroidAtLeast(Build.VERSION_CODES.KITKAT) { patch.bitmap } ?: runCatching { patch.get&lt;Bitmap>(&quot;mBitmap&quot;) }.getOrNull() ?: return"
+        errorLine2="                                                                             ~~~~~~">
+        <location
+            file="src/main/java/com/splunk/android/instrumentation/recording/wireframe/canvas/SkeletonCanvas.kt"
+            line="1089"
+            column="78"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 21 (current min is 16): `android.view.View#getZ`"
+        errorLine1="    get() = runOnAndroidAtLeast(Build.VERSION_CODES.LOLLIPOP) { z } ?: 0f"
+        errorLine2="                                                                ~">
+        <location
+            file="src/main/java/com/splunk/android/instrumentation/recording/wireframe/extension/ViewExt.kt"
+            line="16"
+            column="65"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 21 (current min is 16): `android.view.View#getElevation`"
+        errorLine1="    get() = runOnAndroidAtLeast(Build.VERSION_CODES.LOLLIPOP) { elevation } ?: 0f"
+        errorLine2="                                                                ~~~~~~~~~">
+        <location
+            file="src/main/java/com/splunk/android/instrumentation/recording/wireframe/extension/ViewExt.kt"
+            line="19"
+            column="65"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 23 (current min is 16): `android.view.View#getForeground`"
+        errorLine1="    get() = runOnAndroidAtLeast(Build.VERSION_CODES.M) { foreground } ?: (this as? FrameLayout)?.foreground"
+        errorLine2="                                                         ~~~~~~~~~~">
+        <location
+            file="src/main/java/com/splunk/android/instrumentation/recording/wireframe/extension/ViewExt.kt"
+            line="22"
+            column="58"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 21 (current min is 16): `android.view.ViewGroup#getClipToPadding`"
+        errorLine1="    get() = runOnAndroidAtLeast(Build.VERSION_CODES.LOLLIPOP) { clipToPadding } ?: true"
+        errorLine2="                                                                ~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/splunk/android/instrumentation/recording/wireframe/extension/ViewGroupExt.kt"
+            line="8"
+            column="65"/>
+    </issue>
+
+</issues>

@@ -1,0 +1,618 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="260dp"
+	android:layout_height="wrap_content"
+	tools:background="@drawable/sld_bcg_dialog"
+	tools:context=".screen.SettingsActivity"
+	tools:elevation="10dp"
+	tools:foreground="@drawable/sld_ic_gradient_white"
+	tools:layout_gravity="center">
+
+	<ScrollView
+		android:id="@+id/scroller"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:scrollbars="none"
+		tools:ignore="UseSwitchCompatOrMaterialXml">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:animateLayoutChanges="true"
+			android:orientation="vertical"
+			android:padding="20dp">
+
+			<Switch
+				android:id="@+id/record_preview"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_record_preview" />
+
+			<TextView
+				style="@style/SldHeader"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_mode_title" />
+
+			<RadioGroup
+				android:id="@+id/mode"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp">
+
+				<RadioButton
+					android:id="@+id/mode_none"
+					style="@style/SldRadioButton"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/sld_settings_mode_none" />
+
+				<RadioButton
+					android:id="@+id/mode_wireframe"
+					style="@style/SldRadioButton"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/sld_settings_mode_wireframe" />
+
+				<RadioButton
+					android:id="@+id/mode_wireframe_screenshot"
+					style="@style/SldRadioButton"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/sld_settings_mode_wireframe_screenshot" />
+			</RadioGroup>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="@string/sld_settings_max_framerate" />
+
+				<TextView
+					android:id="@+id/max_framerate_label"
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					tools:text="18 fps" />
+			</LinearLayout>
+
+			<SeekBar
+				android:id="@+id/max_framerate"
+				style="@style/SldSeek"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:max="19"
+				tools:progress="17" />
+
+			<TextView
+				style="@style/SldHeader"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_interaction_title" />
+
+			<Switch
+				android:id="@+id/interaction_preview"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_interaction_preview_enabled" />
+
+			<TextView
+				style="@style/SldHeader"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_screenshot_title" />
+
+			<Switch
+				android:id="@+id/screenshot_debug_mode"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_screenshot_debug_mode" />
+
+			<TextView
+				style="@style/SldHeader2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_screenshot_history_title" />
+
+			<Switch
+				android:id="@+id/screenshot_history_override_enabled"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/sld_settings_screenshot_history_override_enabled" />
+
+			<LinearLayout
+				android:id="@+id/screenshot_history_size_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="15dp">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="@string/sld_settings_screenshot_history_size" />
+
+				<TextView
+					android:id="@+id/screenshot_history_size_label"
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					tools:text="50 screens" />
+			</LinearLayout>
+
+			<SeekBar
+				android:id="@+id/screenshot_history_size"
+				style="@style/SldSeek"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:max="100"
+				tools:progress="50" />
+
+			<TextView
+				android:id="@+id/screenshot_history_clear"
+				style="@style/SldButton"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="15dp"
+				android:text="@string/sld_settings_screenshot_history_clear" />
+
+			<TextView
+				style="@style/SldHeader2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_screenshot_preview_title" />
+
+			<Switch
+				android:id="@+id/screenshot_preview_image"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/sld_settings_screenshot_preview_draw_image"
+				tools:checked="true" />
+
+			<Switch
+				android:id="@+id/screenshot_preview_view_bounds"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:text="@string/sld_settings_screenshot_preview_draw_view_bounds" />
+
+			<Switch
+				android:id="@+id/screenshot_preview_interactions"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:text="@string/sld_settings_screenshot_preview_draw_interactions" />
+
+			<LinearLayout
+				android:id="@+id/screenshot_preview_location_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="@string/sld_settings_wireframe_preview_location" />
+
+				<com.splunk.android.debugger.view.LocationView
+					android:id="@+id/screenshot_preview_location"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					tools:location_location="top_left" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/screenshot_preview_scale_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="@string/sld_settings_screenshot_preview_size" />
+
+				<SeekBar
+					android:id="@+id/screenshot_preview_scale"
+					style="@style/SldSeek"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					android:max="1000"
+					tools:progress="300" />
+			</LinearLayout>
+
+			<TextView
+				style="@style/SldHeader2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_screenshot_stats_title" />
+
+			<Switch
+				android:id="@+id/screenshot_stats"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/sld_settings_screenshot_stats_enabled" />
+
+			<LinearLayout
+				android:id="@+id/screenshot_stats_location_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="@string/sld_settings_screenshot_stats_location" />
+
+				<com.splunk.android.debugger.view.LocationView
+					android:id="@+id/screenshot_stats_location"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					tools:location_location="bottom_left" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/screenshot_stats_scale_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="@string/sld_settings_screenshot_stats_size" />
+
+				<SeekBar
+					android:id="@+id/screenshot_stats_scale"
+					style="@style/SldSeek"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					android:max="1000"
+					tools:progress="700" />
+			</LinearLayout>
+
+			<TextView
+				style="@style/SldHeader"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_wireframe_title" />
+
+			<TextView
+				style="@style/SldHeader2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_wireframe_history_title" />
+
+			<Switch
+				android:id="@+id/wireframe_history_override_enabled"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/sld_settings_wireframe_history_override_enabled" />
+
+			<LinearLayout
+				android:id="@+id/wireframe_history_size_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="15dp">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="@string/sld_settings_wireframe_history_size" />
+
+				<TextView
+					android:id="@+id/wireframe_history_size_label"
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					tools:text="50 frames" />
+			</LinearLayout>
+
+			<SeekBar
+				android:id="@+id/wireframe_history_size"
+				style="@style/SldSeek"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:max="100"
+				tools:progress="50" />
+
+			<TextView
+				android:id="@+id/wireframe_history_clear"
+				style="@style/SldButton"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="15dp"
+				android:text="@string/sld_settings_wireframe_history_clear" />
+
+			<TextView
+				style="@style/SldHeader2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_wireframe_preview_title" />
+
+			<Switch
+				android:id="@+id/wireframe_preview_skeletons"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/sld_settings_wireframe_preview_draw_skeletons"
+				tools:checked="true" />
+
+			<Switch
+				android:id="@+id/wireframe_preview_view_bounds"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:text="@string/sld_settings_wireframe_preview_draw_view_bounds" />
+
+			<LinearLayout
+				android:id="@+id/wireframe_preview_location_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="@string/sld_settings_wireframe_preview_location" />
+
+				<com.splunk.android.debugger.view.LocationView
+					android:id="@+id/wireframe_preview_location"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					tools:location_location="top_left" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/wireframe_preview_scale_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="@string/sld_settings_wireframe_preview_size" />
+
+				<SeekBar
+					android:id="@+id/wireframe_preview_scale"
+					style="@style/SldSeek"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					android:max="1000"
+					tools:progress="300" />
+			</LinearLayout>
+
+			<TextView
+				style="@style/SldHeader2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_wireframe_stats_title" />
+
+			<Switch
+				android:id="@+id/wireframe_stats"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/sld_settings_wireframe_stats_enabled" />
+
+			<LinearLayout
+				android:id="@+id/wireframe_stats_location_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="@string/sld_settings_wireframe_stats_location" />
+
+				<com.splunk.android.debugger.view.LocationView
+					android:id="@+id/wireframe_stats_location"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					tools:location_location="bottom_left" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/wireframe_stats_scale_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="@string/sld_settings_wireframe_stats_size" />
+
+				<SeekBar
+					android:id="@+id/wireframe_stats_scale"
+					style="@style/SldSeek"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					android:max="1000"
+					tools:progress="700" />
+			</LinearLayout>
+
+			<TextView
+				style="@style/SldHeader2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_wireframe_overlay_title" />
+
+			<TextView
+				style="@style/SldHeader3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/sld_settings_wireframe_view_bounds_overlay_title" />
+
+			<Switch
+				android:id="@+id/wireframe_view_bounds_overlay"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:text="@string/sld_settings_wireframe_view_bounds_overlay_enabled" />
+
+			<TextView
+				style="@style/SldHeader3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/sld_settings_wireframe_skeletons_overlay_title" />
+
+			<Switch
+				android:id="@+id/wireframe_skeletons_overlay"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:text="@string/sld_settings_wireframe_skeletons_overlay_enabled" />
+
+			<LinearLayout
+				android:id="@+id/wireframe_skeletons_overlay_alpha_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/SldLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="@string/sld_settings_wireframe_skeletons_overlay_alpha" />
+
+				<SeekBar
+					android:id="@+id/wireframe_skeletons_overlay_alpha"
+					style="@style/SldSeek"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					android:max="1000"
+					tools:progress="700" />
+			</LinearLayout>
+
+			<TextView
+				style="@style/SldHeader2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_wireframe_others_title" />
+
+			<Switch
+				android:id="@+id/wireframe_log_canvas_calls"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/sld_settings_wireframe_canvas_logging_label" />
+
+			<Switch
+				android:id="@+id/wireframe_simulate_unknown_views"
+				style="@style/SldSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:text="@string/sld_settings_wireframe_simulate_unknown_views_label"
+				tools:text="Simulate unknown Views" />
+
+			<TextView
+				android:id="@+id/close_until_start"
+				style="@style/SldButton"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/sld_settings_wireframe_close_until_start" />
+		</LinearLayout>
+	</ScrollView>
+
+	<ImageView
+		android:id="@+id/exit"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="top|end"
+		android:background="@drawable/sld_sel_corner"
+		android:padding="15dp"
+		android:src="@drawable/sld_ic_cross"
+		tools:ignore="ContentDescription" />
+</FrameLayout>

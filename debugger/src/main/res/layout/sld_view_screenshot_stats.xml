@@ -1,0 +1,247 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	tools:ignore="SpUsage">
+
+	<TextView
+		android:id="@+id/max_label"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginTop="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:text="max"
+		android:textColor="#000"
+		android:textSize="8dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toTopOf="@id/max_total_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_chainStyle="packed" />
+
+	<TextView
+		android:id="@+id/max_total_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_label"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/max_label"
+		tools:text="2.6 ms" />
+
+	<TextView
+		android:id="@+id/last_label"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginTop="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:text="last"
+		android:textColor="#000"
+		android:textSize="8dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toTopOf="@id/last_total_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/max_total_time" />
+
+	<TextView
+		android:id="@+id/last_total_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_others_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_label"
+		tools:text="total 1.8 ms" />
+
+	<TextView
+		android:id="@+id/last_others_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_sensitivity_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_total_time"
+		tools:text="others 0.6 ms" />
+
+	<TextView
+		android:id="@+id/last_final_draw_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_sensitivity_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_others_time"
+		tools:text="draw 0.4 ms" />
+
+	<TextView
+		android:id="@+id/last_sensitivity_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_copy_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_final_draw_time"
+		tools:text="sensitivity 0.5 ms" />
+
+	<TextView
+		android:id="@+id/last_copy_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#000"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_window_copy_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_final_draw_time"
+		tools:text="copy 0.2 ms / 2" />
+
+	<TextView
+		android:id="@+id/last_window_copy_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginTop="5dp"
+		android:layout_marginEnd="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#555"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toTopOf="@id/last_surface_copy_time"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_copy_time"
+		tools:text="window 0.2 ms / 1" />
+
+	<TextView
+		android:id="@+id/last_surface_copy_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="5dp"
+		android:layout_marginEnd="5dp"
+		android:layout_marginBottom="5dp"
+		android:gravity="center_horizontal"
+		android:minWidth="80dp"
+		android:textColor="#555"
+		android:textSize="8dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@id/barrier"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/last_window_copy_time"
+		tools:text="surface 0.2 ms / 2" />
+
+	<androidx.constraintlayout.widget.Barrier
+		android:id="@+id/barrier"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:orientation="horizontal"
+		app:barrierDirection="end"
+		app:constraint_referenced_ids="max_label,max_total_time,last_label,last_total_time,last_others_time,last_sensitivity_time,last_final_draw_time,last_surface_copy_time,last_window_copy_time" />
+
+	<com.splunk.android.debugger.view.stats.ScreenshotStackedChartView
+		android:id="@+id/stats"
+		android:layout_width="130dp"
+		android:layout_height="90dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@id/barrier"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<TextView
+		android:id="@+id/legend_others"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="2dp"
+		android:text="others"
+		android:textColor="@color/sld_screenshot_render_stats_others"
+		android:textSize="9dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toTopOf="@id/legend_sensitivity"
+		app:layout_constraintEnd_toStartOf="@id/legend_final_draw"
+		app:layout_constraintStart_toEndOf="@id/barrier"
+		app:layout_constraintTop_toBottomOf="@id/stats" />
+
+	<TextView
+		android:id="@+id/legend_final_draw"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="2dp"
+		android:text="draw"
+		android:textColor="@color/sld_screenshot_render_stats_final_draw"
+		android:textSize="9dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toTopOf="@id/legend_copy"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@id/legend_others"
+		app:layout_constraintTop_toBottomOf="@id/stats" />
+
+	<TextView
+		android:id="@+id/legend_sensitivity"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="2dp"
+		android:text="sensitivity"
+		android:textColor="@color/sld_screenshot_render_stats_sensitivity"
+		android:textSize="9dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@id/legend_copy"
+		app:layout_constraintStart_toEndOf="@id/barrier"
+		app:layout_constraintTop_toBottomOf="@id/legend_others" />
+
+	<TextView
+		android:id="@+id/legend_copy"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="2dp"
+		android:text="copy"
+		android:textColor="@color/sld_screenshot_render_stats_copy"
+		android:textSize="9dp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@id/legend_sensitivity"
+		app:layout_constraintTop_toBottomOf="@id/legend_others" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,1 @@
+-repackageclasses 'com.splunk.android.bridge'
