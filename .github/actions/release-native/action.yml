@@ -1,0 +1,8 @@
+name: 'Build and upload release native'
+description: ''
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        ./gradlew publishIfReleased
+      shell: bash

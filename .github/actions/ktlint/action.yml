@@ -1,0 +1,7 @@
+name: 'ktlintCheck Check'
+description: ''
+runs:
+  using: "composite"
+  steps:
+    - run: ./gradlew ktlint
+      shell: bash

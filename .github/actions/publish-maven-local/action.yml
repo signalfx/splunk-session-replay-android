@@ -1,0 +1,8 @@
+name: 'Publish libraries to maven local'
+description: ''
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        ./gradlew publishReleasePublicationToMavenLocalIfReleased
+      shell: bash

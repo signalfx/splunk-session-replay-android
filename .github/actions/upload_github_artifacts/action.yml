@@ -1,0 +1,19 @@
+name: 'Upload Artifacts'
+description: ''
+inputs:
+  upload_url:  # upload_url
+    description: 'upload_url'
+    required: true
+    default: ''
+runs:
+  using: "composite"
+  steps:
+      - name: Upload release artifacts
+        uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ inputs.upload_url }}
+          asset_path: release.zip
+          asset_name: release.zip
+          asset_content_type: application/zip

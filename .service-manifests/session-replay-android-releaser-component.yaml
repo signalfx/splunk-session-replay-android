@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+    name: session-replay-android-releaser
+    title: session-replay-android-releaser
+    functionalDomain: []
+    description: ""
+    annotations:
+        backstage.io/source-location: url:https://cd.splunkdev.com/observability/rum/session-replay-android-releaser
+        splunk.com/issue-tracker-url: http://go/replace/me
+        splunk.com/slack-url: http://go/replace/me
+        backstage.io/view-url: https://cd.splunkdev.com/observability/rum/session-replay-android-releaser/-/blob/develop/.service-manifests/session-replay-android-releaser-component.yaml
+        backstage.io/edit-url: https://cd.splunkdev.com/observability/rum/session-replay-android-releaser/-/edit/develop/.service-manifests/session-replay-android-releaser-component.yaml
+    links:
+        - title: Overview
+          url: http://go/replace/me
+        - title: ERD/RFC
+          url: http://go/replace/me
+        - title: Ops Runbook
+          url: http://go/replace/me
+spec:
+    lifecycle: production
+    type: product
+    owner: group:sg-o11y-cicd-admins

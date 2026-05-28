@@ -1,0 +1,23 @@
+name: 'Upload content of release folder to S3'
+description: ''
+inputs:
+  release-version:
+    description: 'Release version'
+    required: true
+  access-key-id:
+    description: 'AWS access key id'
+    required: true
+  access-key-secret:
+    description: 'AWS access key secret'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        export AWS_ACCESS_KEY_ID=${{ inputs.access-key-id }}
+        export AWS_SECRET_ACCESS_KEY=${{ inputs.access-key-secret }}
+        export AWS_DEFAULT_REGION=us-west-2
+
+        aws s3 cp --recursive "release/" "s3://sdk-us.smartlook.com/android/release/com/splunk/android/"
+      shell: bash

@@ -1,0 +1,7 @@
+name: 'Assemble'
+description: ''
+runs:
+  using: "composite"
+  steps:
+    - run: ./gradlew --stacktrace -warn assembleDebug
+      shell: bash

@@ -1,0 +1,17 @@
+name: 'Save build artifacts'
+description: ''
+runs:
+  using: "composite"
+  steps:
+    - name: Collect build artifacts
+      run: |
+          mkdir release
+          find . -path '*/repo/*' -prune -exec cp -r {} ./release \;
+      shell: bash
+
+    - name: Save build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: output
+        path: |
+          release/

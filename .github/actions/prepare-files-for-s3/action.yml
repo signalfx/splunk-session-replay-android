@@ -1,0 +1,24 @@
+name: 'Prepare release files for upload to S3'
+description: ''
+inputs:
+  release-version:
+    required: yes
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        # Capture the output of the "artifactId" Gradle task
+        modules=$(./gradlew --quiet artifactId)
+  
+        # Split the output into an array using newline as the delimiter
+        declare -a modules=($modules)
+        version=${{ inputs.release-version }}
+
+        ## Loop through the flavours and move artifacts to correct folders
+        for module in "${modules[@]}"
+        do
+            mkdir -p release/${module}/${version}
+
+            mv "release-artifacts/output/com/splunk/android/${module}/${version}"/* "release/${module}/${version}"
+        done
+      shell: bash

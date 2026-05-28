@@ -1,0 +1,12 @@
+name: 'Setup artifactory credentials'
+description: ''
+inputs:
+  token:
+    description: "Artifactory token"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - run: mkdir -p ~/.gradle && echo -e "sl_artifactory_token=${{ inputs.token }}" >> ~/.gradle/gradle.properties
+      shell: bash
