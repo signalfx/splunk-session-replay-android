@@ -138,17 +138,21 @@ class Preferences(private val permanentCache: ISimplePermanentCache) : IPreferen
                 return@safeSubmit
             }
 
-            synchronized(map) {
+            val corrupted = synchronized(map) {
                 try {
                     deserializeToMap(jsonString, map)
+                    false
                 } catch (e: JSONException) {
-                    // If cache gets corrupted because of sudden crash it needs to be cleared
-                    commit()
-                    Logger.w(TAG, "deserializeAndFillMap(): Failed to deserialize a String due to ${e.message}!")
+                    Logger.w(TAG, "deserializeAndFillMap(): Failed to deserialize a String", e)
+                    map.clear()
+                    true
                 }
             }
 
             lockLoad.unlock()
+
+            if (corrupted)
+                commit()
         }
     }
 
