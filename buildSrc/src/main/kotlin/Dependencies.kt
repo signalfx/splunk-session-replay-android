@@ -24,7 +24,7 @@ object Dependencies {
     object Test {
         private const val junitVersion = "4.12"
         private const val jsonassertVersion = "1.5.0"
-        private const val robolectricVersion = "4.11.1"
+        private const val robolectricVersion = "4.16.1"
         private const val runnerVersion = "1.4.0"
         private const val junitExtVersion = "1.1.3"
 
