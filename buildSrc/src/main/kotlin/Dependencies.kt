@@ -27,12 +27,14 @@ object Dependencies {
         private const val robolectricVersion = "4.11.1"
         private const val runnerVersion = "1.4.0"
         private const val junitExtVersion = "1.1.3"
+        private const val guavaVersion = "32.0.0-android"
 
         const val junit = "junit:junit:$junitVersion"
         const val junitExt = "androidx.test.ext:junit:$junitExtVersion"
         const val jsonassert = "org.skyscreamer:jsonassert:$jsonassertVersion"
         const val robolectric = "org.robolectric:robolectric:$robolectricVersion"
         const val runner = "androidx.test:runner:$runnerVersion"
+        const val guava = "com.google.guava:guava:$guavaVersion"
     }
 
     object Android {

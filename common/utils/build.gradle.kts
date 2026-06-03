@@ -40,3 +40,9 @@ dependencies {
     androidTestImplementation(Dependencies.Test.runner)
     androidTestImplementation(Dependencies.Test.junitExt)
 }
+
+configurations.all {
+    resolutionStrategy {
+        force(Dependencies.Test.guava)
+    }
+}
