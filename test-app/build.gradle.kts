@@ -139,6 +139,6 @@ dependencies {
 
 configurations.all {
     resolutionStrategy {
-        force("com.google.guava:guava:32.0.0-android")
+        force(Dependencies.Test.guava)
     }
 }
