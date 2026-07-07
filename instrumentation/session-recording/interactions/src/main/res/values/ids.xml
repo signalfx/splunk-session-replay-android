@@ -1,0 +1,8 @@
+<resources>
+	<item name="sl_tag_invisible_interactions" type="id" />
+	<item name="sl_tag_focus_listener" type="id" />
+	<item name="sl_tag_motion_event_target_element" type="id" />
+
+	<item name="sl_reference_view" type="id" />
+	<item name="sl_observer_view" type="id" />
+</resources>

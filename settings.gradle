@@ -1,0 +1,23 @@
+include ':bridge'
+
+// Debugging tool
+include ':debugger'
+
+// Testing app
+include ':test-app'
+
+// Common
+include ':common:encoder',
+		':common:http',
+		':common:id',
+		':common:job',
+		':common:logger',
+		':common:storage',
+		':common:utils'
+
+// Instrumentation
+include ':instrumentation:session-recording:frame-capturer',
+		':instrumentation:session-recording:interactions',
+		':instrumentation:session-recording:wireframe',
+		':instrumentation:session-recording:screenshot',
+		':instrumentation:session-recording:core'

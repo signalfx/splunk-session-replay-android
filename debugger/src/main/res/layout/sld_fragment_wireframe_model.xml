@@ -1,0 +1,77 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:animateLayoutChanges="true"
+	tools:context=".screen.wireframe.content.ModelFragment"
+	tools:ignore="SpUsage">
+
+	<com.splunk.android.debugger.view.WireframeSceneView
+		android:id="@+id/wireframe"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
+
+	<com.splunk.android.debugger.view.InteractionView
+		android:id="@+id/interactions"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
+
+	<LinearLayout
+		android:id="@+id/buttons_container"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="end"
+		android:background="@drawable/sld_bcg_buttons"
+		android:orientation="vertical"
+		android:paddingLeft="10dp"
+		android:paddingTop="25dp"
+		android:paddingRight="10dp"
+		android:paddingBottom="10dp"
+		android:visibility="gone"
+		tools:visibility="visible">
+
+		<CheckedTextView
+			android:id="@+id/skeletons"
+			android:layout_width="65dp"
+			android:layout_height="65dp"
+			android:background="@drawable/sld_sel_dot"
+			android:drawableTop="@drawable/sld_ic_skeleton"
+			android:drawablePadding="5dp"
+			android:gravity="center_horizontal"
+			android:padding="10dp"
+			android:text="@string/sld_wireframe_skeleton"
+			android:textAlignment="gravity"
+			android:textColor="#eee"
+			android:textSize="11dp"
+			android:textStyle="bold"
+			tools:checked="true" />
+
+		<CheckedTextView
+			android:id="@+id/view_border"
+			android:layout_width="65dp"
+			android:layout_height="65dp"
+			android:background="@drawable/sld_sel_dot"
+			android:drawableTop="@drawable/sld_ic_view_border"
+			android:drawablePadding="5dp"
+			android:gravity="center_horizontal"
+			android:padding="10dp"
+			android:text="@string/sld_wireframe_view_border"
+			android:textAlignment="gravity"
+			android:textColor="#eee"
+			android:textSize="11dp"
+			android:textStyle="bold" />
+
+		<TextView
+			android:id="@+id/save_frame"
+			android:layout_width="65dp"
+			android:layout_height="65dp"
+			android:drawableTop="@drawable/sld_ic_copy"
+			android:drawablePadding="5dp"
+			android:gravity="center"
+			android:padding="10dp"
+			android:text="@string/sld_wireframe_save_frame"
+			android:textColor="#eee"
+			android:textSize="11dp"
+			android:textStyle="bold" />
+	</LinearLayout>
+</FrameLayout>

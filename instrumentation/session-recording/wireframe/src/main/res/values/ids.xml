@@ -1,0 +1,6 @@
+<resources>
+    <item name="sr_tag_invisible_wireframe" format="boolean" type="id" />
+    <item name="sr_tag_running_visibility_animation" format="boolean" type="id" />
+    <item name="sr_tag_is_drawn" format="boolean" type="id" />
+    <item name="sr_tag_is_sensitive" format="boolean" type="id" />
+</resources>

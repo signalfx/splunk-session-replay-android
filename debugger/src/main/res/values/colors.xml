@@ -1,0 +1,35 @@
+<resources>
+    <color name="sld_wireframe_stats_canvas">#2f3e2f</color>
+    <color name="sld_wireframe_stats_general_drawable">#3899d6</color>
+    <color name="sld_wireframe_stats_text">#f44545</color>
+    <color name="sld_wireframe_stats_others">#facc22</color>
+
+    <color name="sld_screenshot_render_stats_copy">#3899d6</color>
+    <color name="sld_screenshot_render_stats_final_draw">#698750</color>
+    <color name="sld_screenshot_render_stats_sensitivity">#f44545</color>
+    <color name="sld_screenshot_render_stats_others">#facc22</color>
+
+    <color name="sld_screenshot_thread_stats_main">#f44545</color>
+    <color name="sld_screenshot_thread_stats_background">#3899d6</color>
+
+    <color name="sld_white">#fff</color>
+    <color name="sld_blue">#143188</color>
+    <color name="sld_blue_transparent">#88143188</color>
+    <color name="sld_blue_light">#266ba9</color>
+    <color name="sld_blue_light_transparent">#88266ba9</color>
+    <color name="sld_orange">#E4A35C</color>
+    <color name="sld_gray">#888</color>
+    <color name="sld_gray_light">#bbb</color>
+    <color name="sld_black">#000</color>
+
+    <color name="sld_selectable_text">@color/sld_orange</color>
+    <color name="sld_selectable_text_pressed">@color/sld_white</color>
+    <color name="sld_selectable_text_disabled">@color/sld_gray</color>
+
+    <color name="sld_wheel_background_start">@color/sld_white</color>
+    <color name="sld_wheel_background_end">#fff</color>
+    <color name="sld_wheel_text">@color/sld_blue</color>
+
+    <color name="sld_dialog_background">@color/sld_white</color>
+    <color name="sld_circle_background">#fff</color>
+</resources>

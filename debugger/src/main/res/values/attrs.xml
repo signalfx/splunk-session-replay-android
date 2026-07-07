@@ -1,0 +1,33 @@
+<resources>
+
+	<declare-styleable name="WheelLayout">
+		<attr name="wheel_angleStart" format="float" />
+		<attr name="wheel_angleEnd" format="float" />
+		<attr name="wheel_radius" format="dimension" />
+		<attr name="wheel_centerOffsetX" format="dimension" />
+		<attr name="wheel_centerOffsetY" format="dimension" />
+	</declare-styleable>
+
+	<declare-styleable name="LocationView">
+		<attr name="location_location" format="enum">
+			<enum name="top_left" value="0" />
+			<enum name="top_right" value="1" />
+			<enum name="bottom_left" value="2" />
+			<enum name="bottom_right" value="3" />
+		</attr>
+	</declare-styleable>
+
+	<declare-styleable name="WireframeSceneView">
+		<attr name="wireframe_flags" format="flags">
+			<flag name="skeletons" value="1" />
+			<flag name="view_borders" value="2" />
+		</attr>
+	</declare-styleable>
+
+	<declare-styleable name="PrettyCodeView">
+		<attr name="pretty_fontSize" format="dimension" />
+		<attr name="pretty_string" format="string" />
+		<attr name="pretty_formatter" format="string" />
+		<attr name="pretty_lineNumber" format="boolean" />
+	</declare-styleable>
+</resources>
