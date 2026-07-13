@@ -3,16 +3,11 @@ object Dependencies {
     // Project level dependencies
 
     private const val gradleVersion = "7.3.1" // 7.3.1, 8.13.2
-    private const val buildInfoExtractorGradleVersion = "4.25.5"
     private const val kotlinVersion = "1.7.20" // 1.7.20, 1.9.0
-    private const val kotlinxMetadataJvmVersion = "0.4.2"
     private const val ktlintVersion = "1.8.0"
 
     const val gradle = "com.android.tools.build:gradle:$gradleVersion"
-    const val gradleApi = "com.android.tools.build:gradle-api:$gradleVersion"
-    const val buildInfoExtractorGradle = "org.jfrog.buildinfo:build-info-extractor-gradle:$buildInfoExtractorGradleVersion"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-    const val kotlinxMetadataJvm = "org.jetbrains.kotlinx:kotlinx-metadata-jvm:$kotlinxMetadataJvmVersion"
     const val ktlint = "com.pinterest.ktlint:ktlint-cli:$ktlintVersion"
 
     object NexusPublish {
