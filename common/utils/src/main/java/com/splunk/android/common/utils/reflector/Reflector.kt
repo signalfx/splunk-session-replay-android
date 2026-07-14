@@ -30,8 +30,6 @@ import com.splunk.android.common.utils.extensions.get as getDirectly
 import com.splunk.android.common.utils.extensions.invoke as invokeDirectly
 import com.splunk.android.common.utils.extensions.set as setDirectly
 
-// MARK Obfuscation-director can't parse @PublishedApi annotation. Manual @Keep annotation is necessary.
-
 @Suppress("UNCHECKED_CAST")
 class Reflector(
     initialReadableFieldSize: Int = 8,
