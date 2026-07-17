@@ -19,7 +19,7 @@ package com.splunk.android.instrumentation.recording.core.job.model
 import android.annotation.SuppressLint
 import android.app.job.JobInfo
 import android.content.Context
-import com.splunk.android.common.job.JobType
+import com.splunk.rum.common.job.JobType
 import com.splunk.android.instrumentation.recording.core.dependencyInjection.DependencyInjectionTree
 import com.splunk.android.instrumentation.recording.core.job.worker.ProcessVideoDataJob
 

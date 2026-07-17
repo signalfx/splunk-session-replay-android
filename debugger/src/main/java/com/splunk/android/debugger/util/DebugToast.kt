@@ -27,8 +27,8 @@ import android.view.WindowManager
 import android.widget.PopupWindow
 import android.widget.TextView
 import android.widget.Toast
-import com.splunk.android.common.utils.dpToPx
-import com.splunk.android.common.utils.dpToPxF
+import com.splunk.rum.common.utils.dpToPx
+import com.splunk.rum.common.utils.dpToPxF
 import com.splunk.android.instrumentation.recording.screenshot.extension.isInvisibleForScreenshot
 import com.splunk.android.instrumentation.recording.wireframe.extension.isInvisibleForWireframe
 

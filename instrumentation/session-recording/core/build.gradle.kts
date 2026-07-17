@@ -25,13 +25,13 @@ android {
 }
 
 dependencies {
-    implementation(project(":common:encoder"))
-    implementation(project(":common:id"))
-    implementation(project(":common:storage"))
-    implementation(project(":common:utils"))
-    implementation(project(":common:logger"))
-    implementation(project(":common:http"))
-    implementation(project(":common:job"))
+    implementation(Dependencies.Android.Common.encoder)
+    implementation(Dependencies.Android.Common.id)
+    implementation(Dependencies.Android.Common.storage)
+    implementation(Dependencies.Android.Common.utils)
+    implementation(Dependencies.Android.Common.logger)
+    implementation(Dependencies.Android.Common.http)
+    implementation(Dependencies.Android.Common.job)
     implementation(project(":bridge"))
     implementation(project(":instrumentation:session-recording:frame-capturer"))
     implementation(project(":instrumentation:session-recording:interactions"))

@@ -19,7 +19,7 @@ package com.splunk.android.sr.testapp.ui.wireframe
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.fragment.app.FragmentActivity
-import com.splunk.android.common.utils.extensions.contentView
+import com.splunk.rum.common.utils.extensions.contentView
 import com.splunk.android.sr.testapp.R
 import com.splunk.android.sr.testapp.ui.dialog.BottomSheetDialogFragment
 

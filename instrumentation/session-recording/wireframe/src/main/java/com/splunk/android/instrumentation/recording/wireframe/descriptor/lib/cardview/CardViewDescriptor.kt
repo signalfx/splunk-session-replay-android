@@ -18,9 +18,9 @@ package com.splunk.android.instrumentation.recording.wireframe.descriptor.lib.ca
 
 import android.view.View
 import androidx.cardview.widget.CardView
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.dpToPxF
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.dpToPxF
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.wireframe.canvas.SkeletonCanvas
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.FrameLayoutDescriptor
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe.Frame.Scene.Window.View.Skeleton

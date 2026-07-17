@@ -22,7 +22,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
-import com.splunk.android.common.utils.dpToPxF
+import com.splunk.rum.common.utils.dpToPxF
 import com.splunk.android.debugger.extension.removeLast
 import java.util.LinkedList
 import kotlin.math.abs

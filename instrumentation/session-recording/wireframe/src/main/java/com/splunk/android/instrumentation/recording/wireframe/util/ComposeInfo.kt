@@ -16,7 +16,7 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.wireframe.util
 
-import com.splunk.android.common.logger.Logger
+import com.splunk.rum.common.logger.Logger
 
 // MARK Required Proguard rules
 

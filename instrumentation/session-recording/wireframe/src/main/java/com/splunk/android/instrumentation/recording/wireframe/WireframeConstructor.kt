@@ -20,10 +20,10 @@ import android.content.Context
 import android.graphics.Point
 import android.graphics.Rect
 import android.view.View
-import com.splunk.android.common.utils.extensions.forEachFast
-import com.splunk.android.common.utils.extensions.isUiContextCompat
-import com.splunk.android.common.utils.extensions.minusAssign
-import com.splunk.android.common.utils.extensions.sortedItemsByDecorViews
+import com.splunk.rum.common.utils.extensions.forEachFast
+import com.splunk.rum.common.utils.extensions.isUiContextCompat
+import com.splunk.rum.common.utils.extensions.minusAssign
+import com.splunk.rum.common.utils.extensions.sortedItemsByDecorViews
 import com.splunk.android.instrumentation.recording.wireframe.extension.forEachView
 import com.splunk.android.instrumentation.recording.wireframe.extension.orientation
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe

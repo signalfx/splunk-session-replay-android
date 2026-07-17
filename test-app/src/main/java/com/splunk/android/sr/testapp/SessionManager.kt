@@ -16,7 +16,7 @@ limitations under the License.
 
 package com.splunk.android.sr.testapp
 
-import com.splunk.android.common.id.NanoId
+import com.splunk.rum.common.id.NanoId
 import kotlin.collections.get
 
 class SessionManager {

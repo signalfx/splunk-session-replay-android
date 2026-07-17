@@ -20,8 +20,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.logger.extensions.toUserMessage
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.logger.extensions.toUserMessage
 import com.splunk.android.sr.testapp.R
 import com.splunk.android.sr.testapp.databinding.FragmentLoggerBinding
 import com.splunk.android.sr.testapp.ui.BaseFragment

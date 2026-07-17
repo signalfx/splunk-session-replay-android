@@ -17,7 +17,7 @@ limitations under the License.
 package com.splunk.android.debugger.extension
 
 import android.graphics.Bitmap
-import com.splunk.android.common.utils.Colors
+import com.splunk.rum.common.utils.Colors
 
 internal val Bitmap.aspectRatio: Float
     get() = width.toFloat() / height

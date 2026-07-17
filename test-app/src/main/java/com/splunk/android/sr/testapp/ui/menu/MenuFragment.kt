@@ -22,8 +22,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.splunk.android.common.utils.extensions.ciscoId
-import com.splunk.android.common.utils.extensions.toRect
+import com.splunk.rum.common.utils.extensions.ciscoId
+import com.splunk.rum.common.utils.extensions.toRect
 import com.splunk.android.instrumentation.recording.core.api.RecordingMask
 import com.splunk.android.instrumentation.recording.core.api.RenderingMode
 import com.splunk.android.instrumentation.recording.core.api.SessionReplay

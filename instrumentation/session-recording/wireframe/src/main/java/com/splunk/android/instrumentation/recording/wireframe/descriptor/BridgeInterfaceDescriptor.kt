@@ -21,7 +21,7 @@ import android.view.SurfaceView
 import android.view.View
 import android.view.ViewGroup
 import com.splunk.android.bridge.model.BridgeInterface
-import com.splunk.android.common.utils.Lock
+import com.splunk.rum.common.utils.Lock
 import com.splunk.android.instrumentation.recording.wireframe.extension.WireframeView
 import com.splunk.android.instrumentation.recording.wireframe.extension.foregroundCompat
 import com.splunk.android.instrumentation.recording.wireframe.extension.isDrawDeterministic

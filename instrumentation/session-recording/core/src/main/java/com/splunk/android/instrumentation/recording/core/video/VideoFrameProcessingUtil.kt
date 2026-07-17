@@ -16,7 +16,7 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.core.video
 
-import com.splunk.android.common.logger.Logger
+import com.splunk.rum.common.logger.Logger
 import com.splunk.android.instrumentation.recording.core.data.ApplicationFrame
 import com.splunk.android.instrumentation.recording.core.data.VideoSize
 import com.splunk.android.instrumentation.recording.core.display.DisplayHandler

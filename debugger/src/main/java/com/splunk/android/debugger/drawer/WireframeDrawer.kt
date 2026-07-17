@@ -23,7 +23,7 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PorterDuff
 import androidx.annotation.IntDef
-import com.splunk.android.common.utils.dpToPxF
+import com.splunk.rum.common.utils.dpToPxF
 import com.splunk.android.debugger.extension.drawRect
 import com.splunk.android.debugger.extension.setColors
 import com.splunk.android.debugger.extension.toDrawElements

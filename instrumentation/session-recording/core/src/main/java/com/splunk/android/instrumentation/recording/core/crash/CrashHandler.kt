@@ -16,7 +16,7 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.core.crash
 
-import com.splunk.android.common.logger.Logger
+import com.splunk.rum.common.logger.Logger
 import com.splunk.android.instrumentation.recording.core.lifecycle.ILifecycleHandler
 
 internal class CrashHandler(

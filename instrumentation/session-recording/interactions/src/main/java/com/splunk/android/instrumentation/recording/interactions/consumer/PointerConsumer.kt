@@ -19,7 +19,7 @@ package com.splunk.android.instrumentation.recording.interactions.consumer
 import android.content.Context
 import android.view.MotionEvent
 import android.view.View
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.interactions.EventConsumer
 import com.splunk.android.instrumentation.recording.interactions.OnInteractionListener
 import com.splunk.android.instrumentation.recording.interactions.extension.composeTargetElementHolder

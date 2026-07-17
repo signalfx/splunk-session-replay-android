@@ -19,7 +19,7 @@ package com.splunk.android.instrumentation.recording.wireframe.util
 import android.animation.LayoutTransition
 import android.view.View
 import android.view.ViewGroup
-import com.splunk.android.common.utils.extensions.noneFast
+import com.splunk.rum.common.utils.extensions.noneFast
 import com.splunk.android.instrumentation.recording.wireframe.R
 
 internal var View.isRunningVisibilityAnimation: Boolean

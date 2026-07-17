@@ -23,10 +23,10 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.os.Build
 import androidx.annotation.ColorInt
-import com.splunk.android.common.utils.dpToPxF
-import com.splunk.android.common.utils.extensions.toArgbHexString
-import com.splunk.android.common.utils.extensions.toClass
-import com.splunk.android.common.utils.runOnAndroidAtLeast
+import com.splunk.rum.common.utils.dpToPxF
+import com.splunk.rum.common.utils.extensions.toArgbHexString
+import com.splunk.rum.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.runOnAndroidAtLeast
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe.Frame.Scene.Window.View.Skeleton
 
 private val BITMAP = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)

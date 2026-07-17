@@ -21,8 +21,8 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Build
-import com.splunk.android.common.utils.Colors
-import com.splunk.android.common.utils.extensions.copyOrNull
+import com.splunk.rum.common.utils.Colors
+import com.splunk.rum.common.utils.extensions.copyOrNull
 import com.splunk.android.instrumentation.recording.wireframe.extension.hasEffect
 import com.splunk.android.instrumentation.recording.wireframe.extension.withAlpha
 import com.splunk.android.instrumentation.recording.wireframe.extension.withColor

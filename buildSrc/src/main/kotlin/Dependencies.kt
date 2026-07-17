@@ -80,6 +80,18 @@ object Dependencies {
             const val animation = "androidx.compose.animation:animation:$version"
             const val foundation = "androidx.compose.foundation:foundation:$foundationVersion"
         }
+
+        object Common {
+            private const val version = "1.0.1"
+
+            const val utils = "com.splunk:rum-common-utils:$version"
+            const val id = "com.splunk:rum-common-id:$version"
+            const val http = "com.splunk:rum-common-http:$version"
+            const val logger = "com.splunk:rum-common-logger:$version"
+            const val storage = "com.splunk:rum-common-storage:$version"
+            const val encoder = "com.splunk:rum-common-encoder:$version"
+            const val job = "com.splunk:rum-common-job:$version"
+        }
     }
 
     object AndroidTest {

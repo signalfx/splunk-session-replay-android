@@ -22,8 +22,8 @@ import android.text.Layout
 import android.view.Gravity
 import android.view.View
 import android.widget.TextView
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.invoke
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.invoke
 import com.splunk.android.instrumentation.recording.wireframe.extension.forEachSkeleton
 import com.splunk.android.instrumentation.recording.wireframe.extension.getSkeleton
 import com.splunk.android.instrumentation.recording.wireframe.extension.isDrawDeterministic

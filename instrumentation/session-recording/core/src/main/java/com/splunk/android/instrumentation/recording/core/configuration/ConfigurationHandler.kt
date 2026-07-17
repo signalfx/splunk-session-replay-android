@@ -17,10 +17,10 @@ limitations under the License.
 package com.splunk.android.instrumentation.recording.core.configuration
 
 import android.media.MediaCodecInfo
-import com.splunk.android.common.encoder.Codec
-import com.splunk.android.common.job.IJobManager
-import com.splunk.android.common.job.JobIdStorage
-import com.splunk.android.common.utils.extensions.forEachFast
+import com.splunk.rum.common.encoder.Codec
+import com.splunk.rum.common.job.IJobManager
+import com.splunk.rum.common.job.JobIdStorage
+import com.splunk.rum.common.utils.extensions.forEachFast
 import com.splunk.android.instrumentation.recording.core.Constants
 import com.splunk.android.instrumentation.recording.core.api.RecordingQuality
 import com.splunk.android.instrumentation.recording.core.api.RenderingMode

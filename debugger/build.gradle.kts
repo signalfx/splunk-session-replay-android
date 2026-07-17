@@ -33,7 +33,7 @@ dependencies {
     implementation(Dependencies.Android.fragment) { exclude("androidx.viewpager", "viewpager") }
     implementation(Dependencies.Android.constraintLayout)
 
-    implementation(project(":common:utils"))
+    implementation(Dependencies.Android.Common.utils)
     implementation(project(":instrumentation:session-recording:core"))
     implementation(project(":instrumentation:session-recording:wireframe"))
     implementation(project(":instrumentation:session-recording:screenshot"))

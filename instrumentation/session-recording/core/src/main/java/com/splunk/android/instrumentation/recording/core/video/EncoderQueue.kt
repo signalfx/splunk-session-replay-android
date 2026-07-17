@@ -17,12 +17,12 @@ limitations under the License.
 package com.splunk.android.instrumentation.recording.core.video
 
 import android.annotation.SuppressLint
-import com.splunk.android.common.encoder.Encoder
-import com.splunk.android.common.encoder.model.VideoFrame
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.map
-import com.splunk.android.common.utils.extensions.safeSubmit
-import com.splunk.android.common.utils.extensions.toJSONObject
+import com.splunk.rum.common.encoder.Encoder
+import com.splunk.rum.common.encoder.model.VideoFrame
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.map
+import com.splunk.rum.common.utils.extensions.safeSubmit
+import com.splunk.rum.common.utils.extensions.toJSONObject
 import com.splunk.android.instrumentation.recording.core.data.DataChunk
 import com.splunk.android.instrumentation.recording.core.job.model.RenderingData
 import com.splunk.android.instrumentation.recording.core.storage.ISessionReplayStorage

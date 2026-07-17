@@ -18,7 +18,7 @@ package com.splunk.android.instrumentation.recording.screenshot.extension
 
 import android.view.View
 import android.view.ViewGroup
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.screenshot.R
 
 private val popupWindowDecorViewClass = "android.widget.PopupWindow\$PopupDecorView".toClass()

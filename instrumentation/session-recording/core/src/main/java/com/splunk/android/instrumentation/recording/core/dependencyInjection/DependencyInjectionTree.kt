@@ -16,9 +16,9 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.core.dependencyInjection
 
-import com.splunk.android.common.job.IJobManager
-import com.splunk.android.common.job.JobIdStorage
-import com.splunk.android.common.job.JobManager
+import com.splunk.rum.common.job.IJobManager
+import com.splunk.rum.common.job.JobIdStorage
+import com.splunk.rum.common.job.JobManager
 import com.splunk.android.instrumentation.recording.core.video.ScreenCapturer
 import com.splunk.android.instrumentation.recording.core.Core
 import com.splunk.android.instrumentation.recording.core.Initializer

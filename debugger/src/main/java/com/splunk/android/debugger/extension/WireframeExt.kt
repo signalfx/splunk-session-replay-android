@@ -19,7 +19,7 @@ package com.splunk.android.debugger.extension
 import android.graphics.Rect
 import android.graphics.Typeface
 import android.os.Build
-import com.splunk.android.common.utils.extensions.toRectF
+import com.splunk.rum.common.utils.extensions.toRectF
 import com.splunk.android.debugger.model.DrawElement
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe.Frame.Scene.Window

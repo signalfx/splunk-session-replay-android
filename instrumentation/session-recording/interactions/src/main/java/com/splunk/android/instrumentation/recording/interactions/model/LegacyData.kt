@@ -18,9 +18,9 @@ package com.splunk.android.instrumentation.recording.interactions.model
 
 import android.graphics.Rect
 import android.view.View
-import com.splunk.android.common.utils.extensions.activity
-import com.splunk.android.common.utils.extensions.ciscoId
-import com.splunk.android.common.utils.legacy.getViewIdentifier
+import com.splunk.rum.common.utils.extensions.activity
+import com.splunk.rum.common.utils.extensions.ciscoId
+import com.splunk.rum.common.utils.legacy.getViewIdentifier
 import com.splunk.android.instrumentation.recording.interactions.extension.globalVisibleRect
 
 data class LegacyData internal constructor(

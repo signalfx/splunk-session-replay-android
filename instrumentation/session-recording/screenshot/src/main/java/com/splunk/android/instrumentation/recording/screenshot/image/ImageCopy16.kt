@@ -26,9 +26,9 @@ import android.view.SurfaceView
 import android.view.TextureView
 import android.view.View
 import androidx.annotation.RequiresApi
-import com.splunk.android.common.utils.extensions.barrier
-import com.splunk.android.common.utils.runOnUiThread
-import com.splunk.android.common.utils.runOnUiThreadSync
+import com.splunk.rum.common.utils.extensions.barrier
+import com.splunk.rum.common.utils.runOnUiThread
+import com.splunk.rum.common.utils.runOnUiThreadSync
 import com.splunk.android.instrumentation.recording.screenshot.cache.CanvasCache
 import com.splunk.android.instrumentation.recording.screenshot.extension.forEach
 import com.splunk.android.instrumentation.recording.wireframe.extension.findViewByInstance

@@ -19,7 +19,7 @@ package com.splunk.android.debugger.view
 import android.content.Context
 import android.util.AttributeSet
 import android.view.ViewGroup
-import com.splunk.android.common.utils.extensions.children
+import com.splunk.rum.common.utils.extensions.children
 import com.splunk.android.debugger.R
 import kotlin.math.cos
 import kotlin.math.sin

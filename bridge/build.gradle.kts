@@ -25,5 +25,5 @@ android {
 dependencies {
     compileOnly(Dependencies.Android.annotation)
 
-    implementation(project(":common:utils"))
+    implementation(Dependencies.Android.Common.utils)
 }

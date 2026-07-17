@@ -16,7 +16,7 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.wireframe.extension
 
-import com.splunk.android.common.utils.extensions.plusAssign
+import com.splunk.rum.common.utils.extensions.plusAssign
 
 internal operator fun <E> List<E>?.plus(element: E): List<E> {
     return when {

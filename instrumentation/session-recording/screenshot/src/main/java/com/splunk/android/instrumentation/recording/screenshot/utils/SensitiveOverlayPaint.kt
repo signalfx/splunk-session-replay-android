@@ -21,7 +21,7 @@ import android.graphics.BitmapShader
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Shader
-import com.splunk.android.common.utils.dpToPx
+import com.splunk.rum.common.utils.dpToPx
 
 internal class SensitiveOverlayPaint : Paint(ANTI_ALIAS_FLAG) {
 

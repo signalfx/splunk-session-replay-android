@@ -18,8 +18,8 @@ package com.splunk.android.bridge
 
 import android.view.View
 import com.splunk.android.bridge.model.BridgeInterface
-import com.splunk.android.common.utils.MutableListObserver
-import com.splunk.android.common.utils.extensions.forEachFast
+import com.splunk.rum.common.utils.MutableListObserver
+import com.splunk.rum.common.utils.extensions.forEachFast
 
 object BridgeManager {
 

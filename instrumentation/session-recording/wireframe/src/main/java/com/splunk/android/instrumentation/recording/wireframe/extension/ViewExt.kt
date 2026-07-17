@@ -20,8 +20,8 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.view.View
 import android.widget.FrameLayout
-import com.splunk.android.common.utils.extensions.get
-import com.splunk.android.common.utils.runOnAndroidAtLeast
+import com.splunk.rum.common.utils.extensions.get
+import com.splunk.rum.common.utils.runOnAndroidAtLeast
 import com.splunk.android.instrumentation.recording.wireframe.R
 
 var View.isInvisibleForWireframe: Boolean

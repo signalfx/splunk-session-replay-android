@@ -20,8 +20,8 @@ import android.app.Activity
 import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.EditText
-import com.splunk.android.common.utils.extensions.activity
-import com.splunk.android.common.utils.extensions.rootView
+import com.splunk.rum.common.utils.extensions.activity
+import com.splunk.rum.common.utils.extensions.rootView
 import com.splunk.android.instrumentation.recording.interactions.EventConsumer
 import com.splunk.android.instrumentation.recording.interactions.OnInteractionListener
 import com.splunk.android.instrumentation.recording.interactions.R

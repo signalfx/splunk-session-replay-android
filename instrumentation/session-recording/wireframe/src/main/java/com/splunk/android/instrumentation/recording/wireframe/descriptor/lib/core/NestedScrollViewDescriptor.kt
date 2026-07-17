@@ -18,7 +18,7 @@ package com.splunk.android.instrumentation.recording.wireframe.descriptor.lib.co
 
 import android.graphics.Point
 import android.view.View
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.ViewGroupDescriptor
 
 /* FIXME

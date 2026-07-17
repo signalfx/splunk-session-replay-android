@@ -16,7 +16,7 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.capturer
 
-import com.splunk.android.common.utils.extensions.forEachFast
+import com.splunk.rum.common.utils.extensions.forEachFast
 import com.splunk.android.instrumentation.recording.screenshot.model.Screenshot
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 import java.util.LinkedList

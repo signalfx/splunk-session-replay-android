@@ -21,9 +21,9 @@ import android.text.Layout
 import android.view.View
 import com.google.android.material.internal.CollapsingTextHelper
 import com.google.android.material.textfield.TextInputLayout
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.toClass
-import com.splunk.android.common.utils.reflector.Reflector
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.reflector.Reflector
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.LinearLayoutDescriptor
 import com.splunk.android.instrumentation.recording.wireframe.extension.forEachSkeleton
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe.Frame.Scene.Window

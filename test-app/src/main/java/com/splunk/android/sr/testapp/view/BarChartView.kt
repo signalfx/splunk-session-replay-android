@@ -23,7 +23,7 @@ import android.graphics.Paint
 import android.os.Build
 import android.util.AttributeSet
 import android.view.View
-import com.splunk.android.common.utils.dpToPxF
+import com.splunk.rum.common.utils.dpToPxF
 import kotlin.math.max
 
 class BarChartView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {

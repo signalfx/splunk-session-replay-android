@@ -21,10 +21,10 @@ import android.graphics.Rect
 import android.view.Gravity
 import android.view.View
 import androidx.drawerlayout.widget.DrawerLayout
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.Colors
-import com.splunk.android.common.utils.extensions.get
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.Colors
+import com.splunk.rum.common.utils.extensions.get
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.ViewGroupDescriptor
 import com.splunk.android.instrumentation.recording.wireframe.extension.layoutDirectionCompat
 import com.splunk.android.instrumentation.recording.wireframe.extension.withAlpha

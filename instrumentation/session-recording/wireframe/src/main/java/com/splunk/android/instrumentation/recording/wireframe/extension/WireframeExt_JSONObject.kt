@@ -18,8 +18,8 @@ package com.splunk.android.instrumentation.recording.wireframe.extension
 
 import android.graphics.Point
 import android.graphics.Rect
-import com.splunk.android.common.utils.Colors
-import com.splunk.android.common.utils.extensions.toArgbHexString
+import com.splunk.rum.common.utils.Colors
+import com.splunk.rum.common.utils.extensions.toArgbHexString
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 import org.json.JSONArray
 import org.json.JSONObject

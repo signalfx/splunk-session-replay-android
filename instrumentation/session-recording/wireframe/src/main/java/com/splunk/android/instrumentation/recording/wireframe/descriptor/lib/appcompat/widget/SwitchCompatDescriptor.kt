@@ -19,9 +19,9 @@ package com.splunk.android.instrumentation.recording.wireframe.descriptor.lib.ap
 import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.appcompat.widget.SwitchCompat
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.plusAssign
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.plusAssign
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.CompoundButtonDescriptor
 import com.splunk.android.instrumentation.recording.wireframe.extension.getSkeleton
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe.Frame.Scene.Window

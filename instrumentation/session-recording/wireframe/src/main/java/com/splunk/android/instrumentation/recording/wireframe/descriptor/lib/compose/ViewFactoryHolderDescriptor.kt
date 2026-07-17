@@ -17,7 +17,7 @@ limitations under the License.
 package com.splunk.android.instrumentation.recording.wireframe.descriptor.lib.compose
 
 import android.view.View
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.extensions.toClass
 
 internal open class ViewFactoryHolderDescriptor : AndroidViewHolderDescriptor() {
 

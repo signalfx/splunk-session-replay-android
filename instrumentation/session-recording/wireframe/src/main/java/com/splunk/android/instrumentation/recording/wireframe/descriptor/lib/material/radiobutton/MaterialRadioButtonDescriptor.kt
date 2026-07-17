@@ -16,7 +16,7 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.wireframe.descriptor.lib.material.radiobutton
 
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.lib.appcompat.widget.AppCompatRadioButtonDescriptor
 
 internal open class MaterialRadioButtonDescriptor : AppCompatRadioButtonDescriptor() {

@@ -23,8 +23,8 @@ import android.view.ViewTreeObserver
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.splunk.android.common.utils.extensions.contentView
-import com.splunk.android.common.utils.extensions.rootView
+import com.splunk.rum.common.utils.extensions.contentView
+import com.splunk.rum.common.utils.extensions.rootView
 import com.splunk.android.instrumentation.recording.core.api.isSensitive
 import com.splunk.android.sr.testapp.R
 import com.splunk.android.sr.testapp.databinding.ActivityMainBinding

@@ -1,9 +1,9 @@
 # Internal API. See internal-api module for more details.
 
 # PreferencesExt.videoBitrate
--keepnames class com.splunk.android.common.encoder.Encoder
+-keepnames class com.splunk.rum.common.encoder.Encoder
 
--keepclassmembers class com.splunk.android.common.encoder.Encoder {
+-keepclassmembers class com.splunk.rum.common.encoder.Encoder {
     java.lang.Integer bitrateOverride;
 }
 

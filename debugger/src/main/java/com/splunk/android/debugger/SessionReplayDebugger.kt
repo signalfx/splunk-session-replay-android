@@ -21,10 +21,10 @@ import android.app.Application
 import android.content.Context
 import android.view.View
 import android.widget.Toast
-import com.splunk.android.common.utils.adapters.ActivityLifecycleCallbacksAdapter
-import com.splunk.android.common.utils.extensions.contentView
-import com.splunk.android.common.utils.extensions.doOnLayout
-import com.splunk.android.common.utils.window.WindowCallbackManager
+import com.splunk.rum.common.utils.adapters.ActivityLifecycleCallbacksAdapter
+import com.splunk.rum.common.utils.extensions.contentView
+import com.splunk.rum.common.utils.extensions.doOnLayout
+import com.splunk.rum.common.utils.window.WindowCallbackManager
 import com.splunk.android.debugger.model.Location
 import com.splunk.android.debugger.model.Shortcut
 import com.splunk.android.debugger.screen.SettingsActivity

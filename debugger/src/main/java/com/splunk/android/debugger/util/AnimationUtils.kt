@@ -19,7 +19,7 @@ package com.splunk.android.debugger.util
 import android.animation.ObjectAnimator
 import android.view.View
 import android.view.ViewAnimationUtils
-import com.splunk.android.common.utils.extensions.doOnLayout
+import com.splunk.rum.common.utils.extensions.doOnLayout
 import com.splunk.android.debugger.extension.addListener
 import com.splunk.android.debugger.extension.getRectOnScreen
 import com.splunk.android.debugger.extension.withDisabledAnimations

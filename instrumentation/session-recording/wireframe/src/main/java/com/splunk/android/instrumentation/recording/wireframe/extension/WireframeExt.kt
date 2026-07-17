@@ -17,7 +17,7 @@ limitations under the License.
 package com.splunk.android.instrumentation.recording.wireframe.extension
 
 import android.graphics.Rect
-import com.splunk.android.common.utils.extensions.forEachFast
+import com.splunk.rum.common.utils.extensions.forEachFast
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 
 typealias WireframeView = Wireframe.Frame.Scene.Window.View

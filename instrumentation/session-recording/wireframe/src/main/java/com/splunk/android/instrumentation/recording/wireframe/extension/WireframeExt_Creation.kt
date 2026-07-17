@@ -17,7 +17,7 @@ limitations under the License.
 package com.splunk.android.instrumentation.recording.wireframe.extension
 
 import android.graphics.Rect
-import com.splunk.android.common.utils.Colors
+import com.splunk.rum.common.utils.Colors
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 import java.util.LinkedList
 

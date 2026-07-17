@@ -16,15 +16,15 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.core.exporter
 
-import com.splunk.android.common.http.extension.write
-import com.splunk.android.common.http.model.part.ByteArrayContent
-import com.splunk.android.common.http.model.part.Content
-import com.splunk.android.common.http.model.part.FileContent
-import com.splunk.android.common.http.model.part.StringContent
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.forEachFast
-import com.splunk.android.common.utils.extensions.toISO8601String
-import com.splunk.android.common.utils.extensions.toJSONObject
+import com.splunk.rum.common.http.extension.write
+import com.splunk.rum.common.http.model.part.ByteArrayContent
+import com.splunk.rum.common.http.model.part.Content
+import com.splunk.rum.common.http.model.part.FileContent
+import com.splunk.rum.common.http.model.part.StringContent
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.forEachFast
+import com.splunk.rum.common.utils.extensions.toISO8601String
+import com.splunk.rum.common.utils.extensions.toJSONObject
 import com.splunk.android.instrumentation.recording.core.Initializer
 import com.splunk.android.instrumentation.recording.core.api.Metadata
 import com.splunk.android.instrumentation.recording.core.data.DataChunk

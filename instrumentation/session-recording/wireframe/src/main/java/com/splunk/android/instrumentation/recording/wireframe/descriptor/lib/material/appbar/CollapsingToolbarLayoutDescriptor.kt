@@ -23,11 +23,11 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.WindowInsetsCompat
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.get
-import com.splunk.android.common.utils.extensions.invoke
-import com.splunk.android.common.utils.extensions.plusAssign
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.get
+import com.splunk.rum.common.utils.extensions.invoke
+import com.splunk.rum.common.utils.extensions.plusAssign
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.wireframe.canvas.SkeletonCanvas
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.FrameLayoutDescriptor
 import com.splunk.android.instrumentation.recording.wireframe.extension.getSkeleton

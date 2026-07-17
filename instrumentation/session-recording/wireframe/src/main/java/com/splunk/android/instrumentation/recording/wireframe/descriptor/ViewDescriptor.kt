@@ -19,10 +19,10 @@ package com.splunk.android.instrumentation.recording.wireframe.descriptor
 import android.graphics.Point
 import android.graphics.Rect
 import android.view.View
-import com.splunk.android.common.utils.dpToPxF
-import com.splunk.android.common.utils.extensions.ciscoIdWithPositionInList
-import com.splunk.android.common.utils.extensions.identity
-import com.splunk.android.common.utils.extensions.plusAssign
+import com.splunk.rum.common.utils.dpToPxF
+import com.splunk.rum.common.utils.extensions.ciscoIdWithPositionInList
+import com.splunk.rum.common.utils.extensions.identity
+import com.splunk.rum.common.utils.extensions.plusAssign
 import com.splunk.android.instrumentation.recording.wireframe.canvas.LoggingSkeletonCanvas
 import com.splunk.android.instrumentation.recording.wireframe.canvas.SkeletonCanvas
 import com.splunk.android.instrumentation.recording.wireframe.extension.canScroll

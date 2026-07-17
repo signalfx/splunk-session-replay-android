@@ -19,7 +19,7 @@ package com.splunk.android.instrumentation.recording.wireframe.extension
 import android.annotation.SuppressLint
 import android.graphics.Typeface
 import android.os.Build
-import com.splunk.android.common.utils.runOnAndroidAtLeast
+import com.splunk.rum.common.utils.runOnAndroidAtLeast
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 
 private const val DEFAULT_FAMILY_NAME = "sans-serif-medium"

@@ -24,7 +24,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.NumberPicker
-import com.splunk.android.common.utils.dpToPx
+import com.splunk.rum.common.utils.dpToPx
 import java.util.UUID
 
 class FocusActivity : Activity() {

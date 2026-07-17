@@ -20,7 +20,7 @@ import android.graphics.Point
 import android.graphics.Rect
 import android.view.View
 import android.view.ViewGroup
-import com.splunk.android.common.utils.extensions.getFragmentContainerViewTag
+import com.splunk.rum.common.utils.extensions.getFragmentContainerViewTag
 import com.splunk.android.instrumentation.recording.wireframe.extension.clipToPaddingCompat
 import com.splunk.android.instrumentation.recording.wireframe.extension.isInvisibleForWireframe
 import com.splunk.android.instrumentation.recording.wireframe.extension.scale

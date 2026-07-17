@@ -19,7 +19,7 @@ package com.splunk.android.debugger.model
 import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.Typeface
-import com.splunk.android.common.utils.Colors
+import com.splunk.rum.common.utils.Colors
 
 internal sealed interface DrawElement {
 

@@ -19,9 +19,9 @@ package com.splunk.android.instrumentation.recording.wireframe.descriptor.lib.re
 import android.graphics.Canvas
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.toClass
-import com.splunk.android.common.utils.reflector.Reflector
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.reflector.Reflector
 import com.splunk.android.instrumentation.recording.wireframe.canvas.SkeletonCanvas
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.ViewGroupDescriptor
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe.Frame.Scene.Window

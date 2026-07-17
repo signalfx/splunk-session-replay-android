@@ -29,7 +29,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.postDelayed
-import com.splunk.android.common.utils.extensions.contentView
+import com.splunk.rum.common.utils.extensions.contentView
 import com.splunk.android.sr.testapp.R
 import com.splunk.android.sr.testapp.databinding.FragmentSlowRenderingBinding
 import com.splunk.android.sr.testapp.ui.BaseFragment

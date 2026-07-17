@@ -22,7 +22,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import com.splunk.android.common.utils.dpToPxF
+import com.splunk.rum.common.utils.dpToPxF
 
 class SequenceView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
 

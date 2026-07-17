@@ -18,12 +18,12 @@ package com.splunk.android.instrumentation.recording.core.lifecycle
 
 import android.app.Activity
 import android.app.Application
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.adapters.ActivityLifecycleCallbacksAdapter
-import com.splunk.android.common.utils.extensions.forEachFast
-import com.splunk.android.common.utils.extensions.safeSchedule
-import com.splunk.android.common.utils.extensions.simpleClassName
-import com.splunk.android.common.utils.thread.NamedThreadFactory
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.adapters.ActivityLifecycleCallbacksAdapter
+import com.splunk.rum.common.utils.extensions.forEachFast
+import com.splunk.rum.common.utils.extensions.safeSchedule
+import com.splunk.rum.common.utils.extensions.simpleClassName
+import com.splunk.rum.common.utils.thread.NamedThreadFactory
 import com.splunk.android.instrumentation.recording.core.display.DisplayHandler
 import java.lang.ref.WeakReference
 import java.util.concurrent.Executors

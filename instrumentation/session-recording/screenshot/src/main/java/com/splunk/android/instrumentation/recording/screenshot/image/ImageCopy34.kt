@@ -23,7 +23,7 @@ import android.view.PixelCopy
 import android.view.PixelCopy.OnPixelCopyFinishedListener
 import android.view.Surface
 import androidx.annotation.RequiresApi
-import com.splunk.android.common.utils.Lock
+import com.splunk.rum.common.utils.Lock
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 internal open class ImageCopy34 : ImageCopy26() {

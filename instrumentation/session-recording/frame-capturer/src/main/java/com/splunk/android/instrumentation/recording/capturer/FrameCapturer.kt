@@ -25,8 +25,8 @@ import android.view.View
 import androidx.annotation.MainThread
 import androidx.annotation.RequiresApi
 import com.splunk.android.bridge.BridgeManager
-import com.splunk.android.common.utils.Lock
-import com.splunk.android.common.utils.adapters.ActivityLifecycleCallbacksAdapter
+import com.splunk.rum.common.utils.Lock
+import com.splunk.rum.common.utils.adapters.ActivityLifecycleCallbacksAdapter
 import com.splunk.android.instrumentation.recording.capturer.utils.FrameRateManager
 import com.splunk.android.instrumentation.recording.screenshot.ScreenshotConstructor
 import com.splunk.android.instrumentation.recording.screenshot.extension.createEmpty

@@ -18,8 +18,8 @@ package com.splunk.android.instrumentation.recording.wireframe.model
 
 import android.graphics.Point
 import android.graphics.Rect
-import com.splunk.android.common.utils.Colors
-import com.splunk.android.common.utils.Lock
+import com.splunk.rum.common.utils.Colors
+import com.splunk.rum.common.utils.Lock
 
 /**
  * Structure that simplify content of the screen.

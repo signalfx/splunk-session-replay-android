@@ -19,8 +19,8 @@ package com.splunk.android.instrumentation.recording.interactions.extension
 import android.content.Context
 import android.os.Build
 import android.view.Display
-import com.splunk.android.common.utils.extensions.windowManager
-import com.splunk.android.common.utils.runOnAndroidAtLeast
+import com.splunk.rum.common.utils.extensions.windowManager
+import com.splunk.rum.common.utils.runOnAndroidAtLeast
 
 @get:Suppress("DEPRECATION")
 internal val Context.displayCompat: Display

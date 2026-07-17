@@ -17,11 +17,11 @@ limitations under the License.
 package com.splunk.android.sr.testapp
 
 import android.util.Log
-import com.splunk.android.common.http.HttpClient
-import com.splunk.android.common.http.model.Header
-import com.splunk.android.common.http.model.Response
-import com.splunk.android.common.http.model.part.ByteArrayContent
-import com.splunk.android.common.http.model.part.StringContent
+import com.splunk.rum.common.http.HttpClient
+import com.splunk.rum.common.http.model.Header
+import com.splunk.rum.common.http.model.Response
+import com.splunk.rum.common.http.model.part.ByteArrayContent
+import com.splunk.rum.common.http.model.part.StringContent
 import com.splunk.android.instrumentation.recording.core.api.DataListener
 import com.splunk.android.instrumentation.recording.core.api.Metadata
 import com.splunk.android.instrumentation.recording.core.api.SessionReplay

@@ -22,8 +22,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.splunk.android.common.utils.runOnBackgroundThread
-import com.splunk.android.common.utils.runOnUiThread
+import com.splunk.rum.common.utils.runOnBackgroundThread
+import com.splunk.rum.common.utils.runOnUiThread
 import com.splunk.android.debugger.R
 import com.splunk.android.debugger.databinding.SldFragmentWireframeModelBinding
 import com.splunk.android.debugger.drawer.WireframeDrawer

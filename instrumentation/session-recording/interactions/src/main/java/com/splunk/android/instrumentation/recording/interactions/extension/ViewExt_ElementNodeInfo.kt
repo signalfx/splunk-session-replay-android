@@ -18,11 +18,11 @@ package com.splunk.android.instrumentation.recording.interactions.extension
 
 import android.view.View
 import android.view.ViewGroup
-import com.splunk.android.common.utils.extensions.get
-import com.splunk.android.common.utils.extensions.getFragmentContainerViewTag
-import com.splunk.android.common.utils.extensions.getPositionInList
-import com.splunk.android.common.utils.extensions.identity
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.extensions.get
+import com.splunk.rum.common.utils.extensions.getFragmentContainerViewTag
+import com.splunk.rum.common.utils.extensions.getPositionInList
+import com.splunk.rum.common.utils.extensions.identity
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.interactions.model.ElementNodeInfo
 
 // MARK Needs Proguard rules

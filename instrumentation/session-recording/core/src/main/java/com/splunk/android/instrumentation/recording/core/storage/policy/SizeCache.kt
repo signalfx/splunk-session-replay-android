@@ -16,9 +16,9 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.core.storage.policy
 
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.safeSubmit
-import com.splunk.android.common.utils.thread.NamedThreadFactory
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.safeSubmit
+import com.splunk.rum.common.utils.thread.NamedThreadFactory
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors

@@ -16,9 +16,9 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.core.video
 
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.safeSubmit
-import com.splunk.android.common.utils.extensions.toJSONObject
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.safeSubmit
+import com.splunk.rum.common.utils.extensions.toJSONObject
 import com.splunk.android.instrumentation.recording.core.data.DataChunk
 import com.splunk.android.instrumentation.recording.core.data.containsNative
 import com.splunk.android.instrumentation.recording.core.data.containsWireframe

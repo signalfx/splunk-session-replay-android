@@ -18,16 +18,16 @@ package com.splunk.android.instrumentation.recording.core.storage
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.storage.Storage
-import com.splunk.android.common.storage.cache.FilePermanentCache
-import com.splunk.android.common.storage.cache.FileSimplePermanentCache
-import com.splunk.android.common.storage.extensions.createNewFileOnPath
-import com.splunk.android.common.storage.extensions.noBackupFilesDirCompat
-import com.splunk.android.common.storage.filemanager.EncryptedFileManager
-import com.splunk.android.common.storage.filemanager.FileManagerFactory
-import com.splunk.android.common.storage.preferences.Preferences
-import com.splunk.android.common.utils.runOnBackgroundThread
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.storage.Storage
+import com.splunk.rum.common.storage.cache.FilePermanentCache
+import com.splunk.rum.common.storage.cache.FileSimplePermanentCache
+import com.splunk.rum.common.storage.extensions.createNewFileOnPath
+import com.splunk.rum.common.storage.extensions.noBackupFilesDirCompat
+import com.splunk.rum.common.storage.filemanager.EncryptedFileManager
+import com.splunk.rum.common.storage.filemanager.FileManagerFactory
+import com.splunk.rum.common.storage.preferences.Preferences
+import com.splunk.rum.common.utils.runOnBackgroundThread
 import com.splunk.android.instrumentation.recording.core.storage.extension.MB
 import com.splunk.android.instrumentation.recording.core.storage.extension.oldestChildDir
 import com.splunk.android.instrumentation.recording.core.storage.extension.statFsFreeSpace

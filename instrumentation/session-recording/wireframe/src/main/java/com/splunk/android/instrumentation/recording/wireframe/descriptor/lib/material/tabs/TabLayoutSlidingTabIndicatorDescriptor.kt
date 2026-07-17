@@ -21,11 +21,11 @@ import android.graphics.Paint
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayout
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.Colors
-import com.splunk.android.common.utils.extensions.plusAssign
-import com.splunk.android.common.utils.extensions.toClass
-import com.splunk.android.common.utils.reflector.Reflector
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.Colors
+import com.splunk.rum.common.utils.extensions.plusAssign
+import com.splunk.rum.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.reflector.Reflector
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.LinearLayoutDescriptor
 import com.splunk.android.instrumentation.recording.wireframe.extension.getSkeleton
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe.Frame.Scene.Window

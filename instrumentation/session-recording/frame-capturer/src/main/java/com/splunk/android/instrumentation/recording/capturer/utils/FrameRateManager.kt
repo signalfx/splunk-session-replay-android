@@ -23,16 +23,15 @@ import android.os.SystemClock
 import android.view.Choreographer
 import android.view.View
 import android.view.ViewTreeObserver
-import com.splunk.android.common.utils.AppStateObserver
-import com.splunk.android.common.utils.RootViewObserver
-import com.splunk.android.common.utils.adapters.ActivityLifecycleCallbacksAdapter
-import com.splunk.android.common.utils.extensions.rootView
+import com.splunk.rum.common.utils.AppStateObserver
+import com.splunk.rum.common.utils.RootViewObserver
+import com.splunk.rum.common.utils.adapters.ActivityLifecycleCallbacksAdapter
+import com.splunk.rum.common.utils.extensions.rootView
 import com.splunk.android.instrumentation.recording.capturer.R
 
 internal class FrameRateManager {
 
     private val choreographer = Choreographer.getInstance()
-    private val appStateObserver = AppStateObserver()
     private val pendingChangedViews = HashSet<View>()
     private val pausedViews = HashSet<View>()
 
@@ -54,8 +53,8 @@ internal class FrameRateManager {
     fun attach(application: Application) {
         application.registerActivityLifecycleCallbacks(activityLifecycleCallbacks)
 
-        appStateObserver.listener = appStateObserverListener
-        appStateObserver.attach(application)
+        AppStateObserver.listeners += appStateObserverListener
+        AppStateObserver.attach(application)
 
         RootViewObserver.listeners += rootViewObserverListener
         RootViewObserver.attach(application)

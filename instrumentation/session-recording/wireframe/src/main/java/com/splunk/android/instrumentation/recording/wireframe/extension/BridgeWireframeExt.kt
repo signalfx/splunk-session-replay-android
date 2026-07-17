@@ -17,7 +17,7 @@ limitations under the License.
 package com.splunk.android.instrumentation.recording.wireframe.extension
 
 import com.splunk.android.bridge.model.BridgeWireframe
-import com.splunk.android.common.utils.extensions.identity
+import com.splunk.rum.common.utils.extensions.identity
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 
 internal fun BridgeWireframe.View.toWireframeView(): WireframeView {

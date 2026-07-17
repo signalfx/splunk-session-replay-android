@@ -24,8 +24,8 @@ import android.view.PixelCopy
 import android.view.Surface
 import android.view.View
 import androidx.annotation.RequiresApi
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.get
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.get
 import com.splunk.android.instrumentation.recording.screenshot.cache.IntArrayCache
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 

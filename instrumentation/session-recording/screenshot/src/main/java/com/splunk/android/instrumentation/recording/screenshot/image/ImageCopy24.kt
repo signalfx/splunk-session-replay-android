@@ -28,9 +28,9 @@ import android.view.SurfaceView
 import android.view.View
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.get
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.get
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.screenshot.cache.BitmapCache
 import com.splunk.android.instrumentation.recording.screenshot.cache.CanvasCache
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe

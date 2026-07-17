@@ -33,7 +33,7 @@ import android.graphics.fonts.Font
 import android.graphics.text.MeasuredText
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.splunk.android.common.logger.Logger
+import com.splunk.rum.common.logger.Logger
 import com.splunk.android.instrumentation.recording.wireframe.extension.toPrettyString
 
 @Suppress("DEPRECATION", "OVERRIDE_DEPRECATION", "OverridingDeprecatedMember")

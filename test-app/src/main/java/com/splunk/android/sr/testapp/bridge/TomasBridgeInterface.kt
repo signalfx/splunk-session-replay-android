@@ -23,8 +23,8 @@ import android.view.View
 import com.splunk.android.bridge.model.BridgeFrameworkInfo
 import com.splunk.android.bridge.model.BridgeInterface
 import com.splunk.android.bridge.model.BridgeWireframe
-import com.splunk.android.common.utils.Colors
-import com.splunk.android.common.utils.extensions.safeSubmit
+import com.splunk.rum.common.utils.Colors
+import com.splunk.rum.common.utils.extensions.safeSubmit
 import com.splunk.android.sr.testapp.view.bridge.TomasElement
 import com.splunk.android.sr.testapp.view.bridge.TomasView
 import java.util.concurrent.Executors

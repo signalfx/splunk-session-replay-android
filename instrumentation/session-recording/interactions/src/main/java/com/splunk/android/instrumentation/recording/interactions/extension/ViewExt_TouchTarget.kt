@@ -19,7 +19,7 @@ package com.splunk.android.instrumentation.recording.interactions.extension
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
-import com.splunk.android.common.utils.reflector.Reflector
+import com.splunk.rum.common.utils.reflector.Reflector
 
 private val reflector = Reflector(4, 0, 0)
 

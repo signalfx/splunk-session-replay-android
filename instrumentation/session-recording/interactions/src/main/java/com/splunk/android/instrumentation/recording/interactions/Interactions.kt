@@ -23,10 +23,10 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.view.Window
-import com.splunk.android.common.utils.adapters.ActivityLifecycleCallbacksAdapter
-import com.splunk.android.common.utils.extensions.forEachFast
-import com.splunk.android.common.utils.window.WindowCallbackManager
-import com.splunk.android.common.utils.window.WindowCallbackWrapper
+import com.splunk.rum.common.utils.adapters.ActivityLifecycleCallbacksAdapter
+import com.splunk.rum.common.utils.extensions.forEachFast
+import com.splunk.rum.common.utils.window.WindowCallbackManager
+import com.splunk.rum.common.utils.window.WindowCallbackWrapper
 import com.splunk.android.instrumentation.recording.interactions.consumer.ButtonConsumer
 import com.splunk.android.instrumentation.recording.interactions.consumer.FocusConsumer
 import com.splunk.android.instrumentation.recording.interactions.consumer.KeyboardConsumer

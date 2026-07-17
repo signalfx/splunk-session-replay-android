@@ -17,7 +17,7 @@ limitations under the License.
 package com.splunk.android.instrumentation.recording.screenshot.extension
 
 import android.app.Activity
-import com.splunk.android.common.utils.extensions.contentView
+import com.splunk.rum.common.utils.extensions.contentView
 
 var Activity.isInvisibleForScreenshot: Boolean
     get() = contentView?.isInvisibleForScreenshot ?: error("Must be called after setContentView()")

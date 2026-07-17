@@ -16,7 +16,7 @@ limitations under the License.
 
 package com.splunk.android.bridge.extensions
 
-import com.splunk.android.common.utils.pxToDp
+import com.splunk.rum.common.utils.pxToDp
 
 /**
  * Converts px to dp. Do not remove, used by bridge.

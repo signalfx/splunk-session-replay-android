@@ -25,7 +25,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":common:utils"))
+    implementation(Dependencies.Android.Common.utils)
     implementation(project(":bridge"))
     api(project(":instrumentation:session-recording:screenshot"))
     api(project(":instrumentation:session-recording:wireframe"))

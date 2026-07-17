@@ -17,8 +17,8 @@ limitations under the License.
 package com.splunk.android.instrumentation.recording.screenshot.extension
 
 import android.view.SurfaceView
-import com.splunk.android.common.utils.extensions.get
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.extensions.get
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.screenshot.R
 
 // MARK Requires Proguard rules

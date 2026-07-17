@@ -22,9 +22,9 @@ import android.os.StrictMode
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.splunk.android.bridge.BridgeManager
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.logger.consumers.AndroidLogConsumer
-import com.splunk.android.common.logger.consumers.SystemConsumer
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.logger.consumers.AndroidLogConsumer
+import com.splunk.rum.common.logger.consumers.SystemConsumer
 import com.splunk.android.sr.testapp.bridge.TomasBridgeInterface
 import com.splunk.android.sr.testapp.util.AppPreferences
 

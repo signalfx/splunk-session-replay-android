@@ -16,9 +16,9 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.core.data
 
-import com.splunk.android.common.id.NanoId
-import com.splunk.android.common.utils.extensions.map
-import com.splunk.android.common.utils.extensions.toJSONArray
+import com.splunk.rum.common.id.NanoId
+import com.splunk.rum.common.utils.extensions.map
+import com.splunk.rum.common.utils.extensions.toJSONArray
 import com.splunk.android.instrumentation.recording.core.Constants
 import com.splunk.android.instrumentation.recording.core.video.VideoFrameProcessingUtil
 import org.json.JSONArray

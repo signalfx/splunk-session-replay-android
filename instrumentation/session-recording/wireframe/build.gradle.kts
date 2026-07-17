@@ -30,8 +30,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":common:utils"))
-    implementation(project(":common:logger"))
+    implementation(Dependencies.Android.Common.utils)
+    implementation(Dependencies.Android.Common.logger)
     implementation(project(":bridge"))
 
     compileOnly(Dependencies.Android.annotation)

@@ -16,7 +16,7 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.wireframe.identifier
 
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.wireframe.extension.isInheritedBy
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe.Frame.Scene.Window
 

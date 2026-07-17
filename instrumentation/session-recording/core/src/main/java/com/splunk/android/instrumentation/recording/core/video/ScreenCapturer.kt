@@ -18,13 +18,13 @@ package com.splunk.android.instrumentation.recording.core.video
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.compress
-import com.splunk.android.common.utils.extensions.safeSchedule
-import com.splunk.android.common.utils.extensions.safeSubmit
-import com.splunk.android.common.utils.extensions.toJSONArray
-import com.splunk.android.common.utils.runOnUiThread
-import com.splunk.android.common.utils.thread.NamedThreadFactory
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.compress
+import com.splunk.rum.common.utils.extensions.safeSchedule
+import com.splunk.rum.common.utils.extensions.safeSubmit
+import com.splunk.rum.common.utils.extensions.toJSONArray
+import com.splunk.rum.common.utils.runOnUiThread
+import com.splunk.rum.common.utils.thread.NamedThreadFactory
 import com.splunk.android.instrumentation.recording.capturer.FrameCapturer
 import com.splunk.android.instrumentation.recording.core.Constants.MAX_RECORD_LENGTH
 import com.splunk.android.instrumentation.recording.core.Initializer

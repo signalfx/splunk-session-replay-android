@@ -28,7 +28,7 @@ import android.graphics.drawable.DrawableWrapper
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
 import android.os.Build
-import com.splunk.android.common.utils.Colors
+import com.splunk.rum.common.utils.Colors
 import com.splunk.android.instrumentation.recording.wireframe.canvas.SwSafeCanvas
 import com.splunk.android.instrumentation.recording.wireframe.extension.translate
 import com.splunk.android.instrumentation.recording.wireframe.stats.StatsCollector

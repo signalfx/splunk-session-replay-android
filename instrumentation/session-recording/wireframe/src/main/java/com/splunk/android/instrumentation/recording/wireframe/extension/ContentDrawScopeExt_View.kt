@@ -19,8 +19,8 @@ package com.splunk.android.instrumentation.recording.wireframe.extension
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.reflector.Reflector
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.reflector.Reflector
 import com.splunk.android.instrumentation.recording.wireframe.util.ComposeInfo
 import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_2
 import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_3

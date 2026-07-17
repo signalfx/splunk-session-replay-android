@@ -21,7 +21,7 @@ import android.app.Application
 import android.graphics.Rect
 import android.os.Build
 import android.view.View
-import com.splunk.android.common.utils.Region
+import com.splunk.rum.common.utils.Region
 import com.splunk.android.instrumentation.recording.capturer.FrameCapturer
 import com.splunk.android.instrumentation.recording.capturer.ScreenMasksProvider
 import com.splunk.android.instrumentation.recording.core.api.RecordingMask

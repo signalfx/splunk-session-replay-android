@@ -18,8 +18,8 @@ package com.splunk.android.instrumentation.recording.wireframe.extension
 
 import android.graphics.Canvas
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.reflector.Reflector
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.reflector.Reflector
 
 // MARK Requires Proguard rules
 

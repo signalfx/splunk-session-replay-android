@@ -25,7 +25,7 @@ import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.InsetDrawable
 import android.graphics.drawable.LayerDrawable
 import android.os.Build
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.wireframe.canvas.SkeletonCanvas
 import com.splunk.android.instrumentation.recording.wireframe.estimator.DrawableColorsEstimator
 import com.splunk.android.instrumentation.recording.wireframe.estimator.DrawableColorsEstimator.unwrap

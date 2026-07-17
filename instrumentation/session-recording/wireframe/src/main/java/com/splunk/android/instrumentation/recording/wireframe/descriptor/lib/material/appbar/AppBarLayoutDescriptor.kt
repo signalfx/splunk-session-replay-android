@@ -18,9 +18,9 @@ package com.splunk.android.instrumentation.recording.wireframe.descriptor.lib.ma
 
 import android.graphics.drawable.Drawable
 import android.view.View
-import com.splunk.android.common.logger.Logger
-import com.splunk.android.common.utils.extensions.get
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.logger.Logger
+import com.splunk.rum.common.utils.extensions.get
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.LinearLayoutDescriptor
 import com.splunk.android.instrumentation.recording.wireframe.extension.getSkeleton
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe.Frame.Scene.Window

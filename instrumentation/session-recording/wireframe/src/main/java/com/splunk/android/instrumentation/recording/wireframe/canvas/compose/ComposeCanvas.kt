@@ -18,7 +18,7 @@ package com.splunk.android.instrumentation.recording.wireframe.canvas.compose
 
 import android.graphics.Rect
 import android.view.View
-import com.splunk.android.common.utils.MutableListObserver
+import com.splunk.rum.common.utils.MutableListObserver
 import com.splunk.android.instrumentation.recording.wireframe.R
 import com.splunk.android.instrumentation.recording.wireframe.canvas.SkeletonCanvas
 import com.splunk.android.instrumentation.recording.wireframe.extension.WireframeView

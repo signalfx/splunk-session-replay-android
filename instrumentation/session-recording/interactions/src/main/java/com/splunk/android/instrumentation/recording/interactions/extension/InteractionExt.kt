@@ -17,8 +17,8 @@ limitations under the License.
 package com.splunk.android.instrumentation.recording.interactions.extension
 
 import android.graphics.Rect
-import com.splunk.android.common.utils.dpToPx
-import com.splunk.android.common.utils.extensions.plusAssign
+import com.splunk.rum.common.utils.dpToPx
+import com.splunk.rum.common.utils.extensions.plusAssign
 import com.splunk.android.instrumentation.recording.interactions.model.ElementNode
 import com.splunk.android.instrumentation.recording.interactions.model.Interaction
 import kotlin.math.abs

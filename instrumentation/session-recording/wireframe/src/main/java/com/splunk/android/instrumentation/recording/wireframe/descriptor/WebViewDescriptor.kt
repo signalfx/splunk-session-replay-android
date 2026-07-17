@@ -21,7 +21,7 @@ import android.graphics.Rect
 import android.os.Build
 import android.view.View
 import android.webkit.WebView
-import com.splunk.android.common.utils.Lock
+import com.splunk.rum.common.utils.Lock
 import com.splunk.android.instrumentation.recording.wireframe.extension.WireframeView
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe.Frame.Scene.Window
 import com.splunk.android.instrumentation.recording.wireframe.util.FragmentConsumer

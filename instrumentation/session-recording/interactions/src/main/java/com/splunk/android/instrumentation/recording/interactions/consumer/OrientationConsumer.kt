@@ -26,7 +26,7 @@ import android.view.OrientationEventListener
 import android.view.Surface
 import android.view.View
 import androidx.annotation.RequiresApi
-import com.splunk.android.common.utils.extensions.activity
+import com.splunk.rum.common.utils.extensions.activity
 import com.splunk.android.instrumentation.recording.interactions.EventConsumer
 import com.splunk.android.instrumentation.recording.interactions.OnInteractionListener
 import com.splunk.android.instrumentation.recording.interactions.extension.displayCompat
