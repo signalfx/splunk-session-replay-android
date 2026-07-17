@@ -34,9 +34,9 @@ dependencies {
     implementation(Dependencies.Android.constraintLayout)
 
     implementation(Dependencies.Android.Common.utils)
-    implementation(project(":instrumentation:session-recording:core"))
-    implementation(project(":instrumentation:session-recording:wireframe"))
-    implementation(project(":instrumentation:session-recording:screenshot"))
-    implementation(project(":instrumentation:session-recording:frame-capturer"))
-    implementation(project(":instrumentation:session-recording:interactions"))
+    implementation(project(":core"))
+    implementation(project(":wireframe"))
+    implementation(project(":screenshot"))
+    implementation(project(":frame-capturer"))
+    implementation(project(":interactions"))
 }

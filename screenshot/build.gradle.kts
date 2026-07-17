@@ -29,5 +29,5 @@ dependencies {
 
     implementation(Dependencies.Android.Common.utils)
     implementation(Dependencies.Android.Common.logger)
-    implementation(project(":instrumentation:session-recording:wireframe"))
+    implementation(project(":wireframe"))
 }

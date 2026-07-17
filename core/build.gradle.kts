@@ -21,14 +21,24 @@ ext {
 }
 
 android {
-    namespace = "com.splunk.android.instrumentation.recording.capturer"
+    namespace = "com.splunk.android.instrumentation.recording.core"
 }
 
 dependencies {
+    implementation(Dependencies.Android.Common.encoder)
+    implementation(Dependencies.Android.Common.id)
+    implementation(Dependencies.Android.Common.storage)
     implementation(Dependencies.Android.Common.utils)
+    implementation(Dependencies.Android.Common.logger)
+    implementation(Dependencies.Android.Common.http)
+    implementation(Dependencies.Android.Common.job)
     implementation(project(":bridge"))
-    api(project(":instrumentation:session-recording:screenshot"))
-    api(project(":instrumentation:session-recording:wireframe"))
+    implementation(project(":frame-capturer"))
+    implementation(project(":interactions"))
+    api(project(":screenshot"))
+    api(project(":wireframe"))
 
     compileOnly(Dependencies.Android.annotation)
+    compileOnly(Dependencies.Android.appcompat)
+    compileOnly(Dependencies.Android.material)
 }

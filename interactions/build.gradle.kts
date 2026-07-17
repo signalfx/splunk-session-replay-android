@@ -47,8 +47,8 @@ android {
 dependencies {
     implementation(Dependencies.Android.Common.utils)
     implementation(Dependencies.Android.Common.logger)
-    implementation(project(":instrumentation:session-recording:wireframe"))
-    implementation(project(":instrumentation:session-recording:screenshot"))
+    implementation(project(":wireframe"))
+    implementation(project(":screenshot"))
 
     compileOnly(Dependencies.Android.Compose.ui)
 

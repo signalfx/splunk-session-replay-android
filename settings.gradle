@@ -7,8 +7,8 @@ include ':debugger'
 include ':test-app'
 
 // Instrumentation
-include ':instrumentation:session-recording:frame-capturer',
-		':instrumentation:session-recording:interactions',
-		':instrumentation:session-recording:wireframe',
-		':instrumentation:session-recording:screenshot',
-		':instrumentation:session-recording:core'
+include ':frame-capturer',
+		':interactions',
+		':wireframe',
+		':screenshot',
+		':core'
