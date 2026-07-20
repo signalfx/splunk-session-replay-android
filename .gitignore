@@ -115,3 +115,5 @@ google-services.json
 
 # Maven local repo
 **/repo/*
+
+.DS_Store
