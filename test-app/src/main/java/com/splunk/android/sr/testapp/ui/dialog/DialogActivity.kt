@@ -18,7 +18,7 @@ package com.splunk.android.sr.testapp.ui.dialog
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
-import com.splunk.android.common.utils.extensions.contentView
+import com.splunk.rum.common.utils.extensions.contentView
 import com.splunk.android.instrumentation.recording.core.api.isSensitive
 import com.splunk.android.sr.testapp.databinding.FragmentDialogBinding
 

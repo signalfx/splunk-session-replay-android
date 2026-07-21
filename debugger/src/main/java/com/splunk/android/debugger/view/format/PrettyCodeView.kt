@@ -27,8 +27,8 @@ import android.view.VelocityTracker
 import android.view.View
 import android.view.ViewConfiguration
 import android.widget.OverScroller
-import com.splunk.android.common.utils.dpToPx
-import com.splunk.android.common.utils.dpToPxF
+import com.splunk.rum.common.utils.dpToPx
+import com.splunk.rum.common.utils.dpToPxF
 import com.splunk.android.debugger.R
 import kotlin.math.ceil
 import kotlin.math.max

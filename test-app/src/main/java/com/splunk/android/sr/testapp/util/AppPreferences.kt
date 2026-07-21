@@ -17,12 +17,12 @@ limitations under the License.
 package com.splunk.android.sr.testapp.util
 
 import android.content.Context
-import com.splunk.android.common.storage.cache.FileSimplePermanentCache
-import com.splunk.android.common.storage.extensions.noBackupFilesDirCompat
-import com.splunk.android.common.storage.filemanager.FileManagerFactory
-import com.splunk.android.common.storage.preferences.Preferences
-import com.splunk.android.common.utils.Lock
-import com.splunk.android.common.utils.runOnBackgroundThread
+import com.splunk.rum.common.storage.cache.FileSimplePermanentCache
+import com.splunk.rum.common.storage.extensions.noBackupFilesDirCompat
+import com.splunk.rum.common.storage.filemanager.FileManagerFactory
+import com.splunk.rum.common.storage.preferences.Preferences
+import com.splunk.rum.common.utils.Lock
+import com.splunk.rum.common.utils.runOnBackgroundThread
 import java.io.File
 
 class AppPreferences private constructor() {

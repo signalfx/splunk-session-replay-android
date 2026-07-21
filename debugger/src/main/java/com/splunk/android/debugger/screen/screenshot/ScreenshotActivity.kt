@@ -24,8 +24,8 @@ import android.os.Bundle
 import android.os.Environment
 import android.view.View
 import androidx.fragment.app.FragmentActivity
-import com.splunk.android.common.utils.extensions.contentView
-import com.splunk.android.common.utils.runOnBackgroundThread
+import com.splunk.rum.common.utils.extensions.contentView
+import com.splunk.rum.common.utils.runOnBackgroundThread
 import com.splunk.android.debugger.R
 import com.splunk.android.debugger.databinding.SldActivityScreenshotBinding
 import com.splunk.android.debugger.encoder.VideoEncoder

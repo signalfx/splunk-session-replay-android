@@ -18,7 +18,7 @@ package com.splunk.android.bridge.model
 
 import android.graphics.Point
 import android.graphics.Rect
-import com.splunk.android.common.utils.Colors
+import com.splunk.rum.common.utils.Colors
 
 /**
  * Wireframe description. [View.rect] and [View.Skeleton.rect] must be different instances!

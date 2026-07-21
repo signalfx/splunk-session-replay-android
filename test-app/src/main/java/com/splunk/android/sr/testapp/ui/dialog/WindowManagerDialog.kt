@@ -24,8 +24,8 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.WindowManager
 import android.widget.FrameLayout
-import com.splunk.android.common.utils.dpToPxF
-import com.splunk.android.common.utils.extensions.windowManager
+import com.splunk.rum.common.utils.dpToPxF
+import com.splunk.rum.common.utils.extensions.windowManager
 import com.splunk.android.sr.testapp.databinding.FragmentDialogBinding
 
 object WindowManagerDialog {

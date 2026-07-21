@@ -29,7 +29,7 @@ import android.widget.RadioGroup
 import android.widget.SeekBar
 import androidx.core.content.res.ResourcesCompat
 import com.splunk.android.instrumentation.recording.capturer.FrameCapturer
-import com.splunk.android.common.utils.extensions.contentView
+import com.splunk.rum.common.utils.extensions.contentView
 import com.splunk.android.debugger.R
 import com.splunk.android.debugger.databinding.SldActivitySettingsBinding
 import com.splunk.android.debugger.model.Location

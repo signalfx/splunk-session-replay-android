@@ -1,1 +1,0 @@
--dontwarn com.splunk.android.common.logger.**

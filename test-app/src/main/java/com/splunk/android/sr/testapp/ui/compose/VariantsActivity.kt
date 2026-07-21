@@ -48,7 +48,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.splunk.android.common.utils.extensions.toClass
+import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.sr.testapp.R
 import com.splunk.android.sr.testapp.util.sessionReplay
 

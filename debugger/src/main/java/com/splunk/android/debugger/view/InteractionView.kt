@@ -26,8 +26,8 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.AttributeSet
 import android.view.Choreographer
-import com.splunk.android.common.utils.dpToPxF
-import com.splunk.android.common.utils.extensions.findInstance
+import com.splunk.rum.common.utils.dpToPxF
+import com.splunk.rum.common.utils.extensions.findInstance
 import com.splunk.android.debugger.R
 import com.splunk.android.debugger.extension.aspectRatio
 import com.splunk.android.debugger.extension.clipOutPathCompat

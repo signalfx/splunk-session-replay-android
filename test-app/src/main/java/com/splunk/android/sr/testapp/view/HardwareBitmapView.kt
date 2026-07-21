@@ -30,7 +30,7 @@ import android.os.Build
 import android.util.AttributeSet
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatImageView
-import com.splunk.android.common.utils.dpToPxF
+import com.splunk.rum.common.utils.dpToPxF
 import com.splunk.android.sr.testapp.R
 
 class HardwareBitmapView(context: Context, attrs: AttributeSet? = null) : AppCompatImageView(context, attrs) {

@@ -1,0 +1,45 @@
+/*
+Copyright 2026 Splunk Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+package com.splunk.android.instrumentation.recording.wireframe.extension
+
+import com.splunk.rum.common.utils.extensions.plusAssign
+
+internal operator fun <E> List<E>?.plus(element: E): List<E> {
+    return when {
+        this == null ->
+            listOf(element)
+        else -> {
+            val newList = ArrayList(this)
+            newList += element
+            newList
+        }
+    }
+}
+
+internal operator fun <E> List<E>?.plus(list: List<E>): List<E> {
+    val newList = ArrayList<E>()
+    newList += this
+    newList += list
+    return newList
+}
+
+internal fun <E, R> List<E>.findLastNotNullValue(predicate: (E) -> R?): R? {
+    for (element in asReversed())
+        return predicate(element) ?: continue
+
+    return null
+}

@@ -93,15 +93,15 @@ android {
 }
 
 dependencies {
-    implementation(project(":common:id"))
-    implementation(project(":common:http"))
-    implementation(project(":common:logger"))
-    implementation(project(":common:storage"))
-    implementation(project(":instrumentation:session-recording:core"))
-    implementation(project(":instrumentation:session-recording:wireframe"))
-    implementation(project(":instrumentation:session-recording:interactions"))
-    implementation(project(":instrumentation:session-recording:frame-capturer"))
-    implementation(project(":common:utils"))
+    implementation(Dependencies.Android.Common.id)
+    implementation(Dependencies.Android.Common.utils)
+    implementation(Dependencies.Android.Common.http)
+    implementation(Dependencies.Android.Common.logger)
+    implementation(Dependencies.Android.Common.storage)
+    implementation(project(":core"))
+    implementation(project(":wireframe"))
+    implementation(project(":interactions"))
+    implementation(project(":frame-capturer"))
     implementation(project(":debugger"))
     implementation(project(":bridge"))
 

@@ -36,7 +36,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.core.os.postDelayed
-import com.splunk.android.common.utils.extensions.contentView
+import com.splunk.rum.common.utils.extensions.contentView
 
 class MeasureRecompositionComposeActivity : ComponentActivity() {
 

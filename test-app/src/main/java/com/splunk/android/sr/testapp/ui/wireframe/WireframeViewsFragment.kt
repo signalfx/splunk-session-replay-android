@@ -36,7 +36,7 @@ import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.text.HtmlCompat
-import com.splunk.android.common.utils.dpToPx
+import com.splunk.rum.common.utils.dpToPx
 import com.splunk.android.instrumentation.recording.core.api.isSensitive
 import com.splunk.android.instrumentation.recording.wireframe.extension.isInvisibleForWireframe
 import com.splunk.android.sr.testapp.R

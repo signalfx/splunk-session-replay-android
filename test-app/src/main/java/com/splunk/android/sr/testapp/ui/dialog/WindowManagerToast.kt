@@ -27,9 +27,9 @@ import android.view.WindowManager
 import android.widget.TextView
 import androidx.core.os.postDelayed
 import androidx.core.view.setPadding
-import com.splunk.android.common.utils.dpToPx
-import com.splunk.android.common.utils.dpToPxF
-import com.splunk.android.common.utils.extensions.windowManager
+import com.splunk.rum.common.utils.dpToPx
+import com.splunk.rum.common.utils.dpToPxF
+import com.splunk.rum.common.utils.extensions.windowManager
 
 object WindowManagerToast {
 

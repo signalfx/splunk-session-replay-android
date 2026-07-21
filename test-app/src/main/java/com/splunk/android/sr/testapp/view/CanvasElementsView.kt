@@ -30,7 +30,7 @@ import android.graphics.Shader
 import android.util.AttributeSet
 import android.view.Choreographer
 import android.view.View
-import com.splunk.android.common.utils.dpToPxF
+import com.splunk.rum.common.utils.dpToPxF
 import com.splunk.android.sr.testapp.R
 import com.splunk.android.sr.testapp.extension.add
 import com.splunk.android.sr.testapp.extension.rotate

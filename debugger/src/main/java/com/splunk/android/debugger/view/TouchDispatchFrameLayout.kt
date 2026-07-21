@@ -20,7 +20,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.widget.FrameLayout
-import com.splunk.android.common.utils.dpToPx
+import com.splunk.rum.common.utils.dpToPx
 import kotlin.math.abs
 
 internal class TouchDispatchFrameLayout(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {

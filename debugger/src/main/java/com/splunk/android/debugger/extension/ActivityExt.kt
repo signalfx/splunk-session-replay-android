@@ -22,8 +22,8 @@ import android.os.Build
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
-import com.splunk.android.common.utils.extensions.contentView
-import com.splunk.android.common.utils.extensions.get
+import com.splunk.rum.common.utils.extensions.contentView
+import com.splunk.rum.common.utils.extensions.get
 import kotlin.math.max
 
 internal fun Activity.getContentPadding(): Padding? {

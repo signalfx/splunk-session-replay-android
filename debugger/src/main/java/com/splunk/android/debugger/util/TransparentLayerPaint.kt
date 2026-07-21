@@ -21,7 +21,7 @@ import android.graphics.BitmapShader
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Shader
-import com.splunk.android.common.utils.dpToPxF
+import com.splunk.rum.common.utils.dpToPxF
 
 internal class TransparentLayerPaint : Paint() {
 
