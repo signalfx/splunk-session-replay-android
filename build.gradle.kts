@@ -31,7 +31,7 @@ allprojects {
 }
 
 nexusPublishing {
-    packageGroup.set("com.splunk.android")
+    packageGroup.set("com.splunk")
     repositories {
         sonatype {
             username.set(System.getenv("SONATYPE_USER"))
