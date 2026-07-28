@@ -1,6 +1,6 @@
 package utils
 
-const val defaultGroupId = "com.splunk"
+const val defaultGroupId = "com.splunk.android"
 const val artifactPrefix = "sr-"
 const val artifactIdProperty = "mavenArtifactId"
 const val versionProperty = "mavenVersion"
