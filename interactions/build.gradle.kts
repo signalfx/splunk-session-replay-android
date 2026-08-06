@@ -47,7 +47,7 @@ android {
 dependencies {
     implementation(Dependencies.Android.Common.utils)
     implementation(Dependencies.Android.Common.logger)
-    implementation(project(":wireframe"))
+    api(project(":wireframe"))
     implementation(project(":screenshot"))
 
     compileOnly(Dependencies.Android.Compose.ui)

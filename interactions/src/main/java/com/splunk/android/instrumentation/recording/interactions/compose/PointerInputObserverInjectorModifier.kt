@@ -37,6 +37,7 @@ import com.splunk.rum.common.utils.extensions.get
 import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.interactions.extension.composeTargetElementHolder
 import com.splunk.android.instrumentation.recording.wireframe.util.ComposeInfo
+import com.splunk.android.instrumentation.recording.wireframe.util.DesugaringSafeModifierElement
 import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_2
 import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_3
 import java.lang.reflect.Field
@@ -77,7 +78,7 @@ import java.lang.reflect.Method
 class PointerInputObserverInjectorModifier(
     private val id: String,
     private val positionInList: Int? = null
-) : ModifierLocalConsumer {
+) : DesugaringSafeModifierElement(), ModifierLocalConsumer {
 
     override fun onModifierLocalsUpdated(scope: ModifierLocalReadScope) {
         injectObservers(scope)
@@ -272,7 +273,7 @@ class PointerInputObserverInjectorModifier(
         private val id: String,
         private val elementHash: Int,
         private val positionInList: Int?
-    ) : PointerInputModifier {
+    ) : DesugaringSafeModifierElement(), PointerInputModifier {
 
         lateinit var pairedObserver: PointerInputObserverModifier
 
