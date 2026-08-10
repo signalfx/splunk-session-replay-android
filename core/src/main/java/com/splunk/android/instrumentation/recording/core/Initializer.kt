@@ -90,6 +90,10 @@ internal object Initializer {
                 return view.isSensitive ?: view::class.java.isSensitiveInHierarchy
             }
 
+            override fun isComposeTextFieldSensitive(): Boolean? {
+                return DependencyInjectionTree.sensitivityApiHandler.getComposeTextFieldSensitivity()
+            }
+
             private val <T : View> Class<T>.isSensitiveInHierarchy: Boolean?
                 get() {
                     var clazz: Class<T>? = this

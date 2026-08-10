@@ -65,12 +65,12 @@ object Dependencies {
         const val splashScreen = "androidx.core:core-splashscreen:$splashScreenVersion"
 
         object Compose {
-            const val version = "1.2.1" // 1.2.1, 1.3.3, 1.4.3, 1.5.4, 1.6.4, !1.7.8, !1.8.3, !1.9.5, !1.10.6
-            private const val foundationVersion = "1.2.1" // 1.2.1, 1.3.1, 1.4.3, 1.5.4, 1.6.8, 1.7.8, 1.8.3, 1.9.5, 1.10.1
+            const val version = "1.2.1"
+            private const val foundationVersion = "1.2.1"
             private const val materialIconsVersion = "1.2.1"
             private const val activityVersion = "1.3.1"
 
-            const val compilerVersion = "1.3.2" // 1.3.2, 1.5.0
+            const val compilerVersion = "1.3.2"
 
             const val activity = "androidx.activity:activity-compose:$activityVersion"
             const val ui = "androidx.compose.ui:ui:$version"

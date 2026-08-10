@@ -19,19 +19,12 @@ package com.splunk.android.instrumentation.recording.wireframe
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Rect
+import android.os.Build
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import com.splunk.android.bridge.BridgeManager
 import com.splunk.android.bridge.model.BridgeInterface
-import com.splunk.rum.common.utils.Colors
-import com.splunk.rum.common.utils.MutableListObserver
-import com.splunk.rum.common.utils.extensions.calcCiscoId
-import com.splunk.rum.common.utils.extensions.findFast
-import com.splunk.rum.common.utils.extensions.hasDimBehind
-import com.splunk.rum.common.utils.extensions.identity
-import com.splunk.rum.common.utils.extensions.plusAssign
-import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.AbsSeekBarDescriptor
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.ActionMenuViewDescriptor
 import com.splunk.android.instrumentation.recording.wireframe.descriptor.AutoCompleteTextViewDescriptor
@@ -196,6 +189,14 @@ import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe.Fr
 import com.splunk.android.instrumentation.recording.wireframe.stats.StatsCollector
 import com.splunk.android.instrumentation.recording.wireframe.stats.WireframeStats
 import com.splunk.android.instrumentation.recording.wireframe.util.isRunningVisibilityAnimation
+import com.splunk.rum.common.utils.Colors
+import com.splunk.rum.common.utils.MutableListObserver
+import com.splunk.rum.common.utils.extensions.calcCiscoId
+import com.splunk.rum.common.utils.extensions.findFast
+import com.splunk.rum.common.utils.extensions.hasDimBehind
+import com.splunk.rum.common.utils.extensions.identity
+import com.splunk.rum.common.utils.extensions.plusAssign
+import com.splunk.rum.common.utils.extensions.toClass
 
 /* MARK
  *  Future optimizations
@@ -502,7 +503,6 @@ object WireframeExtractor {
         descriptors += RadialTimePickerViewDescriptor()
         descriptors += ViewPager2Descriptor()
         descriptors += RecyclerViewDescriptor()
-        descriptors += AndroidComposeViewDescriptor()
         descriptors += ComposeViewDescriptor()
         descriptors += SpinnerDescriptor()
         descriptors += ButtonBarLayoutDescriptor()
@@ -544,6 +544,9 @@ object WireframeExtractor {
         descriptors += HorizontalScrollViewDescriptor()
         descriptors += ChartViewDescriptor()
         descriptors += CartesianChartViewDescriptor()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+            descriptors += AndroidComposeViewDescriptor()
     }
 
     private fun addBuiltinIdentifiers() {

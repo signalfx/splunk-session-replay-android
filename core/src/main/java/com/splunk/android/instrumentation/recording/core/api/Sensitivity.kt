@@ -30,6 +30,11 @@ class Sensitivity internal constructor(
 ) {
 
     /**
+     * Sensitivity of Jetpack Compose elements that are not backed by a [View].
+     */
+    val compose = Compose(api)
+
+    /**
      * Sets sensitivity for the [view] instance. Whether to cover the [view] in the data chunk or null to not change behaviour by the [view] instance.
      */
     fun <T : View> setViewInstanceSensitivity(view: T, isSensitive: Boolean?) {
@@ -60,4 +65,25 @@ class Sensitivity internal constructor(
      * @return Whether all instances of [clazz] will be covered in the data chunk or null when the behaviour is not defined by [clazz].
      */
     fun <T : View> getViewClassSensitivity(clazz: Class<T>): Boolean? = api.getViewClassSensitivity(clazz)
+
+    /**
+     * Defines which Jetpack Compose elements will not be visible.
+     *
+     * @see Sensitivity.compose
+     */
+    class Compose internal constructor(
+        private val api: SensitivityApiHandler
+    ) {
+
+        /**
+         * Sensitivity of all Jetpack Compose text fields, for example `BasicTextField`, `TextField` and `OutlinedTextField`.
+         *
+         * By default, text fields are sensitive, the same way as [EditText] is sensitive in the [View] world. A Session Replay modifier on
+         * the text field itself has priority over this value. A modifier on a parent does not. A parent applies only to elements that
+         * do not define their own sensitivity.
+         */
+        var textFieldSensitivity: Boolean?
+            get() = api.getComposeTextFieldSensitivity()
+            set(value) = api.setComposeTextFieldSensitivity(value)
+    }
 }
