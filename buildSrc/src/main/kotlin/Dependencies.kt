@@ -53,6 +53,7 @@ object Dependencies {
         private const val cameraVersion = "1.2.0"
         private const val exoPlayerVersion = "2.18.7"
         private const val splashScreenVersion = "1.0.1"
+        private const val profileInstallerVersion = "1.3.1"
 
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
         const val activityKtx = "androidx.activity:activity-ktx:$activityVersion"
@@ -63,6 +64,7 @@ object Dependencies {
         const val cameraView = "androidx.camera:camera-view:$cameraVersion"
         const val exoPlayer = "com.google.android.exoplayer:exoplayer:$exoPlayerVersion"
         const val splashScreen = "androidx.core:core-splashscreen:$splashScreenVersion"
+        const val profileInstaller = "androidx.profileinstaller:profileinstaller:$profileInstallerVersion"
 
         object Compose {
             const val version = "1.2.1" // 1.2.1, 1.3.3, 1.4.3, 1.5.4, 1.6.4, !1.7.8, !1.8.3, !1.9.5, !1.10.6
@@ -106,6 +108,14 @@ object Dependencies {
         const val mockk = "io.mockk:mockk-android:$mockkVersion"
         const val espresso = "androidx.test.espresso:espresso-core:$espressoVersion"
         const val composeUiTestJunit4 = "androidx.compose.ui:ui-test-junit4:$composeUiTestJunit4Version"
+    }
+
+    object Macrobenchmark {
+        private const val benchmarkVersion = "1.2.4"
+        private const val uiAutomatorVersion = "2.2.0"
+
+        const val benchmarkMacroJunit4 = "androidx.benchmark:benchmark-macro-junit4:$benchmarkVersion"
+        const val uiAutomator = "androidx.test.uiautomator:uiautomator:$uiAutomatorVersion"
     }
 
     object AndroidDebug {

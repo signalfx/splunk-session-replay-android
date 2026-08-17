@@ -38,6 +38,13 @@ android {
             isMinifyEnabled = true
             signingConfig = signingConfigs.getByName("release")
         }
+        create("benchmark") {
+            initWith(getByName("release"))
+            isMinifyEnabled = false
+            isDebuggable = false
+            signingConfig = signingConfigs.getByName("release")
+            matchingFallbacks += listOf("release")
+        }
     }
 
     testOptions {
@@ -84,7 +91,7 @@ android {
                     java.srcDir("src/compose17/java")
                 }
 
-                listOf("debug", "release").forEach { buildType ->
+                listOf("debug", "release", "benchmark").forEach { buildType ->
                     getByName(buildType).manifest.srcFile("src/compose17/AndroidManifest.xml")
                 }
             }
@@ -135,6 +142,8 @@ dependencies {
     implementation(Dependencies.Android.exoPlayer)
 
     implementation(Dependencies.Android.splashScreen)
+
+    implementation(Dependencies.Android.profileInstaller)
 }
 
 configurations.all {
