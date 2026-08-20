@@ -17,7 +17,7 @@ on API 36 `pgrep` truncates the process name so Macrobenchmark never finds the a
 ```bash
 ./gradlew :test-app:assembleBenchmark :macrobenchmark:assembleBenchmark
 adb install -r test-app/build/outputs/apk/benchmark/test-app-benchmark.apk
-adb install -r macrobenchmark/build/outputs/apk/benchmark/macrobenchmark-benchmark.apk
+adb install -r -t macrobenchmark/build/outputs/apk/benchmark/macrobenchmark-benchmark.apk
 
 adb shell am instrument -w -r --no-window-animation \
   -e androidx.benchmark.suppressErrors EMULATOR \

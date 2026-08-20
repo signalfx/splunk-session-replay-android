@@ -40,11 +40,30 @@ adb shell wm dismiss-keyguard >/dev/null 2>&1
 
 # One cold launch, printed as milliseconds to first frame. The extra makes MainActivity skip its
 # fixed one second splash screen hold, which would otherwise swamp the difference being measured.
+#
+# Coldness is checked on the launch rather than on `am force-stop`, which exits 0 and prints nothing
+# even for a package that does not exist and so cannot report that it left the app running. Starting
+# an activity that is still alive answers with "Activity not started", `LaunchState: UNKNOWN (0)` and
+# `TotalTime: 0`; that zero would otherwise be stored as a sample and pull the median down.
 launch() {
+	local output total
 	adb shell am force-stop $PKG >/dev/null 2>&1
 	sleep 2
-	adb shell "am start -W -n $ACT --ez skipSplashScreenHold true" 2>/dev/null |
-		grep -E "^TotalTime:" | awk '{print $2}' | tr -d '\r'
+	output=$(adb shell "am start -W -n $ACT --ez skipSplashScreenHold true" 2>/dev/null | tr -d '\r')
+
+	if [[ "$output" == *"Activity not started"* ]]; then
+		return 1
+	fi
+	# Devices below API 29 report no LaunchState; hold only the ones that do report it to COLD.
+	if [[ "$output" == *"LaunchState:"* && "$output" != *"LaunchState: COLD"* ]]; then
+		return 1
+	fi
+
+	total=$(printf '%s\n' "$output" | awk '/^TotalTime:/ {print $2}')
+	if [[ -z "$total" || "$total" -le 0 ]]; then
+		return 1
+	fi
+	printf '%s' "$total"
 }
 
 # A mode measured from fewer samples than the others is not comparable with them, and a launch drops
@@ -52,12 +71,11 @@ launch() {
 timed_launch() {
 	local attempt t
 	for attempt in $(seq 1 "$ATTEMPTS"); do
-		t=$(launch)
-		if [ -n "$t" ]; then
+		if t=$(launch); then
 			printf '%s' "$t"
 			return 0
 		fi
-		echo "  no TotalTime from am start (attempt $attempt/$ATTEMPTS), retrying" >&2
+		echo "  no cold-start timing from am start (attempt $attempt/$ATTEMPTS), retrying" >&2
 	done
 	return 1
 }
@@ -101,7 +119,7 @@ for round in $(seq 1 "$ROUNDS"); do
 		line=""
 		for iter in $(seq 1 "$ITERS"); do
 			t=$(timed_launch) ||
-				fail "no valid timing for '$mode' in round $round, iteration $iter after $ATTEMPTS attempts"
+				fail "no cold-start timing for '$mode' in round $round, iteration $iter after $ATTEMPTS attempts"
 			echo "$t" >> "$OUT/$mode"
 			line="$line $t"
 		done
