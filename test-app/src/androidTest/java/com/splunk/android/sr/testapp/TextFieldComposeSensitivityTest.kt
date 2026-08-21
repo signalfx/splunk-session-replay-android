@@ -28,12 +28,18 @@ import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 import com.splunk.android.sr.testapp.ui.compose.LABEL_MULTI_LINE_FIXED_HEIGHT
 import com.splunk.android.sr.testapp.ui.compose.LABEL_MULTI_LINE_WRAP_HEIGHT
 import com.splunk.android.sr.testapp.ui.compose.LABEL_NOT_SENSITIVE_ANCESTOR
+import com.splunk.android.sr.testapp.ui.compose.LABEL_NOT_SENSITIVE_DECORATION
 import com.splunk.android.sr.testapp.ui.compose.LABEL_NOT_SENSITIVE_TEXT_FIELD
+import com.splunk.android.sr.testapp.ui.compose.LABEL_SENSITIVE_DECORATION
 import com.splunk.android.sr.testapp.ui.compose.LABEL_SINGLE_LINE
 import com.splunk.android.sr.testapp.ui.compose.PLACEHOLDER
+import com.splunk.android.sr.testapp.ui.compose.SUFFIX_NOT_SENSITIVE
+import com.splunk.android.sr.testapp.ui.compose.SUFFIX_SENSITIVE
 import com.splunk.android.sr.testapp.ui.compose.TextFieldComposeActivity
 import com.splunk.android.sr.testapp.ui.compose.VALUE_IN_NOT_SENSITIVE_ANCESTOR
 import com.splunk.android.sr.testapp.ui.compose.VALUE_IN_NOT_SENSITIVE_TEXT_FIELD
+import com.splunk.android.sr.testapp.ui.compose.VALUE_WITH_NOT_SENSITIVE_DECORATION
+import com.splunk.android.sr.testapp.ui.compose.VALUE_WITH_SENSITIVE_DECORATION
 import org.junit.After
 import org.junit.Assume
 import org.junit.Before
@@ -70,12 +76,18 @@ class TextFieldComposeSensitivityTest {
             LABEL_MULTI_LINE_FIXED_HEIGHT,
             LABEL_MULTI_LINE_WRAP_HEIGHT,
             LABEL_NOT_SENSITIVE_ANCESTOR,
-            LABEL_NOT_SENSITIVE_TEXT_FIELD
+            LABEL_NOT_SENSITIVE_TEXT_FIELD,
+            LABEL_NOT_SENSITIVE_DECORATION,
+            LABEL_SENSITIVE_DECORATION,
+            SUFFIX_NOT_SENSITIVE
         )
 
         wireframe.assertDoesNotContainTexts(
             PLACEHOLDER,
-            VALUE_IN_NOT_SENSITIVE_ANCESTOR
+            VALUE_IN_NOT_SENSITIVE_ANCESTOR,
+            SUFFIX_SENSITIVE,
+            VALUE_WITH_NOT_SENSITIVE_DECORATION,
+            VALUE_WITH_SENSITIVE_DECORATION
         )
 
         wireframe.assertContainsTexts(VALUE_IN_NOT_SENSITIVE_TEXT_FIELD)
@@ -94,8 +106,12 @@ class TextFieldComposeSensitivityTest {
             LABEL_SINGLE_LINE,
             PLACEHOLDER,
             VALUE_IN_NOT_SENSITIVE_ANCESTOR,
-            VALUE_IN_NOT_SENSITIVE_TEXT_FIELD
+            VALUE_IN_NOT_SENSITIVE_TEXT_FIELD,
+            VALUE_WITH_NOT_SENSITIVE_DECORATION,
+            VALUE_WITH_SENSITIVE_DECORATION
         )
+
+        wireframe.assertDoesNotContainTexts(SUFFIX_SENSITIVE)
     }
 
     private fun recordScreen(): RecordedWireframe {
@@ -103,8 +119,18 @@ class TextFieldComposeSensitivityTest {
 
         awaitText(LABEL_SINGLE_LINE)
         scrollUntilRecorded(VALUE_IN_NOT_SENSITIVE_TEXT_FIELD)
+        scrollUntilRecorded(LABEL_SENSITIVE_DECORATION)
+        recordBottom()
 
         return collectRecordedWireframe()
+    }
+
+    // The last text field is placed below the last label, one more swipe makes sure that the whole field is recorded.
+    private fun recordBottom() {
+        swipeUp()
+        SystemClock.sleep(SWIPE_SETTLE_MS)
+        requestNewFrame()
+        SystemClock.sleep(AWAIT_POLL_MS)
     }
 
     private fun awaitText(text: String) {

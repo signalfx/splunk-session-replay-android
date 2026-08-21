@@ -129,14 +129,18 @@ internal object ComposeTextFieldSensitivity {
         val children = reflection.getChildren(layoutNode)
 
         if (children != null)
-            for (i in children.indices)
-                subtreeFlags = subtreeFlags or makeSensitive(
+            for (i in children.indices) {
+                val childFlags = makeSensitive(
                     reflection = reflection,
                     layoutNode = children[i],
                     requiredModifier = requiredModifier,
                     isInTextField = isInTextField || isOuterNode,
                     isApplicationSensitivityDefinedAbove = isApplicationSensitivityDefinedAbove || isApplicationSensitivityDefined
                 )
+
+                if (childFlags and FLAG_INNER_NODE != 0)
+                    subtreeFlags = subtreeFlags or childFlags
+            }
 
         val isTextField = isOuterNode && subtreeFlags and FLAG_INNER_NODE != 0
         val isUnwrappedTextField = isInnerNode && !isInTextField

@@ -23,6 +23,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -60,10 +61,17 @@ internal const val LABEL_MULTI_LINE_FIXED_HEIGHT = "Multi line - fixed height"
 internal const val LABEL_MULTI_LINE_WRAP_HEIGHT = "Multi line - wrap height"
 internal const val LABEL_NOT_SENSITIVE_ANCESTOR = "Not sensitive ancestor - stays sensitive"
 internal const val LABEL_NOT_SENSITIVE_TEXT_FIELD = "Not sensitive text field"
+internal const val LABEL_NOT_SENSITIVE_DECORATION = "Not sensitive decoration - stays sensitive"
+internal const val LABEL_SENSITIVE_DECORATION = "Sensitive decoration - stays sensitive"
 
 internal const val PLACEHOLDER = "Enter a text"
 internal const val VALUE_IN_NOT_SENSITIVE_ANCESTOR = "Value in not sensitive ancestor"
 internal const val VALUE_IN_NOT_SENSITIVE_TEXT_FIELD = "Value in not sensitive text field"
+internal const val VALUE_WITH_NOT_SENSITIVE_DECORATION = "Value A"
+internal const val VALUE_WITH_SENSITIVE_DECORATION = "Value B"
+
+internal const val SUFFIX_NOT_SENSITIVE = "SuffixA"
+internal const val SUFFIX_SENSITIVE = "SuffixB"
 
 @Preview(showBackground = true, widthDp = 320, heightDp = 500)
 @Composable
@@ -116,6 +124,24 @@ private fun Content() {
             singleLine = true,
             value = VALUE_IN_NOT_SENSITIVE_TEXT_FIELD
         )
+
+        Label(text = LABEL_NOT_SENSITIVE_DECORATION)
+
+        MyTextField(
+            singleLine = true,
+            value = VALUE_WITH_NOT_SENSITIVE_DECORATION,
+            suffix = SUFFIX_NOT_SENSITIVE,
+            suffixSensitivity = false
+        )
+
+        Label(text = LABEL_SENSITIVE_DECORATION)
+
+        MyTextField(
+            singleLine = true,
+            value = VALUE_WITH_SENSITIVE_DECORATION,
+            suffix = SUFFIX_SENSITIVE,
+            suffixSensitivity = true
+        )
     }
 }
 
@@ -135,9 +161,18 @@ private fun Label(text: String) {
 private fun MyTextField(
     modifier: Modifier = Modifier,
     singleLine: Boolean,
-    value: String = ""
+    value: String = "",
+    suffix: String? = null,
+    suffixSensitivity: Boolean? = null
 ) {
     val string = remember { mutableStateOf(value) }
+
+    val suffixModifier = if (suffixSensitivity != null)
+        Modifier
+            .padding(start = 8.dp)
+            .sessionReplay(isSensitive = suffixSensitivity)
+    else
+        Modifier.padding(start = 8.dp)
 
     BasicTextField(
         value = string.value,
@@ -159,17 +194,30 @@ private fun MyTextField(
             .fillMaxWidth()
             .padding(16.dp),
         decorationBox = { innerTextField ->
-            Box {
-                if (string.value.isEmpty()) {
+            Row {
+                Box(modifier = if (suffix != null) Modifier.weight(1f) else Modifier) {
+                    if (string.value.isEmpty()) {
+                        BasicText(
+                            text = PLACEHOLDER,
+                            style = TextStyle(
+                                color = Color.Gray,
+                                fontSize = 16.sp
+                            )
+                        )
+                    }
+                    innerTextField()
+                }
+
+                if (suffix != null) {
                     BasicText(
-                        text = PLACEHOLDER,
+                        modifier = suffixModifier,
+                        text = suffix,
                         style = TextStyle(
                             color = Color.Gray,
                             fontSize = 16.sp
                         )
                     )
                 }
-                innerTextField()
             }
         }
     )
