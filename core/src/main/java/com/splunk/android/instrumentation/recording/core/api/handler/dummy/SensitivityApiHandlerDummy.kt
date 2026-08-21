@@ -21,15 +21,15 @@ import com.splunk.android.instrumentation.recording.core.api.handler.Sensitivity
 
 internal class SensitivityApiHandlerDummy : SensitivityApiHandler {
 
-    override fun getViewInstanceSensitivity(view: View): Boolean? {
-        return null
-    }
+    override fun getViewInstanceSensitivity(view: View): Boolean? = null
 
     override fun setViewInstanceSensitivity(view: View, isSensitive: Boolean?) {}
 
-    override fun <T : View> getViewClassSensitivity(clazz: Class<T>): Boolean? {
-        return null
-    }
+    override fun <T : View> getViewClassSensitivity(clazz: Class<T>): Boolean? = null
 
     override fun <T : View> setViewClassSensitivity(clazz: Class<T>, isSensitive: Boolean?) {}
+
+    override fun getComposeTextFieldSensitivity(): Boolean? = null
+
+    override fun setComposeTextFieldSensitivity(isSensitive: Boolean?) {}
 }

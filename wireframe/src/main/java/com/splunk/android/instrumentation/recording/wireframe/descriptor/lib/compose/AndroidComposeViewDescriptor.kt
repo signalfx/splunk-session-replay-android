@@ -25,6 +25,22 @@ import androidx.annotation.RequiresApi
 import androidx.compose.runtime.collection.MutableVector
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.MeasurePolicy
+import com.splunk.android.instrumentation.recording.wireframe.canvas.compose.ComposeCanvas
+import com.splunk.android.instrumentation.recording.wireframe.canvas.compose.ComposeEdgeEffect
+import com.splunk.android.instrumentation.recording.wireframe.descriptor.ViewGroupDescriptor
+import com.splunk.android.instrumentation.recording.wireframe.extension.WireframeView
+import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
+import com.splunk.android.instrumentation.recording.wireframe.util.ComposeInfo
+import com.splunk.android.instrumentation.recording.wireframe.util.ComposeTextFieldSensitivity
+import com.splunk.android.instrumentation.recording.wireframe.util.FragmentConsumer
+import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_10
+import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_2
+import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_3
+import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_4
+import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_7
+import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_8
+import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_9
+import com.splunk.android.instrumentation.recording.wireframe.util.ViewConsumer
 import com.splunk.rum.common.logger.Logger
 import com.splunk.rum.common.utils.MutableListObserver
 import com.splunk.rum.common.utils.extensions.findField
@@ -35,21 +51,6 @@ import com.splunk.rum.common.utils.extensions.invoke
 import com.splunk.rum.common.utils.extensions.set
 import com.splunk.rum.common.utils.extensions.toClass
 import com.splunk.rum.common.utils.reflector.Reflector
-import com.splunk.android.instrumentation.recording.wireframe.canvas.compose.ComposeCanvas
-import com.splunk.android.instrumentation.recording.wireframe.canvas.compose.ComposeEdgeEffect
-import com.splunk.android.instrumentation.recording.wireframe.descriptor.ViewGroupDescriptor
-import com.splunk.android.instrumentation.recording.wireframe.extension.WireframeView
-import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
-import com.splunk.android.instrumentation.recording.wireframe.util.ComposeInfo
-import com.splunk.android.instrumentation.recording.wireframe.util.FragmentConsumer
-import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_10
-import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_2
-import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_3
-import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_4
-import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_7
-import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_8
-import com.splunk.android.instrumentation.recording.wireframe.util.VERSION_1_9
-import com.splunk.android.instrumentation.recording.wireframe.util.ViewConsumer
 
 /* MARK
  *  - The following Google samples from 2022.02.07 are OK
@@ -79,6 +80,7 @@ import com.splunk.android.instrumentation.recording.wireframe.util.ViewConsumer
  *  - Compose 1.9.4
  *      - App > Surface - Different background color.
  */
+@RequiresApi(Build.VERSION_CODES.KITKAT)
 internal open class AndroidComposeViewDescriptor : ViewGroupDescriptor() {
 
     private val workaroundEdgeEffectReflector = Reflector(4, 0, 0)
@@ -102,7 +104,9 @@ internal open class AndroidComposeViewDescriptor : ViewGroupDescriptor() {
         var description = super.describe(view, viewRect, clipRect, parentScaleX, parentScaleY, isParentSensitive, viewConsumer, fragmentConsumer)
 
         val dirtyLayersDepot = lazy { obtainDirtyLayersDepot(view) }
-        val rootNode = lazy { getRootNode(view) }
+        val rootNode = getRootNode(view)
+
+        ComposeTextFieldSensitivity.makeSensitive(rootNode)
 
         drawWithRenderNodeWorkaround(dirtyLayersDepot) {
             drawWithEdgeEffectWorkaround(view, dirtyLayersDepot, rootNode) {
@@ -144,12 +148,12 @@ internal open class AndroidComposeViewDescriptor : ViewGroupDescriptor() {
      * MARK Because of Google's fix in v1.9.0. In AndroidOverscroll.android.kt on line 217 is check for HW acceleration,
      *  the edge effect is finished if the Canvas is not HW accelerated.
      */
-    private inline fun drawWithEdgeEffectWorkaround(view: View, dirtyLayersDepot: Lazy<DirtyLayersDepot?>, rootNode: Lazy<Any?>, crossinline draw: () -> Unit) {
+    private inline fun drawWithEdgeEffectWorkaround(view: View, dirtyLayersDepot: Lazy<DirtyLayersDepot?>, rootNode: Any?, crossinline draw: () -> Unit) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             val dirtyLayersDepot = if (ComposeInfo.version < VERSION_1_8) dirtyLayersDepot.value else null
 
             if (dirtyLayersDepot?.isNotEmpty() ?: !isDirtyLayersEmpty(view))
-                workaroundEdgeEffect(view.context, rootNode.value)
+                workaroundEdgeEffect(view.context, rootNode)
 
             if (ComposeInfo.version >= VERSION_1_7)
                 ComposeEdgeEffect.isEffectGloballyEnabled = false
@@ -300,9 +304,9 @@ internal open class AndroidComposeViewDescriptor : ViewGroupDescriptor() {
      *
      * FIXME Layout blinks when click on element with Modifier.sharedBounds in SharedBoundsComposeActivity
      */
-    private inline fun drawWithSharedBoundsNodeWorkaround(rootNode: Lazy<Any?>, crossinline draw: () -> Unit) {
+    private inline fun drawWithSharedBoundsNodeWorkaround(rootNode: Any?, crossinline draw: () -> Unit) {
         if (ComposeInfo.version == VERSION_1_7) {
-            val rootNodeValue = rootNode.value ?: return
+            val rootNodeValue = rootNode ?: return
 
             findSharedBoundsNodes(rootNodeValue, sharedBoundsNodes)
 

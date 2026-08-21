@@ -25,8 +25,6 @@ internal class SensitivityApiHandlerImpl(
     private val sensitivityHandler: SensitivityHandler,
 ) : SensitivityApiHandler {
 
-    //region Sensitivity set/get for Java
-
     override fun getViewInstanceSensitivity(view: View): Boolean? {
         return view.sensitivityTag
     }
@@ -43,5 +41,11 @@ internal class SensitivityApiHandlerImpl(
         sensitivityHandler.sensitiveClasses[clazz] = isSensitive
     }
 
-    //endregion
+    override fun getComposeTextFieldSensitivity(): Boolean? {
+        return sensitivityHandler.composeTextFieldSensitivity
+    }
+
+    override fun setComposeTextFieldSensitivity(isSensitive: Boolean?) {
+        sensitivityHandler.composeTextFieldSensitivity = isSensitive
+    }
 }

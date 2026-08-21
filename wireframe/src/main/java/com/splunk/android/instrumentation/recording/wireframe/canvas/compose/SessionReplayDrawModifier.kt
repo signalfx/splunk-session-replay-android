@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import com.splunk.android.instrumentation.recording.wireframe.extension.getAndroidCanvas
 import com.splunk.android.instrumentation.recording.wireframe.extension.getAndroidView
 import com.splunk.android.instrumentation.recording.wireframe.extension.getElementHash
+import com.splunk.android.instrumentation.recording.wireframe.util.DesugaringSafeModifierElement
 
 /**
  * A [DrawModifier] for Jetpack Compose that facilitates session replay recording.
@@ -49,7 +50,7 @@ import com.splunk.android.instrumentation.recording.wireframe.extension.getEleme
 data class SessionReplayDrawModifier(
     internal val id: String?,
     internal val isSensitive: Boolean?
-) : DrawModifier {
+) : DesugaringSafeModifierElement(), DrawModifier {
 
     override fun ContentDrawScope.draw() {
         val canvas = getAndroidCanvas() as? ComposeCanvas

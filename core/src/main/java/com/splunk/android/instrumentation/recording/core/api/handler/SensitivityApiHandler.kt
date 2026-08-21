@@ -27,4 +27,8 @@ internal interface SensitivityApiHandler {
     fun <T : View> getViewClassSensitivity(clazz: Class<T>): Boolean?
 
     fun <T : View> setViewClassSensitivity(clazz: Class<T>, isSensitive: Boolean?)
+
+    fun getComposeTextFieldSensitivity(): Boolean?
+
+    fun setComposeTextFieldSensitivity(isSensitive: Boolean?)
 }

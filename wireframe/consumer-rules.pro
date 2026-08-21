@@ -189,6 +189,36 @@
     java.util.List getChildren$ui_release();
 }
 
+# ComposeTextFieldSensitivity
+-keepclassmembers class androidx.compose.ui.node.LayoutNode {
+    androidx.compose.ui.node.Owner owner;
+    boolean isDeactivated; #v1.6+
+    void setModifier(androidx.compose.ui.Modifier);
+}
+
+-keepclassmembers class androidx.compose.ui.CombinedModifier {
+    final androidx.compose.ui.Modifier outer;
+    final androidx.compose.ui.Modifier inner;
+}
+
+-keepnames class androidx.compose.foundation.text.VerticalScrollLayoutModifier
+
+-keepnames class androidx.compose.foundation.text.HorizontalScrollLayoutModifier
+
+-keepnames class androidx.compose.foundation.text.input.internal.TextFieldCoreModifier #v1.7+
+
+-keepnames class androidx.compose.foundation.text.input.internal.TextFieldDecoratorModifier #v1.7+
+
+-keepnames class androidx.compose.foundation.text.input.internal.CoreTextFieldSemanticsModifier #v1.8+
+
+-keepnames class androidx.compose.ui.semantics.AppendedSemanticsElement #v1.5+
+
+-keepclassmembers class androidx.compose.ui.semantics.AppendedSemanticsElement {
+    boolean mergeDescendants;
+}
+
+-keepnames class androidx.compose.ui.semantics.SemanticsModifierCore #v1.2 - v1.4
+
 -keepclassmembers class androidx.compose.ui.node.NodeChain {
     androidx.compose.ui.Modifier$Node head;
 }

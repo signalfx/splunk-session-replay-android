@@ -20,6 +20,7 @@ import android.os.Build
 import android.view.View
 import android.webkit.WebView
 import android.widget.EditText
+import com.splunk.rum.common.utils.runOnUiThread
 import com.splunk.android.instrumentation.recording.capturer.FrameCapturer
 import com.splunk.android.instrumentation.recording.core.R
 
@@ -43,6 +44,14 @@ internal class SensitivityHandler {
     }
 
     val sensitiveClasses = HierarchicallySortedClassMap<Boolean?>()
+
+    var composeTextFieldSensitivity: Boolean? = SENSITIVE
+        set(value) {
+            field = value
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                runOnUiThread { FrameCapturer.requestNewFrame() }
+        }
 
     init {
         sensitiveClasses[EditText::class.java] = SENSITIVE

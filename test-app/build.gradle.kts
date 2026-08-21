@@ -58,17 +58,11 @@ android {
     buildFeatures {
         viewBinding = true
         compose = true
+        buildConfig = true
     }
 
     composeOptions {
         kotlinCompilerExtensionVersion = Dependencies.Android.Compose.compilerVersion
-    }
-
-    packagingOptions {
-        resources {
-            excludes += "META-INF/AL2.0"
-            excludes += "META-INF/LGPL2.1"
-        }
     }
 
     lint {
@@ -127,6 +121,7 @@ dependencies {
     androidTestImplementation(Dependencies.AndroidTest.testRules)
     androidTestImplementation(Dependencies.AndroidTest.mockk)
     androidTestImplementation(Dependencies.Test.jsonassert)
+    androidTestImplementation(Dependencies.Test.runner)
 
     implementation(Dependencies.Android.cameraLifecycle)
     implementation(Dependencies.Android.cameraExtensions)
