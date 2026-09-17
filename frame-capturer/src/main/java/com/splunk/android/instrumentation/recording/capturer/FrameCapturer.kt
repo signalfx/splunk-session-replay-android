@@ -25,8 +25,6 @@ import android.view.View
 import androidx.annotation.MainThread
 import androidx.annotation.RequiresApi
 import com.splunk.android.bridge.BridgeManager
-import com.splunk.rum.common.utils.Lock
-import com.splunk.rum.common.utils.adapters.ActivityLifecycleCallbacksAdapter
 import com.splunk.android.instrumentation.recording.capturer.utils.FrameRateManager
 import com.splunk.android.instrumentation.recording.screenshot.ScreenshotConstructor
 import com.splunk.android.instrumentation.recording.screenshot.extension.createEmpty
@@ -38,6 +36,8 @@ import com.splunk.android.instrumentation.recording.wireframe.extension.isDrawDe
 import com.splunk.android.instrumentation.recording.wireframe.extension.rect
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 import com.splunk.android.instrumentation.recording.wireframe.stats.WireframeStats
+import com.splunk.rum.common.utils.Lock
+import com.splunk.rum.common.utils.adapters.ActivityLifecycleCallbacksAdapter
 import java.lang.ref.WeakReference
 
 /* FIXME
@@ -63,6 +63,9 @@ object FrameCapturer {
     private var currentActivity = WeakReference<Activity>(null)
 
     private var isModeSet = false
+
+    private var isFirstFrameDropped = false
+    private var isFrameSkipped = false
 
     val frameHolder = FrameHolder()
 
@@ -149,6 +152,12 @@ object FrameCapturer {
 
         override fun onNewFrame() {
             if (mode != Mode.NONE) {
+                isFrameSkipped = !isFirstFrameDropped
+                isFirstFrameDropped = true
+
+                if (isFrameSkipped)
+                    return
+
                 val context = currentActivity.get() ?: requireNotNull(application)
                 wireframeConstructor.openNewFrame(context)
 
@@ -158,6 +167,9 @@ object FrameCapturer {
         }
 
         override fun onViewChanged(view: View): Boolean {
+            if (isFrameSkipped)
+                return false
+
             if (mode != Mode.NONE) {
                 val window = wireframeConstructor.updateView(view)
 
@@ -171,6 +183,9 @@ object FrameCapturer {
         }
 
         override fun onViewRemoved(view: View) {
+            if (isFrameSkipped)
+                return
+
             if (mode != Mode.NONE) {
                 wireframeConstructor.removeView(view)
 
@@ -180,6 +195,11 @@ object FrameCapturer {
         }
 
         override fun onCloseFrame() {
+            if (isFrameSkipped) {
+                isFrameSkipped = false
+                return
+            }
+
             if (mode != Mode.NONE)
                 wireframeConstructor.closeFrame()
         }
