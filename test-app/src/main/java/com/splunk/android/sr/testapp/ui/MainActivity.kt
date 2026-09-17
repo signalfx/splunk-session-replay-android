@@ -23,8 +23,6 @@ import android.view.ViewTreeObserver
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.splunk.rum.common.utils.extensions.contentView
-import com.splunk.rum.common.utils.extensions.rootView
 import com.splunk.android.instrumentation.recording.core.api.isSensitive
 import com.splunk.android.sr.testapp.R
 import com.splunk.android.sr.testapp.databinding.ActivityMainBinding
@@ -32,6 +30,8 @@ import com.splunk.android.sr.testapp.extension.setCustomAnimations
 import com.splunk.android.sr.testapp.ui.menu.MenuFragment
 import com.splunk.android.sr.testapp.util.AppPreferences
 import com.splunk.android.sr.testapp.util.FragmentAnimation
+import com.splunk.rum.common.utils.extensions.contentView
+import com.splunk.rum.common.utils.extensions.rootView
 
 class MainActivity : AppCompatActivity() {
 
@@ -88,6 +88,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun deferContentAfterSplashScreen() {
+        if (intent.getBooleanExtra(EXTRA_SKIP_SPLASH_SCREEN_HOLD, false))
+            return
+
         contentView?.viewTreeObserver?.addOnPreDrawListener(
             object : ViewTreeObserver.OnPreDrawListener {
                 override fun onPreDraw(): Boolean {
@@ -136,5 +139,6 @@ class MainActivity : AppCompatActivity() {
 
     private companion object {
         const val SPLASH_SCREEN_HOLD_TIME = 1000L
+        const val EXTRA_SKIP_SPLASH_SCREEN_HOLD = "skipSplashScreenHold"
     }
 }
