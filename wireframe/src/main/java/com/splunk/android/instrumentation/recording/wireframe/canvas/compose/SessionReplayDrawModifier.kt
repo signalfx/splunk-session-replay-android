@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import com.splunk.android.instrumentation.recording.wireframe.extension.getAndroidCanvas
 import com.splunk.android.instrumentation.recording.wireframe.extension.getAndroidView
 import com.splunk.android.instrumentation.recording.wireframe.extension.getElementHash
+import com.splunk.android.instrumentation.recording.wireframe.extension.unwrap
 import com.splunk.android.instrumentation.recording.wireframe.util.DesugaringSafeModifierElement
 
 /**
@@ -53,7 +54,7 @@ data class SessionReplayDrawModifier(
 ) : DesugaringSafeModifierElement(), DrawModifier {
 
     override fun ContentDrawScope.draw() {
-        val canvas = getAndroidCanvas() as? ComposeCanvas
+        val canvas = getAndroidCanvas()?.unwrap() as? ComposeCanvas
         val modifier = this@SessionReplayDrawModifier
 
         if (canvas != null) {
