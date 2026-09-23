@@ -48,14 +48,21 @@ import com.splunk.rum.common.logger.Logger
 @Suppress("DEPRECATION", "OVERRIDE_DEPRECATION", "OverridingDeprecatedMember")
 internal class LoggingCanvas : Canvas() {
 
+    private var delegateOrNull: SkeletonCanvas? = null
+
     /**
      * [SkeletonCanvas] that all calls are passed to. It is set by the caller before the drawing starts, so a single instance
      * can serve all [SkeletonCanvas] instances.
      */
-    lateinit var delegate: SkeletonCanvas
+    var delegate: SkeletonCanvas
+        get() = checkNotNull(delegateOrNull) { "delegate has not been set yet" }
+        set(value) {
+            delegateOrNull = value
+        }
 
     override fun isHardwareAccelerated(): Boolean {
-        val result = delegate.isHardwareAccelerated
+        // The Canvas() constructor calls this method, so the delegate is not available yet at that point.
+        val result = delegateOrNull?.isHardwareAccelerated ?: super.isHardwareAccelerated()
 
         Logger.d(TAG, "isHardwareAccelerated(): $result")
 
