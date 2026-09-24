@@ -17,7 +17,12 @@ limitations under the License.
 package com.splunk.android.instrumentation.recording.wireframe.extension
 
 import android.graphics.Canvas
+import com.splunk.android.instrumentation.recording.wireframe.canvas.LoggingCanvas
 
 internal fun Canvas.translate(x: Int, y: Int) {
     translate(x.toFloat(), y.toFloat())
+}
+
+internal fun Canvas.unwrap(): Canvas {
+    return if (this is LoggingCanvas) delegate else this
 }

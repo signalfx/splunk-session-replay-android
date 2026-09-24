@@ -23,6 +23,7 @@ import android.os.Build
 import android.widget.EdgeEffect
 import androidx.annotation.RequiresApi
 import com.splunk.android.instrumentation.recording.wireframe.canvas.SkeletonCanvas
+import com.splunk.android.instrumentation.recording.wireframe.extension.unwrap
 
 @RequiresApi(Build.VERSION_CODES.S)
 internal class ComposeEdgeEffect(
@@ -88,7 +89,7 @@ internal class ComposeEdgeEffect(
     }
 
     override fun draw(canvas: Canvas): Boolean {
-        if (canvas is SkeletonCanvas)
+        if (canvas.unwrap() is SkeletonCanvas)
             return !isFinished
 
         return effect.draw(canvas)

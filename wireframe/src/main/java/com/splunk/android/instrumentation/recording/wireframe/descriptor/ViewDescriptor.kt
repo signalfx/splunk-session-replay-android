@@ -23,7 +23,7 @@ import com.splunk.rum.common.utils.dpToPxF
 import com.splunk.rum.common.utils.extensions.ciscoIdWithPositionInList
 import com.splunk.rum.common.utils.extensions.identity
 import com.splunk.rum.common.utils.extensions.plusAssign
-import com.splunk.android.instrumentation.recording.wireframe.canvas.LoggingSkeletonCanvas
+import com.splunk.android.instrumentation.recording.wireframe.canvas.LoggingCanvas
 import com.splunk.android.instrumentation.recording.wireframe.canvas.SkeletonCanvas
 import com.splunk.android.instrumentation.recording.wireframe.extension.canScroll
 import com.splunk.android.instrumentation.recording.wireframe.extension.elevationCompat
@@ -141,7 +141,7 @@ open class ViewDescriptor {
             ExtractionMode.TRAVERSE ->
                 extractSkeletonsStandard(view, viewRect, clipRect, parentScaleX, parentScaleY, isWireframeSensitive, skeletons, foregroundSkeletons)
             ExtractionMode.CANVAS ->
-                extractSkeletonsCanvas(extractionCanvas, view, viewRect, clipRect, parentScaleX, parentScaleY, isWireframeSensitive, skeletons)
+                extractSkeletonsCanvas(SKELETON_CANVAS, view, viewRect, clipRect, parentScaleX, parentScaleY, isWireframeSensitive, skeletons)
         }
 
         LayoutTransitionObserver.listenTransitions(view)
@@ -272,12 +272,14 @@ open class ViewDescriptor {
 
             canvas.isTextSkeletonsAllowed = !isSensitive
 
-            val saveCount = canvas.save()
-            canvas.translate(viewRect.left, viewRect.top)
-            canvas.scale(view.scaleX * parentScaleX, view.scaleY * parentScaleY)
-            canvas.clipRect(VIEW_CLIP_RECT)
-            view.draw(canvas)
-            canvas.restoreToCount(saveCount)
+            val drawTarget = loggingCanvas?.apply { delegate = canvas } ?: canvas
+
+            val saveCount = drawTarget.save()
+            drawTarget.translate(viewRect.left, viewRect.top)
+            drawTarget.scale(view.scaleX * parentScaleX, view.scaleY * parentScaleY)
+            drawTarget.clipRect(VIEW_CLIP_RECT)
+            view.draw(drawTarget)
+            drawTarget.restoreToCount(saveCount)
 
             canvas.isTextSkeletonsAllowed = false
 
@@ -316,19 +318,18 @@ open class ViewDescriptor {
         private const val DEFAULT_SKELETON_LIST_SIZE = 8
         private const val DEFAULT_FOREGROUND_SKELETON_LIST_SIZE = 2
 
-        private val LOGGING_SKELETON_CANVAS = LoggingSkeletonCanvas()
         private val SKELETON_CANVAS = SkeletonCanvas()
 
         private val VIEW_CLIP_RECT = Rect()
 
-        private var extractionCanvas: SkeletonCanvas = SKELETON_CANVAS
-
         private val SHADOW_THRESHOLD = dpToPxF(5f)
 
-        internal var isCanvasCallsLoggingEnabled: Boolean
-            get() = extractionCanvas === LOGGING_SKELETON_CANVAS
+        private var loggingCanvas: LoggingCanvas? = null
+
+        internal var isCanvasCallsLoggingEnabled: Boolean = false
             set(value) {
-                extractionCanvas = if (value) LOGGING_SKELETON_CANVAS else SKELETON_CANVAS
+                field = value
+                loggingCanvas = if (value) LoggingCanvas() else null
             }
 
         internal var sensitivityDeterminer: SensitivityDeterminer? = null
