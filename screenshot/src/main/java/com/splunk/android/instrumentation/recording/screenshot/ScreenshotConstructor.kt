@@ -248,6 +248,9 @@ class ScreenshotConstructor(private val listener: Listener) {
         val sceneWidth = sceneRect.width()
         val sceneHeight = sceneRect.height()
 
+        if (sceneWidth <= 0 || sceneHeight <= 0 || sceneWidth.toLong() * sceneHeight * BYTES_PER_PIXEL > Int.MAX_VALUE)
+            return null
+
         val bitmap = if (lastFrameBitmap == null || lastFrameBitmap.width != sceneWidth || lastFrameBitmap.height != sceneHeight) {
             if (lastFrameBitmap != null)
                 BitmapCache.release(lastFrameBitmap)
@@ -608,6 +611,7 @@ class ScreenshotConstructor(private val listener: Listener) {
     companion object {
         private val DUMMY_BITMAP = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)
         private val DEBUG_BONE_SIZE = dpToPxF(2f)
+        private const val BYTES_PER_PIXEL = 4
 
         var isDebugModeEnabled = false
     }

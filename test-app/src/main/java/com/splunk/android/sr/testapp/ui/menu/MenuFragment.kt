@@ -45,6 +45,7 @@ import com.splunk.android.sr.testapp.ui.compose.VariantsActivity
 import com.splunk.android.sr.testapp.ui.compose.VideoComposeActivity
 import com.splunk.android.sr.testapp.ui.compose.ViewDrawOrderComposeActivity
 import com.splunk.android.sr.testapp.ui.compose.WebViewComposeActivity
+import com.splunk.android.sr.testapp.ui.dialog.ActivityLaunchingDialog
 import com.splunk.android.sr.testapp.ui.interaction.FocusActivity
 import com.splunk.android.sr.testapp.ui.logger.LoggerFragment
 import com.splunk.android.sr.testapp.ui.screenshot.AnimationFragment
@@ -73,6 +74,7 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>() {
         viewBinding.screenshotViews.setOnClickListener(onClickListener)
         viewBinding.screenshotRegions.setOnClickListener(onClickListener)
         viewBinding.screenshotMasks.setOnClickListener(onClickListener)
+        viewBinding.screenshotDimDialog.setOnClickListener(onClickListener)
         viewBinding.screenshotFragmentAnimationNone.setOnClickListener(onClickListener)
         viewBinding.screenshotFragmentAnimationFade1.setOnClickListener(onClickListener)
         viewBinding.screenshotFragmentAnimationFade2.setOnClickListener(onClickListener)
@@ -143,6 +145,8 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>() {
                 navigateTo(ScreenshotRegionsFragment())
             viewBinding.screenshotMasks.id ->
                 toggleMasks()
+            viewBinding.screenshotDimDialog.id ->
+                ActivityLaunchingDialog.show(requireContext())
             viewBinding.screenshotFragmentAnimationNone.id ->
                 navigateTo(AnimationFragment())
             viewBinding.screenshotFragmentAnimationFade1.id ->

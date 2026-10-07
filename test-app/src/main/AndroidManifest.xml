@@ -35,6 +35,10 @@
 			android:theme="@style/ActivityDialog" />
 
 		<activity
+			android:name=".ui.dialog.PlainActivity"
+			android:theme="@style/ActivityTheme" />
+
+		<activity
 			android:name=".ui.compose.ListComposeActivity"
 			android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
 
