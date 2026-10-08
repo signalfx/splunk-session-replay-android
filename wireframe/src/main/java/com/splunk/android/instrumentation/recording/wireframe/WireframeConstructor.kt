@@ -91,7 +91,7 @@ class WireframeConstructor(private val listener: Listener) {
         val root = entries.firstOrNull { !it.first.hasDimBehind } ?: entries.firstOrNull()
 
         if (root != null) {
-            if (root.second.rect.isUnbounded)
+            if (root.first.hasDimBehind)
                 root.second.rect.set(root.first.displayRect)
 
             correctPositions(windows, root.second)
@@ -179,9 +179,6 @@ class WireframeConstructor(private val listener: Listener) {
         if (bottom == Int.MAX_VALUE)
             bottom = rect.bottom
     }
-
-    private val Rect.isUnbounded: Boolean
-        get() = left == Int.MIN_VALUE || top == Int.MIN_VALUE || right == Int.MAX_VALUE || bottom == Int.MAX_VALUE
 
     private val View.hasDimBehind: Boolean
         get() = (layoutParams as? WindowManager.LayoutParams)?.hasDimBehind() == true

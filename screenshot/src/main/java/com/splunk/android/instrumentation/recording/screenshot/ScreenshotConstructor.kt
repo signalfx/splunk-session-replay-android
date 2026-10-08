@@ -248,7 +248,7 @@ class ScreenshotConstructor(private val listener: Listener) {
         val sceneWidth = sceneRect.width()
         val sceneHeight = sceneRect.height()
 
-        if (sceneWidth <= 0 || sceneHeight <= 0 || sceneWidth.toLong() * sceneHeight * BYTES_PER_PIXEL > Int.MAX_VALUE)
+        if (sceneWidth <= 0 || sceneHeight <= 0 || sceneWidth.toLong() * sceneHeight > Int.MAX_VALUE / BYTES_PER_PIXEL)
             return null
 
         val bitmap = if (lastFrameBitmap == null || lastFrameBitmap.width != sceneWidth || lastFrameBitmap.height != sceneHeight) {
