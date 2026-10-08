@@ -62,13 +62,24 @@
 			app:layout_constraintTop_toBottomOf="@id/screenshot_regions" />
 
 		<TextView
+			android:id="@+id/screenshot_dim_dialog"
+			style="@style/Button"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dp"
+			android:layout_marginTop="10dp"
+			android:layout_marginRight="20dp"
+			android:text="@string/menu_screenshot_dim_dialog"
+			app:layout_constraintTop_toBottomOf="@id/screenshot_masks" />
+
+		<TextView
 			android:id="@+id/record_fragment_animations"
 			style="@style/Header2"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="20dp"
 			android:text="@string/menu_screenshot_fragment_animation_title"
-			app:layout_constraintTop_toBottomOf="@id/screenshot_masks" />
+			app:layout_constraintTop_toBottomOf="@id/screenshot_dim_dialog" />
 
 		<TextView
 			android:id="@+id/screenshot_fragment_animation_none"

@@ -11,6 +11,7 @@
 	<string name="menu_screenshot_views">Views</string>
 	<string name="menu_screenshot_regions">Regions</string>
 	<string name="menu_screenshot_masks">Toggle masks</string>
+	<string name="menu_screenshot_dim_dialog">Dim dialog -> Activity</string>
 	<string name="menu_screenshot_fragment_animation_title">Fragment animation</string>
 	<string name="menu_screenshot_fragment_animation_none">None</string>
 	<string name="menu_screenshot_fragment_animation_fade">Fade</string>
@@ -50,6 +51,12 @@
 	<string name="screenshot_fragment_views_title">Views</string>
 	<string name="screenshot_fragment_regions_title">Regions</string>
 	<string name="screenshot_fragment_animation_title">Fragment transactions</string>
+
+	<string name="activity_launching_dialog_title">Dim dialog -> Activity</string>
+	<string name="activity_launching_dialog_message">\"Open Activity\" starts another Activity and keeps this dim dialog open.</string>
+	<string name="activity_launching_dialog_open">Open Activity</string>
+	<string name="activity_launching_dialog_close">Close</string>
+	<string name="plain_activity_message">Activity without any dialogs.\nPress Back to return to the dim dialog.</string>
 
     <string name="compose_variant_no_activities">Activity list is empty\nSync > Clean > Run</string>
 
