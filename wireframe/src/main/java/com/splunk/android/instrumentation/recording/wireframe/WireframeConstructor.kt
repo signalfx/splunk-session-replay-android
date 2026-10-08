@@ -26,6 +26,7 @@ import com.splunk.rum.common.utils.extensions.hasDimBehind
 import com.splunk.rum.common.utils.extensions.isUiContextCompat
 import com.splunk.rum.common.utils.extensions.minusAssign
 import com.splunk.rum.common.utils.extensions.sortedItemsByDecorViews
+import com.splunk.android.instrumentation.recording.wireframe.extension.displayRectCompat
 import com.splunk.android.instrumentation.recording.wireframe.extension.forEachView
 import com.splunk.android.instrumentation.recording.wireframe.extension.orientation
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
@@ -92,7 +93,7 @@ class WireframeConstructor(private val listener: Listener) {
 
         if (root != null) {
             if (root.first.hasDimBehind)
-                root.second.rect.set(root.first.displayRect)
+                root.second.rect.set(root.first.displayRectCompat)
 
             correctPositions(windows, root.second)
         }
@@ -182,14 +183,6 @@ class WireframeConstructor(private val listener: Listener) {
 
     private val View.hasDimBehind: Boolean
         get() = (layoutParams as? WindowManager.LayoutParams)?.hasDimBehind() == true
-
-    @get:Suppress("DEPRECATION")
-    private val View.displayRect: Rect
-        get() {
-            val size = Point()
-            display?.getRealSize(size)
-            return Rect(0, 0, size.x, size.y)
-        }
 
     private fun Rect.offset(point: Point) {
         offset(point.x, point.y)
