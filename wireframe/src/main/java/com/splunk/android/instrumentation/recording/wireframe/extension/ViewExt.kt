@@ -16,6 +16,8 @@ limitations under the License.
 
 package com.splunk.android.instrumentation.recording.wireframe.extension
 
+import android.graphics.Point
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.view.View
@@ -59,6 +61,19 @@ internal val View.layoutDirectionCompat: LayoutDirection
             }
         } else
             LayoutDirection.LTR
+    }
+
+@get:Suppress("DEPRECATION")
+internal val View.displayRectCompat: Rect
+    get() {
+        val size = Point()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            display?.getRealSize(size)
+        else
+            size.set(resources.displayMetrics.widthPixels, resources.displayMetrics.heightPixels)
+
+        return Rect(0, 0, size.x, size.y)
     }
 
 private const val PFLAG_DRAWN = 0x00000020 // View.PFLAG_DRAWN

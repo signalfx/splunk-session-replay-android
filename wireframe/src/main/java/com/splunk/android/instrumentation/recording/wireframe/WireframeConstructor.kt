@@ -20,10 +20,13 @@ import android.content.Context
 import android.graphics.Point
 import android.graphics.Rect
 import android.view.View
+import android.view.WindowManager
 import com.splunk.rum.common.utils.extensions.forEachFast
+import com.splunk.rum.common.utils.extensions.hasDimBehind
 import com.splunk.rum.common.utils.extensions.isUiContextCompat
 import com.splunk.rum.common.utils.extensions.minusAssign
 import com.splunk.rum.common.utils.extensions.sortedItemsByDecorViews
+import com.splunk.android.instrumentation.recording.wireframe.extension.displayRectCompat
 import com.splunk.android.instrumentation.recording.wireframe.extension.forEachView
 import com.splunk.android.instrumentation.recording.wireframe.extension.orientation
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
@@ -84,9 +87,16 @@ class WireframeConstructor(private val listener: Listener) {
     }
 
     fun closeFrame() {
-        val windows = windowsCache.toList().sortedItemsByDecorViews()
+        val entries = windowsCache.toList().map { it.first to it }.sortedItemsByDecorViews()
+        val windows = entries.map { it.second }
+        val root = entries.firstOrNull { !it.first.hasDimBehind } ?: entries.firstOrNull()
 
-        correctPositions(windows)
+        if (root != null) {
+            if (root.first.hasDimBehind)
+                root.second.rect.set(root.first.displayRectCompat)
+
+            correctPositions(windows, root.second)
+        }
 
         val stats = WireframeExtractor.popWireframeStats()
         val frame = Wireframe.Frame(
@@ -94,7 +104,7 @@ class WireframeConstructor(private val listener: Listener) {
                 Wireframe.Frame.Scene(
                     id = "1",
                     time = timestamp,
-                    rect = windows.firstOrNull()?.rect?.copy() ?: Rect(),
+                    rect = root?.second?.rect?.copy() ?: Rect(),
                     orientation = orientation,
                     type = Wireframe.Frame.Scene.Type.DEVICE,
                     windows = windows
@@ -110,8 +120,7 @@ class WireframeConstructor(private val listener: Listener) {
         windowsCache.clear()
     }
 
-    private fun correctPositions(windows: List<Wireframe.Frame.Scene.Window>) {
-        val rootWindow = windows.firstOrNull() ?: return
+    private fun correctPositions(windows: List<Wireframe.Frame.Scene.Window>, rootWindow: Wireframe.Frame.Scene.Window) {
         val rootWindowRectOrigin: Rect
 
         if (rootWindow !in correctedWindows) {
@@ -171,6 +180,9 @@ class WireframeConstructor(private val listener: Listener) {
         if (bottom == Int.MAX_VALUE)
             bottom = rect.bottom
     }
+
+    private val View.hasDimBehind: Boolean
+        get() = (layoutParams as? WindowManager.LayoutParams)?.hasDimBehind() == true
 
     private fun Rect.offset(point: Point) {
         offset(point.x, point.y)
