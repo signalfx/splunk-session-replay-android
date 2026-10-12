@@ -49,24 +49,42 @@ internal class ComposeCanvas : SkeletonCanvas() {
 
     fun endDraw() {
         while (layoutLevels.isNotEmpty())
-            endComposeElement()
+            endLayoutLevel()
     }
 
     fun beginComposeElement(modifier: SessionReplayDrawModifier, elementHash: Int) {
-        val lastLayoutLevel = layoutLevels.lastOrNull()
-        if (lastLayoutLevel != null && lastLayoutLevel.modifier == null)
-            endComposeElement()
+        endAnonymousLayoutLevel()
 
         val id = modifier.id ?: "_null"
         val isSensitive = modifier.isSensitive ?: layoutLevels.findLastNotNullValue { it.modifier?.isSensitive } ?: false
         val view = createView(id, isSensitive, elementHash.toString())
 
-        layoutLevels += LayoutLevel(modifier, view)
+        layoutLevels += LayoutLevel(modifier, view, isTextSkeletonsAllowed)
         isTextSkeletonsAllowed = isSensitive == false
         isViewCreated = true
     }
 
     fun endComposeElement() {
+        endAnonymousLayoutLevel()
+        endLayoutLevel()
+    }
+
+    fun addViewModifier(view: View, modifier: SessionReplayDrawModifier) {
+        view.setTag(R.id.sr_tag_is_sensitive, modifier.isSensitive)
+
+        if (isViewCreated)
+            endLayoutLevel()
+
+        elements += Element.View(view, modifier)
+    }
+
+    private fun endAnonymousLayoutLevel() {
+        val lastLayoutLevel = layoutLevels.lastOrNull()
+        if (lastLayoutLevel != null && lastLayoutLevel.modifier == null)
+            endLayoutLevel()
+    }
+
+    private fun endLayoutLevel() {
         val layoutLevel = layoutLevels.removeLastOrNull() ?: throw IllegalStateException("Function beginElement was not called")
         val lastLayoutLevel = layoutLevels.lastOrNull()
 
@@ -76,17 +94,8 @@ internal class ComposeCanvas : SkeletonCanvas() {
         } else
             elements += Element.Compose(layoutLevel.view)
 
-        isTextSkeletonsAllowed = false
+        isTextSkeletonsAllowed = layoutLevel.isParentTextSkeletonsAllowed
         isViewCreated = false
-    }
-
-    fun addViewModifier(view: View, modifier: SessionReplayDrawModifier) {
-        view.setTag(R.id.sr_tag_is_sensitive, modifier.isSensitive)
-
-        if (isViewCreated)
-            endComposeElement()
-
-        elements += Element.View(view, modifier)
     }
 
     private fun createView(id: String, isSensitive: Boolean, identity: String): WireframeView {
@@ -115,7 +124,7 @@ internal class ComposeCanvas : SkeletonCanvas() {
 
             if (layoutLevel == null || !isViewCreated) {
                 val view = createView("", false, "")
-                layoutLevel = LayoutLevel(null, view)
+                layoutLevel = LayoutLevel(null, view, isTextSkeletonsAllowed)
 
                 layoutLevels += layoutLevel
                 isViewCreated = true
@@ -130,7 +139,8 @@ internal class ComposeCanvas : SkeletonCanvas() {
 
     private class LayoutLevel(
         val modifier: SessionReplayDrawModifier?,
-        val view: WireframeView
+        val view: WireframeView,
+        val isParentTextSkeletonsAllowed: Boolean
     )
 
     sealed interface Element {
