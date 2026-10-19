@@ -1,0 +1,12 @@
+Lcom/splunk/android/bridge/BridgeManager;
+HSPLcom/splunk/android/bridge/BridgeManager;-><clinit>()V
+HSPLcom/splunk/android/bridge/BridgeManager;-><init>()V
+HSPLcom/splunk/android/bridge/BridgeManager;->getBridgeInterfaces()Ljava/util/Collection;
+HSPLcom/splunk/android/bridge/BridgeManager;->getListeners()Ljava/util/Collection;
+HSPLcom/splunk/android/bridge/BridgeManager;->isRecordingAllowed()Z
+Lcom/splunk/android/bridge/BridgeManager$BridgeInterfaceObserver;
+HSPLcom/splunk/android/bridge/BridgeManager$BridgeInterfaceObserver;-><init>()V
+HSPLcom/splunk/android/bridge/BridgeManager$BridgeInterfaceObserver;->onAdded(Lcom/splunk/android/bridge/model/BridgeInterface;)V
+HSPLcom/splunk/android/bridge/BridgeManager$BridgeInterfaceObserver;->onAdded(Ljava/lang/Object;)V
+Lcom/splunk/android/bridge/BridgeManager$Listener;
+Lcom/splunk/android/bridge/model/BridgeInterface;

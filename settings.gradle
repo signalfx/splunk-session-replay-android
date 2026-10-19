@@ -6,6 +6,9 @@ include ':debugger'
 // Testing app
 include ':test-app'
 
+// Startup benchmarks and baseline profile generation
+include ':macrobenchmark'
+
 // Instrumentation
 include ':frame-capturer',
 		':interactions',
