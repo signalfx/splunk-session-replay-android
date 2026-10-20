@@ -18,6 +18,7 @@ package com.splunk.android.instrumentation.recording.wireframe.extension
 
 import android.graphics.Rect
 import com.splunk.rum.common.utils.extensions.forEachFast
+import com.splunk.android.instrumentation.recording.wireframe.SystemBarsExtractor
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 
 typealias WireframeView = Wireframe.Frame.Scene.Window.View
@@ -36,6 +37,9 @@ val Wireframe.Frame.rect: Rect
 
         return rect
     }
+
+val Wireframe.Frame.Scene.systemBars: Wireframe.Frame.Scene.Window?
+    get() = windows.findLast { it.identity == SystemBarsExtractor.IDENTITY }
 
 fun Wireframe.Frame.Scene.Window.forEachView(consumer: (view: WireframeView) -> Unit) {
     subviews?.forEachFast { subview ->

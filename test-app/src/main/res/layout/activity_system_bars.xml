@@ -1,0 +1,75 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/system_bars_content">
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/stripe_guideline_vertical"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		app:layout_constraintGuide_percent="0.4" />
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/stripe_guideline_horizontal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_percent="0.4" />
+
+	<View
+		android:id="@+id/vertical_stripe"
+		android:layout_width="24dp"
+		android:layout_height="match_parent"
+		android:background="@color/system_bars_stripe"
+		app:layout_constraintStart_toStartOf="@id/stripe_guideline_vertical" />
+
+	<View
+		android:id="@+id/horizontal_stripe"
+		android:layout_width="match_parent"
+		android:layout_height="24dp"
+		android:background="@color/system_bars_stripe"
+		app:layout_constraintTop_toTopOf="@id/stripe_guideline_horizontal" />
+
+	<ScrollView
+		android:id="@+id/panel"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:background="@color/white"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<LinearLayout
+			android:id="@+id/cases"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="20dp">
+
+			<TextView
+				android:id="@+id/title"
+				style="@style/Header"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/system_bars_message" />
+
+			<EditText
+				android:id="@+id/input"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:hint="@string/system_bars_input_hint"
+				android:importantForAutofill="no"
+				android:inputType="text" />
+		</LinearLayout>
+	</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

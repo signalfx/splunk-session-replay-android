@@ -52,6 +52,7 @@ import com.splunk.android.sr.testapp.ui.screenshot.AnimationFragment
 import com.splunk.android.sr.testapp.ui.screenshot.ScreenshotRegionsFragment
 import com.splunk.android.sr.testapp.ui.screenshot.ScreenshotViewsFragment
 import com.splunk.android.sr.testapp.ui.slowrendering.SlowRenderingFragment
+import com.splunk.android.sr.testapp.ui.systembars.SystemBarsActivity
 import com.splunk.android.sr.testapp.ui.wireframe.BridgeInterfaceFragment
 import com.splunk.android.sr.testapp.ui.wireframe.CollapsingLayoutFragment
 import com.splunk.android.sr.testapp.ui.wireframe.EmptyActivity
@@ -75,6 +76,7 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>() {
         viewBinding.screenshotRegions.setOnClickListener(onClickListener)
         viewBinding.screenshotMasks.setOnClickListener(onClickListener)
         viewBinding.screenshotDimDialog.setOnClickListener(onClickListener)
+        viewBinding.screenshotSystemBars.setOnClickListener(onClickListener)
         viewBinding.screenshotFragmentAnimationNone.setOnClickListener(onClickListener)
         viewBinding.screenshotFragmentAnimationFade1.setOnClickListener(onClickListener)
         viewBinding.screenshotFragmentAnimationFade2.setOnClickListener(onClickListener)
@@ -147,6 +149,8 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>() {
                 toggleMasks()
             viewBinding.screenshotDimDialog.id ->
                 ActivityLaunchingDialog.show(requireContext())
+            viewBinding.screenshotSystemBars.id ->
+                navigateTo(SystemBarsActivity::class)
             viewBinding.screenshotFragmentAnimationNone.id ->
                 navigateTo(AnimationFragment())
             viewBinding.screenshotFragmentAnimationFade1.id ->

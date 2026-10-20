@@ -59,6 +59,8 @@ import com.splunk.android.instrumentation.recording.screenshot.utils.SensitiveOv
 import com.splunk.android.instrumentation.recording.wireframe.extension.calcSensitiveViewsVisibleRects
 import com.splunk.android.instrumentation.recording.wireframe.extension.findViewByInstance
 import com.splunk.android.instrumentation.recording.wireframe.extension.findWindow
+import com.splunk.android.instrumentation.recording.wireframe.extension.forEachView
+import com.splunk.android.instrumentation.recording.wireframe.extension.systemBars
 import com.splunk.android.instrumentation.recording.wireframe.extension.waitToFinish
 import com.splunk.android.instrumentation.recording.wireframe.model.Wireframe
 import java.lang.ref.WeakReference
@@ -83,6 +85,7 @@ class ScreenshotConstructor(private val listener: Listener) {
     private val pendingActions = LinkedList<PendingAction>()
 
     private val sensitivePaint = SensitiveOverlayPaint()
+    private val systemBarPaint = Paint()
     private val debugPaint = Paint()
     private val tempRect = Rect()
     private val canvas = Canvas()
@@ -283,6 +286,7 @@ class ScreenshotConstructor(private val listener: Listener) {
             drawRoot(viewHolder, view, bitmap)
         }
 
+        drawSystemBars(firstScene, bitmap)
         drawMasks(bitmap)
 
         this.lastFrameBitmap = bitmap
@@ -468,9 +472,11 @@ class ScreenshotConstructor(private val listener: Listener) {
         val elevation = view.elevation
 
         if (elevation > 0f && background != null) {
+            elevationOutline.setEmpty()
+            elevationOutline.alpha = 1f
             background.getOutline(elevationOutline)
 
-            if (!elevationOutline.isEmpty) {
+            if (!elevationOutline.isEmpty && elevationOutline.alpha > 0f) {
                 var isBackgroundValid = false
                 var outlineRect = elevationRect
                 var outlineRadius = 0f
@@ -498,12 +504,27 @@ class ScreenshotConstructor(private val listener: Listener) {
 
                 if (isBackgroundValid) {
                     outlineRect.offset(rect.left, rect.top)
-                    elevationPaint.setShadowLayer(elevation, 0f, elevation / 3f, 0x48000000) // TODO spotShadowAlpha
+                    val shadowAlpha = (SHADOW_ALPHA * elevationOutline.alpha).toInt()
+                    elevationPaint.setShadowLayer(elevation, 0f, elevation / 3f, Color.argb(shadowAlpha, 0, 0, 0)) // TODO spotShadowAlpha
 
                     if (outlineRadius == 0f)
                         canvas.drawRect(outlineRect, elevationPaint)
                     else if (outlineRadius > 0f)
                         canvas.drawRoundRect(outlineRect, outlineRadius, outlineRadius, elevationPaint)
+                }
+            }
+        }
+    }
+
+    private fun drawSystemBars(scene: Wireframe.Frame.Scene, bitmap: Bitmap) {
+        val systemBars = scene.systemBars ?: return
+        canvas.setBitmap(bitmap)
+
+        systemBars.forEachView { view ->
+            view.skeletons?.forEachFast { skeleton ->
+                if (skeleton is Wireframe.Frame.Scene.Window.View.Skeleton.Color) {
+                    systemBarPaint.color = skeleton.colors[0]
+                    canvas.drawRect(skeleton.rect, systemBarPaint)
                 }
             }
         }
@@ -612,6 +633,7 @@ class ScreenshotConstructor(private val listener: Listener) {
         private val DUMMY_BITMAP = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)
         private val DEBUG_BONE_SIZE = dpToPxF(2f)
         private const val BYTES_PER_PIXEL = 4
+        private const val SHADOW_ALPHA = 0x48
 
         var isDebugModeEnabled = false
     }
