@@ -50,8 +50,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 /**
- * Compares the recorded frame with the real screen. Visible system bars, including the stripes behind them, have to be covered by the system bar
- * overlay exactly where the device shows them. Everything else has to be recorded as the user sees it.
+ * Compares the recorded frame with the real screen. Visible system bars, including the stripes behind them, have to be filled with the system bar
+ * color exactly where the device shows them. Everything else has to be recorded as the user sees it.
  *
  * Pass `-e saveImages true` to store the compared images in the external files directory of the application.
  */
@@ -357,10 +357,10 @@ class SystemBarsRecordingTest {
                 val outside = point(size + gap, sample)
 
                 expect("outside of the $name", outside, reference.colorAt(outside.first, outside.second))
-                expectSystemBar("inside of the $name", point(size / 2, sample))
+                expect("inside of the $name", point(size / 2, sample), SYSTEM_BAR_COLOR)
 
                 if (stripe != null)
-                    expectSystemBar("stripe below the $name", point(size / 2, stripe))
+                    expect("stripe below the $name", point(size / 2, stripe), SYSTEM_BAR_COLOR)
             } else {
                 val edge = point(EDGE_DEPTH_PX, sample)
                 expect("hidden $name", edge, reference.colorAt(edge.first, edge.second))
@@ -377,26 +377,6 @@ class SystemBarsRecordingTest {
 
             if (!isSimilar(actual, expected))
                 failures += "$description at $point: recorded ${actual.hex()}, expected ${expected.hex()}"
-        }
-
-        /**
-         * Background of the system bar can be drawn by the application or by the system, which is not recorded. Thus the point has to be covered
-         * by the system bar overlay over any color.
-         */
-        private fun expectSystemBar(description: String, point: Pair<Int, Int>) {
-            val actual = recorded.getPixel(point.first, point.second)
-            val alpha = Color.alpha(SYSTEM_BAR_COLOR) / 255f
-
-            val isCovered = { overlay: Int, value: Int ->
-                val min = overlay * alpha
-                value >= min - COLOR_TOLERANCE && value <= min + 255 * (1 - alpha) + COLOR_TOLERANCE
-            }
-
-            if (!isCovered(Color.red(SYSTEM_BAR_COLOR), Color.red(actual)) ||
-                !isCovered(Color.green(SYSTEM_BAR_COLOR), Color.green(actual)) ||
-                !isCovered(Color.blue(SYSTEM_BAR_COLOR), Color.blue(actual))
-            )
-                failures += "$description at $point: recorded ${actual.hex()} is not covered by the system bar"
         }
 
         private fun isSimilar(a: Int, b: Int): Boolean {
@@ -416,7 +396,7 @@ class SystemBarsRecordingTest {
         const val QUIET_MS = 1_200L
         const val POLL_MS = 250L
 
-        const val SYSTEM_BAR_COLOR = 0x807C8697.toInt()
+        const val SYSTEM_BAR_COLOR = 0xFF7C8697.toInt()
         const val COLOR_TOLERANCE = 16
         const val OUTSIDE_GAP_DP = 12f
         const val EDGE_DEPTH_PX = 4

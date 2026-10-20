@@ -32,7 +32,7 @@ internal object SystemBarsExtractor {
 
     const val IDENTITY = "systemBars"
 
-    private const val COLOR = 0x807C8697.toInt()
+    private const val COLOR = 0xFF7C8697.toInt()
 
     fun extract(view: View, rect: Rect, isFloating: Boolean): Window? {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
@@ -166,7 +166,7 @@ internal object SystemBarsExtractor {
                     colors = Colors(COLOR),
                     radii = null,
                     flags = null,
-                    isOpaque = false
+                    isOpaque = true
                 )
             ),
             foregroundSkeletons = null,
