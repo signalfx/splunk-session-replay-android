@@ -76,6 +76,9 @@ class SystemBarsActivity : AppCompatActivity() {
         val controller = WindowCompat.getInsetsController(window, window.decorView)
         controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
 
+        if (case != SystemBarsCase.KEYBOARD)
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN or WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE) // The keyboard forces visible system bars on API 26
+
         when (case) {
             SystemBarsCase.HIDDEN_STATUS_BAR -> controller.hide(WindowInsetsCompat.Type.statusBars())
             SystemBarsCase.HIDDEN_NAVIGATION_BAR -> controller.hide(WindowInsetsCompat.Type.navigationBars())

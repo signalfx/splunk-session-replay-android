@@ -42,7 +42,7 @@ internal object SystemBarsExtractor {
 
         val (statusBars, navigationBars) = when {
             !isFloating ->
-                getStatusBarsInsets(insets) to getNavigationBarsInsets(insets)
+                getStatusBarsInsets(view, insets) to getNavigationBarsInsets(view, insets)
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.R ->
                 getFloatingBarsInsetsFromMetrics(view, insets) ?: return null
             else ->
@@ -65,29 +65,40 @@ internal object SystemBarsExtractor {
         )
     }
 
+    /**
+     * Before R, [View.SYSTEM_UI_FLAG_LAYOUT_STABLE] keeps the system window insets of hidden bars, so the visibility is read from the flags.
+     */
     @Suppress("DEPRECATION")
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun getStatusBarsInsets(insets: WindowInsets): Rect {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
-            insets.getInsets(WindowInsets.Type.statusBars())
-                .let { Rect(it.left, it.top, it.right, it.bottom) }
-        else
-            Rect(0, min(insets.systemWindowInsetTop, insets.stableInsetTop), 0, 0)
+    private fun getStatusBarsInsets(view: View, insets: WindowInsets): Rect {
+        return when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.R ->
+                insets.getInsets(WindowInsets.Type.statusBars())
+                    .let { Rect(it.left, it.top, it.right, it.bottom) }
+            view.windowSystemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0 ->
+                Rect()
+            else ->
+                Rect(0, min(insets.systemWindowInsetTop, insets.stableInsetTop), 0, 0)
+        }
     }
 
     @Suppress("DEPRECATION")
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun getNavigationBarsInsets(insets: WindowInsets): Rect {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
-            insets.getInsets(WindowInsets.Type.navigationBars())
-                .let { Rect(it.left, it.top, it.right, it.bottom) }
-        else
-            Rect(
-                min(insets.systemWindowInsetLeft, insets.stableInsetLeft),
-                0,
-                min(insets.systemWindowInsetRight, insets.stableInsetRight),
-                min(insets.systemWindowInsetBottom, insets.stableInsetBottom)
-            )
+    private fun getNavigationBarsInsets(view: View, insets: WindowInsets): Rect {
+        return when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.R ->
+                insets.getInsets(WindowInsets.Type.navigationBars())
+                    .let { Rect(it.left, it.top, it.right, it.bottom) }
+            view.windowSystemUiVisibility and View.SYSTEM_UI_FLAG_HIDE_NAVIGATION != 0 ->
+                Rect()
+            else ->
+                Rect(
+                    min(insets.systemWindowInsetLeft, insets.stableInsetLeft),
+                    0,
+                    min(insets.systemWindowInsetRight, insets.stableInsetRight),
+                    min(insets.systemWindowInsetBottom, insets.stableInsetBottom)
+                )
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.R)

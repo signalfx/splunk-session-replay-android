@@ -63,13 +63,20 @@ class SystemBarsRecordingTest {
     @Volatile
     private var recorded: Bitmap? = null
 
+    /**
+     * Time of the last recording which differs from the previous one. Views like a blinking cursor are redrawn without changing the recording.
+     */
     @Volatile
-    private var recordedAt = 0L
+    private var recordingChangedAt = 0L
 
     private val listener = object : FrameCapturer.Listener {
         override fun onNewScreenshot(screenshot: Screenshot, stats: ScreenshotStats) {
-            recorded = screenshot.bitmap.copy(Bitmap.Config.ARGB_8888, false)
-            recordedAt = SystemClock.uptimeMillis()
+            val bitmap = screenshot.bitmap.copy(Bitmap.Config.ARGB_8888, false)
+
+            if (recorded?.sameAs(bitmap) != true)
+                recordingChangedAt = SystemClock.uptimeMillis()
+
+            recorded = bitmap
         }
     }
 
@@ -156,7 +163,7 @@ class SystemBarsRecordingTest {
 
             val recorded = awaitStableRecording() ?: throw AssertionError("[$case] Nothing was recorded.")
             val device = instrumentation.uiAutomation.takeScreenshot() ?: throw AssertionError("[$case] Screenshot of the device failed.")
-            val bars = referenceBars ?: readBars(scenario)
+            val bars = referenceBars ?: readBars(scenario).withoutHiddenBars(case)
             val stripes = readStripes(scenario)
 
             if (InstrumentationRegistry.getArguments().getString(ARGUMENT_SAVE_IMAGES) == "true")
@@ -198,6 +205,18 @@ class SystemBarsRecordingTest {
         }
 
         return bars
+    }
+
+    /**
+     * Before R, the insets of hidden bars are still reported with [View.SYSTEM_UI_FLAG_LAYOUT_STABLE], so the hidden bars are taken from the case.
+     */
+    private fun Insets.withoutHiddenBars(case: SystemBarsCase): Insets {
+        return when (case) {
+            SystemBarsCase.HIDDEN_STATUS_BAR -> Insets.of(left, 0, right, bottom)
+            SystemBarsCase.HIDDEN_NAVIGATION_BAR -> Insets.of(0, top, 0, 0)
+            SystemBarsCase.HIDDEN_SYSTEM_BARS -> Insets.NONE
+            else -> this
+        }
     }
 
     /**
@@ -248,16 +267,21 @@ class SystemBarsRecordingTest {
         throw AssumptionViolatedException("On-screen keyboard is not available")
     }
 
+    /**
+     * Frames are requested only until the first recording arrives, because every requested frame produces a new recording.
+     */
     private fun awaitStableRecording(): Bitmap? {
         val start = SystemClock.uptimeMillis()
         recorded = null
 
         while (SystemClock.uptimeMillis() - start < MAX_WAIT_MS) {
-            instrumentation.runOnMainSync { FrameCapturer.requestNewFrame() }
+            if (recorded == null)
+                instrumentation.runOnMainSync { FrameCapturer.requestNewFrame() }
+
             SystemClock.sleep(POLL_MS)
 
             val now = SystemClock.uptimeMillis()
-            if (now - start > MIN_WAIT_MS && recorded != null && now - recordedAt > QUIET_MS)
+            if (now - start > MIN_WAIT_MS && recorded != null && now - recordingChangedAt > QUIET_MS)
                 break
         }
 
