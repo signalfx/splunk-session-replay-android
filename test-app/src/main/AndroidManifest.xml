@@ -31,6 +31,11 @@
 		<activity android:name=".ui.interaction.FocusActivity" />
 
 		<activity
+			android:name=".ui.systembars.SystemBarsActivity"
+			android:theme="@style/ActivityTheme"
+			android:windowSoftInputMode="adjustResize" />
+
+		<activity
 			android:name=".ui.dialog.DialogActivity"
 			android:theme="@style/ActivityDialog" />
 

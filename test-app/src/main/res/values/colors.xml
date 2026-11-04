@@ -6,4 +6,6 @@
     <color name="blue_transparent">#88143188</color>
     <color name="blue_light">#266ba9</color>
     <color name="blue_light_transparent">#88266ba9</color>
+    <color name="system_bars_content">#e91e63</color>
+    <color name="system_bars_stripe">#212121</color>
 </resources>

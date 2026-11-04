@@ -98,6 +98,7 @@ class WireframeConstructor(private val listener: Listener) {
             correctPositions(windows, root.second)
         }
 
+        val systemBars = root?.let { SystemBarsExtractor.extract(it.first, it.second.rect, it.first.hasDimBehind) }
         val stats = WireframeExtractor.popWireframeStats()
         val frame = Wireframe.Frame(
             scenes = listOf(
@@ -107,7 +108,7 @@ class WireframeConstructor(private val listener: Listener) {
                     rect = root?.second?.rect?.copy() ?: Rect(),
                     orientation = orientation,
                     type = Wireframe.Frame.Scene.Type.DEVICE,
-                    windows = windows
+                    windows = if (systemBars != null) windows + systemBars else windows
                 )
             )
         )
